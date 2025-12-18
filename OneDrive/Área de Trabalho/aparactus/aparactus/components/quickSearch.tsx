@@ -30,17 +30,17 @@ const QuickSearch = () => {
       {/* Formulário de busca */}
       <form onSubmit={handleSearch} className="flex items-center gap-2">
         <Input
-          className="border-border rounded-full text-gray-800 placeholder:text-gray-500 "
+          className="border-border rounded-full placeholder:text-gray-500 "
           placeholder="Pesquisar"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
         <Button
           type="submit"
-          className="h-10 w-10 rounded-full border-2 border-gray-300 bg-emerald-950"
+          className="h-10 w-10 rounded-full border-2 bg-emerald-950"
         >
           <SearchIcon
-            className="bg-emerald-950 font-bold text-gray-700 text-zinc-100"
+            className="bg-emerald-950 font-bold text-zinc-100"
             strokeWidth={3}
           />
         </Button>
