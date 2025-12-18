@@ -14,6 +14,7 @@ import {
 import Header from "@/components/ui/header";
 import Footer from "@/components/footer";
 import QuickSearch from "@/components/quickSearch";
+import { Search } from "lucide-react";
 
 // Função principal da página inicial
 export default async function Home() {
@@ -25,9 +26,10 @@ export default async function Home() {
     <>
       {/* Cabeçalho */}
       <Header />
-
+      
       <PageContainer>
         {/* Banner grande no topo da página */}
+        
         <QuickSearch/>
         <div className="px-4">
           <Image

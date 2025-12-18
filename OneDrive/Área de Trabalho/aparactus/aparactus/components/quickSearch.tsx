@@ -30,13 +30,19 @@ const QuickSearch = () => {
       {/* Formulário de busca */}
       <form onSubmit={handleSearch} className="flex items-center gap-2">
         <Input
-          className="border-border rounded-full text-gray-800 placeholder:text-gray-500"
+          className="border-border rounded-full text-gray-800 placeholder:text-gray-500 "
           placeholder="Pesquisar"
           value={searchValue}
           onChange={(e) => setSearchValue(e.target.value)}
         />
-        <Button type="submit" className="h-10 w-10 rounded-full border-2 border-black">
-          <SearchIcon className="text-gray-700 font-bold" strokeWidth={3} />
+        <Button
+          type="submit"
+          className="h-10 w-10 rounded-full border-2 border-gray-300 bg-emerald-950"
+        >
+          <SearchIcon
+            className="bg-emerald-950 font-bold text-gray-700 text-zinc-100"
+            strokeWidth={3}
+          />
         </Button>
       </form>
       {/* Lista de serviços rápidos para pesquisa */}
@@ -44,54 +50,63 @@ const QuickSearch = () => {
         {/* Link para serviço "Cabelo" */}
         <Link
           href="/barbershops?search=cabelo"
-          className="border-black border-2 bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl px-4 py-2"
+          className="bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl border-2 border-gray-300 px-4 py-2"
         >
-          <Scissors className="size-4 text-gray-700 font-bold" strokeWidth={3} />
+          <Scissors
+            className="size-4 font-bold text-gray-700"
+            strokeWidth={3}
+          />
           <span className="text-sm font-thin text-gray-800">Cabelo</span>
         </Link>
 
         {/* Link para serviço "Barba" */}
         <Link
           href="/barbershops?search=barba"
-          className="border-black border-2 bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl px-4 py-2"
+          className="bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl border-2 border-gray-300 px-4 py-2"
         >
-          <User className="size-4 text-gray-700 font-bold" strokeWidth={3} />
+          <User className="size-4 font-bold text-gray-700" strokeWidth={3} />
           <span className="text-sm font-thin text-gray-800">Barba</span>
         </Link>
 
         {/* Link para serviço "Acabamento" */}
         <Link
           href="/barbershops?search=acabamento"
-          className="border-black border-2 bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl px-4 py-2"
+          className="bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl border-2 border-gray-300 px-4 py-2"
         >
-          <Sparkles className="size-4 text-gray-700 font-bold" strokeWidth={3} />
+          <Sparkles
+            className="size-4 font-bold text-gray-700"
+            strokeWidth={3}
+          />
           <span className="text-sm font-thin text-gray-800">Acabamento</span>
         </Link>
 
         {/* Link para serviço "Sobrancelha" */}
         <Link
           href="/barbershops?search=sobrancelha"
-          className="border-black border-2 bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl px-4 py-2"
+          className="bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl border-2 border-gray-300 px-4 py-2"
         >
-          <Eye className="size-4 text-gray-700 font-bold" strokeWidth={3} />
+          <Eye className="size-4 font-bold text-gray-700" strokeWidth={3} />
           <span className="text-sm font-thin text-gray-800">Sobrancelha</span>
         </Link>
 
         {/* Link para serviço "Pézinho" */}
         <Link
           href="/barbershops?search=pézinho"
-          className="border-black border-2 bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl px-4 py-2"
+          className="bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl border-2 border-gray-300 px-4 py-2"
         >
-          <Footprints className="size-4 text-gray-700 font-bold" strokeWidth={3} />
+          <Footprints
+            className="size-4 font-bold text-gray-700"
+            strokeWidth={3}
+          />
           <span className="text-sm font-thin text-gray-800">Pézinho</span>
         </Link>
 
         {/* Link para serviço "Progressiva" */}
         <Link
           href="/barbershops?search=progressiva"
-          className="border-black border-2 bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl px-4 py-2"
+          className="bg-card-background flex shrink-0 items-center justify-center gap-3 rounded-3xl border-2 border-gray-300 px-4 py-2"
         >
-          <Waves className="size-4 text-gray-700 font-bold" strokeWidth={3} />
+          <Waves className="size-4 font-bold text-gray-700" strokeWidth={3} />
           <span className="text-sm font-thin text-gray-800">Progressiva</span>
         </Link>
       </PageSectionScroller>
