@@ -13,6 +13,7 @@ import {
 } from "@/components/ui/page";
 import Header from "@/components/ui/header";
 import Footer from "@/components/footer";
+import QuickSearch from "@/components/quickSearch";
 
 // Função principal da página inicial
 export default async function Home() {
@@ -27,6 +28,7 @@ export default async function Home() {
 
       <PageContainer>
         {/* Banner grande no topo da página */}
+        <QuickSearch/>
         <div className="px-4">
           <Image
             src={banner}
