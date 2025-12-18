@@ -12,9 +12,7 @@ import {
   PageSectionScroller,
 } from "@/components/ui/page";
 import Header from "@/components/ui/header";
-import Footer from "@/components/footer";
 import QuickSearch from "@/components/quickSearch";
-import { Search } from "lucide-react";
 
 // Função principal da página inicial
 export default async function Home() {
@@ -23,7 +21,7 @@ export default async function Home() {
   const popularBarbershops = await getPopularBarbershops();
 
   return (
-    <>
+    <div className="bg-white min-h-screen text-black">
       {/* Cabeçalho */}
       <Header />
       
@@ -43,14 +41,18 @@ export default async function Home() {
 
         {/* Seção de agendamentos */}
         <PageSectionContent>
-          <PageSectionTitle>Agendamentos</PageSectionTitle>
+          <PageSectionTitle>
+             <span className="text-gray-900 font-bold">Agendamentos</span>
+          </PageSectionTitle>
           {/* Componente que lista/agrega os agendamentos */}
           <BookingItem />
         </PageSectionContent>
 
         {/* Seção listando todas as barbearias */}
         <PageSectionContent>
-          <PageSectionTitle>Barbearias</PageSectionTitle>
+          <PageSectionTitle>
+            <span className="text-gray-900 font-bold">Barbearias</span>
+          </PageSectionTitle>
           <PageSectionScroller>
             {/* Renderiza um item para cada barbearia */}
             {barbershops.map((barbershop) => (
@@ -61,7 +63,9 @@ export default async function Home() {
 
         {/* Seção listando as barbearias populares */}
         <PageSectionContent>
-          <PageSectionTitle>Barbearias populares</PageSectionTitle>
+          <PageSectionTitle>
+             <span className="text-gray-900 font-bold">Barbearias populares</span>
+          </PageSectionTitle>
           <PageSectionScroller>
             {/* Renderiza um item para cada barbearia popular */}
             {popularBarbershops.map((barbershop) => (
@@ -70,7 +74,6 @@ export default async function Home() {
           </PageSectionScroller>
         </PageSectionContent>
       </PageContainer>
-
-    </>
+    </div>
   );
 }

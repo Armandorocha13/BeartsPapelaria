@@ -7,7 +7,7 @@ export const PageSectionTitle = ({
 }: {
   children: React.ReactNode;
 }) => {
-  return <h3 className="text-xs font-bold uppercase">{children}</h3>;
+  return <h3 className="text-xs font-bold uppercase text-muted-foreground">{children}</h3>;
 };
 
 export const PageSectionContent = ({
