@@ -1,5 +1,6 @@
 "use client";
 
+// Importações de componentes UI e ícones
 import { SheetClose, SheetContent, SheetHeader, SheetTitle } from "./ui/sheet";
 import { Button } from "./ui/button";
 import { Calendar, Home, LogIn, LogOut, Scissors, Sparkles, User, Eye, Footprints, Waves } from "lucide-react";
@@ -7,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
 import Link from "next/link";
 
 const SidebarSheet = () => {
-    // Hardcoded state for demo purposes
+    // Estado hardcoded para fins de demonstração (usuário logado)
     const isLoggedIn = true; 
 
     return (
@@ -16,6 +17,7 @@ const SidebarSheet = () => {
                 <SheetTitle className="text-left font-bold text-lg text-black">Menu</SheetTitle>
             </SheetHeader>
 
+            {/* Seção de Perfil do Usuário */}
             <div className="flex items-center gap-3 border-b border-gray-100 py-5">
                 {isLoggedIn ? (
                     <div className="flex items-center gap-3">
@@ -38,6 +40,7 @@ const SidebarSheet = () => {
                 )}
             </div>
 
+            {/* Seção de Navegação Principal */}
             <div className="flex flex-col gap-2 py-5 border-b border-gray-100">
                 <SheetClose asChild>
                     <Button className="justify-start gap-3 text-black font-normal" variant="ghost" asChild>
@@ -57,6 +60,7 @@ const SidebarSheet = () => {
                 </SheetClose>
             </div>
 
+             {/* Seção de Categorias de Serviços */}
              <div className="flex flex-col gap-2 py-5 border-b border-gray-100">
                 <SheetClose asChild>
                     <Button className="justify-start gap-3 text-black font-normal" variant="ghost" asChild>
@@ -108,6 +112,7 @@ const SidebarSheet = () => {
                 </SheetClose>
             </div>
 
+            {/* Seção de Logout (Apenas se logado) */}
             {isLoggedIn && (
                 <div className="flex flex-col gap-2 py-5">
                      <Button className="justify-start gap-3 text-black font-normal" variant="ghost">
