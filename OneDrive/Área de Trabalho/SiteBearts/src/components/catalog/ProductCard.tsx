@@ -26,7 +26,41 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   const [paperType, setPaperType] = useState<string>(paperOptions[0]);
   const [handleType, setHandleType] = useState<string>('Alça de Cordão');
+  const [selectedVariation, setSelectedVariation] = useState(product.variations?.[0] || null);
   const { addItem } = useCart();
+
+  let currentPrice = selectedVariation ? selectedVariation.price : product.price;
+
+  // Adicionais para Adesivos Redondos e Quadrados
+  if (product.category === 'adesivos' && (product.subcategory === 'redondo' || product.subcategory === 'quadrado')) {
+    if (paperType === 'VINIL TRANSPARENTE') {
+      currentPrice += 2.50;
+    } else if (paperType === 'FOTOGRÁFICO GLOSSY') {
+      currentPrice += 1.50;
+    }
+  }
+
+  // Preços para Cartões baseados no papel
+  if (product.category === 'cartoes') {
+    if (product.subcategory === 'agradecimento' || product.subcategory === 'fidelidade' || product.subcategory === 'presente') {
+      if (paperType === 'OFFSET') {
+        currentPrice = 15.00;
+      } else if (paperType === 'FOTOGRÁFICO MATTE') {
+        currentPrice = 20.00;
+      } else if (paperType === 'FOTOGRÁFICO GLOSSY') {
+        currentPrice = 25.00;
+      }
+    } else if (product.subcategory === 'sus') {
+      currentPrice = paperType === 'FOTOGRÁFICO GLOSSY' ? 15.00 : 12.00;
+    } else {
+      // Outros cartões (Visita, etc)
+      if (paperType === 'FOTOGRÁFICO GLOSSY') {
+        currentPrice = 45.00;
+      } else {
+        currentPrice = 35.00;
+      }
+    }
+  }
 
   const handleOptions = [
     'Alça de Cordão',
@@ -47,9 +81,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   const handleAddToCart = () => {
     addItem({
-      id: String(product.id),
-      name: product.name,
-      price: product.price,
+      id: `${product.id}${selectedVariation ? '-' + selectedVariation.name : ''}`,
+      name: `${product.name}${selectedVariation ? ' (' + selectedVariation.name + ')' : ''}`,
+      price: currentPrice,
       image: product.image,
       quantity: quantity,
       category: product.category,
@@ -58,8 +92,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     });
 
     const info = product.category === 'sacolas'
-      ? `(${paperType}, ${handleType})`
-      : `(${paperType})`;
+      ? `(${paperType}, ${handleType}${selectedVariation ? ', ' + selectedVariation.name : ''})`
+      : `(${paperType}${selectedVariation ? ', ' + selectedVariation.name : ''})`;
 
     toast.success(`${quantity}x ${product.name} ${info} adicionado ao carrinho!`);
   };
@@ -112,6 +146,29 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* Price and quantity controls */}
         <div className="mt-4 pt-4 border-t border-border space-y-4">
+          {/* Variation Selection (Medidas) */}
+          {product.variations && (
+            <div className="space-y-2">
+              <span className="text-xs font-semibold uppercase text-muted-foreground">
+                {product.category === 'cartoes' ? 'Quantidade:' : 'Medida (Kit c/ 10):'}
+              </span>
+              <select
+                value={selectedVariation?.name}
+                onChange={(e) => {
+                  const variation = product.variations?.find(v => v.name === e.target.value);
+                  if (variation) setSelectedVariation(variation);
+                }}
+                className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
+              >
+                {product.variations.map(variation => (
+                  <option key={variation.name} value={variation.name}>
+                    {variation.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
           {/* Paper Type Selection */}
           <div className="space-y-2">
             <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>
@@ -144,7 +201,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <div className="flex items-center justify-between">
             <span className="font-heading font-bold text-lg text-primary">
-              {formatPrice(product.price)}
+              {formatPrice(currentPrice * quantity)}
             </span>
 
             <div className="flex items-center gap-3 bg-secondary/50 rounded-2xl p-1">
@@ -155,7 +212,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               >
                 <Minus className="w-4 h-4" />
               </button>
-              <span className="w-6 text-center font-medium">{quantity}</span>
+              <span className={`text-center font-medium ${product.variations ? 'w-12 text-xs' : 'w-6 text-base'}`}>
+                {quantity}{product.variations ? ` ${quantity > 1 ? 'Kits' : 'Kit'}` : ''}
+              </span>
               <button
                 onClick={increment}
                 className="w-8 h-8 flex items-center justify-center rounded-xl bg-background hover:text-primary transition-colors"

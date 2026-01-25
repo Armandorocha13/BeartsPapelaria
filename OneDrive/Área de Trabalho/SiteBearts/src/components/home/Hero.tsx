@@ -44,7 +44,7 @@ export const Hero = () => {
 
             {/* Description */}
             <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              Cadernos, canetas, adesivos e tudo que você precisa para organizar sua vida com muito estilo e criatividade.
+              De fotos polaroid e adesivos personalizados a convites e embalagens criativas. Sua papelaria afetiva para todos os momentos.
             </p>
 
             {/* CTA Buttons */}

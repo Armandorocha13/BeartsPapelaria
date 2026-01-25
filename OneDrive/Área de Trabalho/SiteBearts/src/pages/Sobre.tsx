@@ -47,20 +47,20 @@ const Sobre = () => {
             <div className="bg-paper rounded-2xl shadow-card overflow-hidden">
               {/* Paper Header */}
               <div className="h-8 bg-gradient-button" />
-              
+
               {/* Content with notebook lines */}
               <div className="notebook-paper notebook-margin py-8 pr-8">
                 <article className="space-y-6">
                   <p className="text-lg text-foreground leading-relaxed">
-                    <span className="text-primary font-semibold text-2xl font-heading">B</span>em-vindos à Bearts Papelaria! Nossa história começou em 2020, quando decidimos transformar nossa paixão por materiais de papelaria em um negócio que pudesse inspirar outras pessoas.
+                    <span className="text-primary font-semibold text-2xl font-heading">B</span>em-vindos à Bearts Papelaria! Minha história começou em 2025, quando decidi transformar minha paixão por criar e personalizar em um negócio que pudesse inspirar outras pessoas.
                   </p>
 
                   <p className="text-foreground leading-relaxed">
-                    Acreditamos que a organização e a criatividade caminham juntas. Um caderno bonito, uma caneta especial ou um conjunto de adesivos podem ser o início de uma jornada incrível de produtividade e expressão pessoal.
+                    Acredito que a papelaria personalizada traz a sua identidade para cada detalhe do cotidiano. Mais do que organizar, é sobre colocar um pouco de quem você é em cada projeto, transformando itens comuns em ferramentas de expressão pessoal e produtividade.
                   </p>
 
                   <p className="text-foreground leading-relaxed">
-                    Nossa missão é trazer para você os melhores produtos de papelaria, cuidadosamente selecionados para transformar suas tarefas do dia a dia em momentos prazerosos. Seja para estudar, trabalhar, planejar ou criar, temos algo especial esperando por você.
+                    Minha missão é entregar para você o melhor da papelaria personalizada, com produtos cuidadosamente feitos por mim para transformar suas tarefas do dia a dia em momentos prazerosos. Seja para estudar, trabalhar, planejar ou criar, eu tenho algo especial esperando por você.
                   </p>
 
                   <div className="py-4">
@@ -70,11 +70,11 @@ const Sobre = () => {
                   </div>
 
                   <p className="text-foreground leading-relaxed">
-                    Agradecemos por fazer parte da nossa comunidade de apaixonados por papelaria. Juntos, estamos construindo memórias, organizando sonhos e colorindo a vida com muito carinho e criatividade!
+                    Agradeço por fazer parte da minha comunidade de apaixonados por papelaria. Juntos, estamos construindo memórias, organizando sonhos e colorindo a vida com muito carinho e criatividade!
                   </p>
 
                   <p className="text-primary font-heading font-semibold text-right">
-                    — Equipe Bearts Papelaria 💕
+                    — Bearts Papelaria 🐝
                   </p>
                 </article>
               </div>
@@ -89,7 +89,7 @@ const Sobre = () => {
           <h2 className="font-heading text-2xl md:text-3xl font-bold text-center text-foreground mb-12">
             Nossos <span className="text-primary">Valores</span>
           </h2>
-          
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {values.map((value, index) => (
               <div
