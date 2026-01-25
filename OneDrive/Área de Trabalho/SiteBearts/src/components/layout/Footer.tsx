@@ -61,7 +61,7 @@ export const Footer = () => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground flex items-center justify-center gap-1">
-            Feito AeroCode 2026
+            Feito por AeroCode - 2026
           </p>
         </div>
       </div>
