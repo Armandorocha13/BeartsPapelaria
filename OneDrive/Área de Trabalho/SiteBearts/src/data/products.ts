@@ -1,11 +1,4 @@
-import cadernoPontilhado from '@/assets/products/caderno-pontilhado.jpg';
-import canetasGel from '@/assets/products/canetas-gel.jpg';
-import adesivosFlorais from '@/assets/products/adesivos-florais.jpg';
-import washiTape from '@/assets/products/washi-tape.jpg';
-import brushPens from '@/assets/products/brush-pens.jpg';
 import boxPresente from '@/assets/products/box-presente.jpg';
-import aquarela from '@/assets/products/aquarela.jpg';
-import planner from '@/assets/products/planner.jpg';
 import imgPolaroide from '@/assets/subcat-polaroide.png';
 import imgPolaroidMini1 from '@/assets/products/PolaroidMini1.png';
 import imgPolaroidMini2 from '@/assets/products/PolaroidMini2.png';
@@ -180,72 +173,6 @@ export const products: Product[] = [
     isFeatured: true,
   },
 
-  {
-    id: 4,
-    name: 'Washi Tape Lilás Sakura',
-    description: 'Fita decorativa 15mm x 10m com estampa de flores de cerejeira.',
-    price: 12.90,
-    category: 'craft',
-    image: washiTape,
-  },
-  {
-    id: 5,
-    name: 'Marcadores Brush Pen',
-    description: 'Kit com 6 brush pens para lettering e ilustração.',
-    price: 54.90,
-    category: 'canetas',
-    image: brushPens,
-  },
-  {
-    id: 6,
-    name: 'Caderno de Receitas',
-    description: 'Caderno especial para receitas com divisórias e fichas.',
-    price: 62.00,
-    category: 'cadernos',
-    image: cadernoPontilhado,
-  },
-  {
-    id: 7,
-    name: 'Kit Aquarela Iniciante',
-    description: 'Estojo com 24 cores, pincel e bloco de papel aquarela.',
-    price: 89.90,
-    category: 'arte',
-    image: aquarela,
-    isNew: true,
-  },
-  {
-    id: 8,
-    name: 'Box Presente Journaling',
-    description: 'Caixa especial com caderno, canetas, adesivos e washi tape.',
-    price: 129.90,
-    category: 'presentes',
-    image: boxPresente,
-  },
-  {
-    id: 9,
-    name: 'Planner Semanal 2024',
-    description: 'Planner A5 com visão semanal, metas e acompanhamento de hábitos.',
-    price: 78.00,
-    category: 'cadernos',
-    image: planner,
-    isNew: true,
-  },
-  {
-    id: 10,
-    name: 'Tesoura Decorativa',
-    description: 'Tesoura com corte ondulado para artesanato e scrapbook.',
-    price: 24.90,
-    category: 'craft',
-    image: washiTape,
-  },
-  {
-    id: 11,
-    name: 'Lápis de Cor Profissional',
-    description: 'Estojo com 36 lápis de cor com pigmentação intensa.',
-    price: 68.00,
-    category: 'arte',
-    image: aquarela,
-  },
 
   {
     id: 13,
