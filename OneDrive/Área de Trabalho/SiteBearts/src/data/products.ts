@@ -61,6 +61,12 @@ import imgFotoA5_1 from '@/assets/products/FotoA5_1.jpg';
 import imgFotoA5_2 from '@/assets/products/FotoA5_2.jpg';
 import imgFotoA4_1 from '@/assets/products/FotoA4_1.jpg';
 import imgFotoA4_2 from '@/assets/products/FotoA4_2.jpg';
+import imgLabelRound1 from '@/assets/products/label_round_1.png';
+import imgLabelRound2 from '@/assets/products/label_round_2.png';
+import imgLabelRound3 from '@/assets/products/label_round_3.png';
+import imgLabelRect1 from '@/assets/products/label_rect_1.png';
+import imgLabelRect2 from '@/assets/products/label_rect_2.png';
+import imgLabelRect3 from '@/assets/products/label_rect_3.png';
 
 
 
@@ -342,7 +348,8 @@ export const products: Product[] = [
     price: 6.50,
     category: 'etiquetas',
     subcategory: 'redonda',
-    image: adesivosFlorais,
+    image: imgLabelRound1,
+    images: [imgLabelRound1, imgLabelRound2, imgLabelRound3],
     isNew: true,
     variations: [
       { name: '2x2', price: 6.50 },
@@ -377,7 +384,8 @@ export const products: Product[] = [
     price: 15.00,
     category: 'etiquetas',
     subcategory: 'retangular',
-    image: imgEtiquetaGeneric,
+    image: imgLabelRect1,
+    images: [imgLabelRect1, imgLabelRect2, imgLabelRect3],
     variations: [
       { name: '4x10', price: 15.00 },
     ],
