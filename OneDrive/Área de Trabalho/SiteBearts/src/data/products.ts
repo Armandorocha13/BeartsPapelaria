@@ -106,7 +106,6 @@ export const products: Product[] = [
     subcategory: 'polaroide',
     image: imgPolaroidClassica2,
     images: [imgPolaroidClassica2, imgPolaroidClassica1],
-    isFeatured: true,
   },
   {
     id: 103,
@@ -170,7 +169,6 @@ export const products: Product[] = [
     subcategory: 'a4',
     image: imgFotoA4_1,
     images: [imgFotoA4_1, imgFotoA4_2],
-    isFeatured: true,
   },
 
 
@@ -237,7 +235,7 @@ export const products: Product[] = [
     category: 'caixas',
     subcategory: 'milk',
     image: imgCaixaMilk1,
-    isFeatured: true,
+
   },
   {
     id: 112,
@@ -295,7 +293,6 @@ export const products: Product[] = [
     subcategory: 'quadrada',
     image: imgEtiquetaQuadrada1,
     images: [imgEtiquetaQuadrada1, imgEtiquetaQuadrada2],
-    isFeatured: true,
     variations: [
       { name: '2x2', price: 6.50 },
       { name: '3x3', price: 8.50 },
@@ -357,7 +354,6 @@ export const products: Product[] = [
     subcategory: 'quadrado',
     image: imgAdesivoQuadrado,
     images: [imgAdesivoQuadrado, imgAdesivoQuadradoTransparente],
-    isFeatured: true,
     variations: [
       { name: '2x2', price: 6.50 },
       { name: '3x3', price: 8.50 },
@@ -377,6 +373,7 @@ export const products: Product[] = [
     image: imgChaveiroQuadrado1,
     images: [imgChaveiroQuadrado1, imgChaveiroQuadrado2],
     isNew: true,
+    isFeatured: true,
   },
   {
     id: 22,
@@ -387,7 +384,7 @@ export const products: Product[] = [
     subcategory: 'acrilico-redondo',
     image: imgChaveiroRedondo,
     images: [imgChaveiroRedondo, imgChaveiroRedondo2],
-    isFeatured: true,
+
   },
   {
     id: 23,
@@ -411,7 +408,6 @@ export const products: Product[] = [
     category: 'cartoes',
     subcategory: 'agradecimento',
     image: imgCartaoAgradecimento,
-    isFeatured: true,
     variations: [
       { name: '10 unidades', price: 15.00 },
     ],
@@ -461,6 +457,7 @@ export const products: Product[] = [
     subcategory: 'interativo',
     image: imgCartaoGeneric,
     isNew: true,
+    isFeatured: true,
   },
   {
     id: 122,
@@ -479,7 +476,6 @@ export const products: Product[] = [
     category: 'convites',
     subcategory: 'video-1min',
     image: boxPresente,
-    isFeatured: true,
   },
   {
     id: 123,
@@ -507,7 +503,7 @@ export const products: Product[] = [
     category: 'outros',
     subcategory: 'logomarca',
     image: boxPresente,
-    isFeatured: true,
+
   },
   {
     id: 28,
