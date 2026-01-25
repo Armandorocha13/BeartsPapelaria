@@ -1,0 +1,134 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Novo esquema de cores: Thistle (#D6BBDA) e Pink (#E697b4) */
+    --background: 292 30% 98%;
+    --foreground: 292 40% 12%;
+    /* Contraste alto para texto */
+    --accent-pink: #E697b4;
+    --main-thistle: #D6BBDA;
+
+    /* Cards e superfícies */
+    --card: 0 0% 100%;
+    --card-foreground: 292 40% 12%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 292 40% 12%;
+
+    /* Cor Primária baseada em #D6BBDA, mas ligeiramente mais escura para botões se necessário */
+    --primary: 292 30% 65%;
+    /* Um pouco mais escuro que #D6BBDA para melhor leitura */
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary baseada em #D6BBDA mais suave */
+    --secondary: 292 30% 92%;
+    --secondary-foreground: 292 40% 20%;
+
+    /* Muted */
+    --muted: 292 20% 96%;
+    --muted-foreground: 292 20% 45%;
+
+    /* Accent baseada no Pink #E697b4 */
+    --accent: 338 61% 92%;
+    --accent-foreground: 338 61% 35%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 292 30% 88%;
+    --input: 292 30% 88%;
+    --ring: 338 61% 75%;
+
+    --radius: 1rem;
+
+    /* Gradientes atualizados */
+    --gradient-hero: linear-gradient(135deg, #f8f3f9 0%, #d6bbda 100%);
+    --gradient-button: linear-gradient(135deg, #d6bbda 0%, #b898bc 100%);
+    --gradient-card: linear-gradient(180deg, #ffffff 0%, #f9f4fa 100%);
+
+    /* Sombras */
+    --shadow-soft: 0 4px 20px -4px rgba(214, 187, 218, 0.3);
+    --shadow-card: 0 8px 30px -8px rgba(214, 187, 218, 0.25);
+    --shadow-button: 0 4px 14px -3px rgba(214, 187, 218, 0.5);
+
+    --sidebar-background: 292 30% 98%;
+    --sidebar-foreground: 292 40% 12%;
+    --sidebar-primary: 292 30% 65%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 292 20% 96%;
+    --sidebar-accent-foreground: 292 40% 12%;
+    --sidebar-border: 292 30% 88%;
+    --sidebar-ring: 338 61% 75%;
+
+    /* Notebook specific */
+    --paper-white: 0 0% 100%;
+    --notebook-line: 292 30% 90%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Quicksand', sans-serif;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Poppins', sans-serif;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    @apply bg-clip-text text-transparent;
+    background-image: var(--gradient-button);
+  }
+
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+
+  .bg-gradient-button {
+    background: var(--gradient-button);
+  }
+
+  .shadow-soft {
+    box-shadow: var(--shadow-soft);
+  }
+
+  .shadow-card {
+    box-shadow: var(--shadow-card);
+  }
+
+  .shadow-button {
+    box-shadow: var(--shadow-button);
+  }
+
+  /* Estilo de papel de caderno */
+  .notebook-paper {
+    background-color: hsl(var(--paper-white));
+    background-image:
+      linear-gradient(hsl(var(--notebook-line)) 1px, transparent 1px);
+    background-size: 100% 28px;
+    background-position: 0 20px;
+  }
+
+  .notebook-margin {
+    border-left: 2px solid #d6bbda;
+    padding-left: 2rem;
+    margin-left: 3rem;
+  }
+}
