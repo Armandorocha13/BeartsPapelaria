@@ -67,6 +67,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     currentPrice = paperType === 'FOTOGRÁFICO GLOSSY' ? 14.00 : 12.00;
   }
 
+  // Desconto Progressivo para Sacolas 18x21
+  const originalIndividualPrice = currentPrice;
+  const is18x21Bag = product.category === 'sacolas' && product.subcategory === '18x21';
+
+  if (is18x21Bag && quantity >= 10) {
+    currentPrice = 7.00;
+  }
+
   const handleOptions = [
     'Alça de Cordão',
     'Fita de Cetim',
@@ -233,9 +241,16 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
 
           <div className="flex items-center justify-between">
-            <span className="font-heading font-bold text-lg text-primary">
-              {formatPrice(currentPrice * quantity)}
-            </span>
+            <div className="flex flex-col">
+              {currentPrice < originalIndividualPrice && (
+                <span className="text-xs text-muted-foreground/60 line-through leading-none mb-1">
+                  {formatPrice(originalIndividualPrice * quantity)}
+                </span>
+              )}
+              <span className="font-heading font-bold text-lg text-primary leading-none">
+                {formatPrice(currentPrice * quantity)}
+              </span>
+            </div>
 
             <div className="flex items-center gap-3 bg-secondary/50 rounded-2xl p-1">
               <button
