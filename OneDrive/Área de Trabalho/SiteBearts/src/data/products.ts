@@ -487,15 +487,6 @@ export const products: Product[] = [
     image: boxPresente,
   },
   {
-    id: 125,
-    name: 'Arte Personalizada',
-    description: 'Criação de arte digital exclusiva para cartões, adesivos ou etiquetas.',
-    price: 12.00,
-    category: 'outros',
-    subcategory: 'arte-personalizada',
-    image: imgCartaoGeneric,
-  },
-  {
     id: 27,
     name: 'Criação de Logomarca Profissional',
     description: 'Desenvolvimento de logomarca exclusiva com entrega de arquivos em vetor.',

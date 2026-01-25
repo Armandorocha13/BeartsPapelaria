@@ -370,7 +370,7 @@ const Catalogo = () => {
           )}
 
           {/* WhatsApp Contact for Personalized Items */}
-          {((selectedCategory === 'adesivos' || selectedCategory === 'cartoes') && selectedSubcategory === 'personalizado') && (
+          {(((selectedCategory === 'adesivos' || selectedCategory === 'cartoes') && selectedSubcategory === 'personalizado') || (selectedCategory === 'outros' && selectedSubcategory === 'arte-personalizada')) && (
             <div className="mb-16 animate-fade-in">
               <div className="bg-card rounded-[2rem] p-8 md:p-12 shadow-card border border-border flex flex-col md:flex-row items-center gap-8 max-w-4xl mx-auto">
                 <div className="w-24 h-24 md:w-32 md:h-32 bg-[#25D366]/10 rounded-3xl flex items-center justify-center flex-shrink-0 animate-bounce-slow">
@@ -379,14 +379,21 @@ const Catalogo = () => {
                   </svg>
                 </div>
                 <div className="flex-1 text-center md:text-left">
-                  <h3 className="font-heading text-2xl font-bold mb-4">{selectedCategory === 'adesivos' ? 'Adesivos' : 'Cartões'} Personalizados sob Medida</h3>
+                  <h3 className="font-heading text-2xl font-bold mb-4">
+                    {selectedSubcategory === 'arte-personalizada' ? 'Artes Personalizadas' : (selectedCategory === 'adesivos' ? 'Adesivos' : 'Cartões')} sob Medida
+                  </h3>
                   <p className="text-muted-foreground mb-8 text-lg">
-                    Deseja um {selectedCategory === 'adesivos' ? 'adesivo' : 'cartão'} com formato ou tamanho específico? Entre em contato conosco via WhatsApp para conversarmos sobre o seu projeto!
+                    {selectedSubcategory === 'arte-personalizada'
+                      ? 'Deseja uma arte digital exclusiva para o seu projeto? Entre em contato conosco via WhatsApp para conversarmos sobre a sua ideia!'
+                      : `Deseja um ${selectedCategory === 'adesivos' ? 'adesivo' : 'cartão'} com formato ou tamanho específico? Entre em contato conosco via WhatsApp para conversarmos sobre o seu projeto!`}
                   </p>
                   <Button
                     onClick={() => {
                       const phoneNumber = '5521971690013';
-                      const message = encodeURIComponent(`Olá, gostaria de fazer um orçamento de ${selectedCategory === 'adesivos' ? 'adesivos' : 'cartões'} personalizados. Quais modelos e tamanhos tem disponíveis?`);
+                      const messageText = selectedSubcategory === 'arte-personalizada'
+                        ? 'Olá, gostaria de fazer um orçamento para uma arte personalizada.'
+                        : `Olá, gostaria de fazer um orçamento de ${selectedCategory === 'adesivos' ? 'adesivos' : 'cartões'} personalizados. Quais modelos e tamanhos tem disponíveis?`;
+                      const message = encodeURIComponent(messageText);
                       window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
                     }}
                     className="bg-[#25D366] hover:bg-[#128C7E] text-white rounded-2xl px-8 h-14 text-lg font-bold shadow-soft flex items-center gap-3 transition-all hover:scale-105"
