@@ -62,6 +62,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     }
   }
 
+  // Preços para Convites Individuais baseados no papel
+  if (product.category === 'convites' && product.subcategory === 'impresso') {
+    currentPrice = paperType === 'FOTOGRÁFICO GLOSSY' ? 14.00 : 12.00;
+  }
+
   const handleOptions = [
     'Alça de Cordão',
     'Fita de Cetim',
@@ -150,7 +155,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.variations && (
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase text-muted-foreground">
-                {product.category === 'cartoes' ? 'Quantidade:' : 'Medida (Kit c/ 10):'}
+                {product.category === 'cartoes' || product.category === 'convites' ? 'Quantidade:' : 'Medida (Kit c/ 10):'}
               </span>
               <select
                 value={selectedVariation?.name}
@@ -170,18 +175,21 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
 
           {/* Paper Type Selection */}
-          <div className="space-y-2">
-            <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>
-            <select
-              value={paperType}
-              onChange={(e) => setPaperType(e.target.value)}
-              className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
-            >
-              {paperOptions.map(option => (
-                <option key={option} value={option}>{option}</option>
-              ))}
-            </select>
-          </div>
+          {(product.category !== 'convites' || product.subcategory === 'impresso') &&
+            product.category !== 'outros' && (
+              <div className="space-y-2">
+                <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>
+                <select
+                  value={paperType}
+                  onChange={(e) => setPaperType(e.target.value)}
+                  className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
+                >
+                  {paperOptions.map(option => (
+                    <option key={option} value={option}>{option}</option>
+                  ))}
+                </select>
+              </div>
+            )}
 
           {/* Handle Type Selection - ONLY FOR SACOLAS */}
           {product.category === 'sacolas' && (

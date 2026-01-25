@@ -99,7 +99,8 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'pdf-longo', name: 'Convite PDF longo', image: imgCartaoGeneric },
     { id: 'video-1min', name: 'Convite em vídeo 1 min', image: imgCartaoGeneric },
     { id: 'video-plus-1min', name: 'Convite em vídeo +1 min', image: imgCartaoGeneric },
-    { id: 'impresso', name: 'Convite impresso', image: imgCartaoGeneric },
+    { id: 'impresso', name: 'Convite individual 5x5', image: imgCartaoGeneric },
+    { id: 'a5', name: 'Convite A5', image: imgA5 },
   ],
   outros: [
     { id: 'all', name: 'Outros Serviços' },
