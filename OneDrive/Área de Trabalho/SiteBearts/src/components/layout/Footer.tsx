@@ -61,7 +61,7 @@ export const Footer = () => {
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
           <p className="text-muted-foreground flex items-center justify-center gap-1">
-            Feito com <Heart className="w-4 h-4 text-primary fill-primary" /> por Bearts Papelaria © 2024
+            Feito AeroCode 2026
           </p>
         </div>
       </div>
