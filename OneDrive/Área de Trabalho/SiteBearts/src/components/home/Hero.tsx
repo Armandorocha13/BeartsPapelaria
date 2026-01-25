@@ -1,11 +1,15 @@
 import { ArrowRight, Sparkles, Star } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 import { useState, useEffect } from 'react';
 import hero1 from '@/assets/hero-1.png';
-import hero2 from '@/assets/hero-2.png';
+import hero3 from '@/assets/hero-3.png';
+import hero4 from '@/assets/hero-4.png';
+import hero5 from '@/assets/hero-5.png';
+import hero6 from '@/assets/hero-6.png';
 
-const images = [hero1, hero2];
+const images = [hero1, hero3, hero4, hero5, hero6];
 
 export const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
@@ -19,7 +23,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section className="relative overflow-hidden bg-white/20 backdrop-blur-sm">
+    <section className="relative overflow-hidden bg-gradient-hero">
       <div className="container mx-auto px-4 py-20 md:py-28">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           {/* Text Content */}
@@ -27,7 +31,7 @@ export const Hero = () => {
             {/* Badge */}
             <div className="inline-flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-full px-4 py-2 mb-8 shadow-soft animate-fade-in">
               <Sparkles className="w-4 h-4 text-primary" />
-              <span className="text-sm font-medium text-foreground">Nova Coleção Disponível</span>
+              <span className="text-sm font-medium text-foreground">Novas Opções Disponíveis</span>
               <Star className="w-4 h-4 text-primary fill-primary" />
             </div>
 
@@ -45,17 +49,17 @@ export const Hero = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
-              <Button asChild variant="default" size="lg" className="shadow-button">
+              <ButtonColorful asChild className="h-14 px-8 text-xl">
                 <Link to="/catalogo" className="gap-2">
-                  Ver Catálogo
+                  <span>Ver Catálogo</span>
                   <ArrowRight className="w-5 h-5" />
                 </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg">
+              </ButtonColorful>
+              <ButtonColorful asChild className="h-14 px-8 text-lg">
                 <Link to="/sobre">
-                  Conheça nossa história
+                  <span>Conheça nossa história</span>
                 </Link>
-              </Button>
+              </ButtonColorful>
             </div>
           </div>
 

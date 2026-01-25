@@ -29,7 +29,6 @@ export const products: Product[] = [
     subcategory: 'polaroide',
     image: cadernoPontilhado,
     isNew: true,
-    isFeatured: true,
   },
   {
     id: 2,
@@ -39,7 +38,6 @@ export const products: Product[] = [
     category: 'fotos',
     subcategory: '3x4',
     image: canetasGel,
-    isFeatured: true,
   },
 
   {
@@ -57,7 +55,6 @@ export const products: Product[] = [
     price: 54.90,
     category: 'canetas',
     image: brushPens,
-    isFeatured: true,
   },
   {
     id: 6,
@@ -83,7 +80,6 @@ export const products: Product[] = [
     price: 129.90,
     category: 'presentes',
     image: boxPresente,
-    isFeatured: true,
   },
   {
     id: 9,
@@ -267,6 +263,16 @@ export const products: Product[] = [
     price: 450.00,
     category: 'outros',
     subcategory: 'identidade-visual',
+    image: boxPresente,
+    isNew: true,
+  },
+  {
+    id: 29,
+    name: 'Convite Impresso Floral Premium',
+    description: 'Convite físico em papel especial com envelope e acabamento luxo.',
+    price: 12.50,
+    category: 'convites',
+    subcategory: 'impresso',
     image: boxPresente,
     isNew: true,
   },

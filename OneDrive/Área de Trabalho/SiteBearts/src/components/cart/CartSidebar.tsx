@@ -67,7 +67,7 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                             </div>
                         ) : (
                             items.map((item) => (
-                                <div key={item.id} className="flex gap-4">
+                                <div key={`${item.id}-${item.paperType}-${item.handleType}`} className="flex gap-4">
                                     <div className="w-20 h-20 rounded-xl overflow-hidden bg-secondary flex-shrink-0">
                                         <img
                                             src={item.image}
@@ -79,20 +79,32 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                                         <h3 className="font-heading font-semibold text-foreground truncate">
                                             {item.name}
                                         </h3>
-                                        <p className="text-xs text-muted-foreground uppercase mb-2">
-                                            {item.category}
-                                        </p>
+                                        <div className="flex flex-wrap items-center gap-2 mb-1">
+                                            <span className="text-xs text-muted-foreground uppercase">
+                                                {item.category}
+                                            </span>
+                                            {item.paperType && (
+                                                <span className="text-[10px] bg-primary/10 text-primary font-bold px-1.5 py-0.5 rounded shadow-sm">
+                                                    {item.paperType}
+                                                </span>
+                                            )}
+                                            {item.handleType && (
+                                                <span className="text-[10px] bg-accent/20 text-accent-foreground font-bold px-1.5 py-0.5 rounded shadow-sm">
+                                                    {item.handleType}
+                                                </span>
+                                            )}
+                                        </div>
                                         <div className="flex items-center justify-between">
                                             <div className="flex items-center gap-2 bg-secondary/50 rounded-lg p-1">
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                                    onClick={() => updateQuantity(item.id, item.quantity - 1, item.paperType, item.handleType)}
                                                     className="w-6 h-6 flex items-center justify-center rounded-md bg-background hover:text-primary transition-colors"
                                                 >
                                                     <Minus className="w-3 h-3" />
                                                 </button>
                                                 <span className="w-4 text-center text-sm font-medium">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                    onClick={() => updateQuantity(item.id, item.quantity + 1, item.paperType, item.handleType)}
                                                     className="w-6 h-6 flex items-center justify-center rounded-md bg-background hover:text-primary transition-colors"
                                                 >
                                                     <Plus className="w-3 h-3" />
@@ -103,7 +115,7 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                                                     {formatPrice(item.price * item.quantity)}
                                                 </span>
                                                 <button
-                                                    onClick={() => removeItem(item.id)}
+                                                    onClick={() => removeItem(item.id, item.paperType, item.handleType)}
                                                     className="text-muted-foreground hover:text-destructive transition-colors"
                                                 >
                                                     <Trash2 className="w-4 h-4" />

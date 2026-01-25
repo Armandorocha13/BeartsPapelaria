@@ -7,13 +7,15 @@ export interface CartItem {
     image: string;
     quantity: number;
     category: string;
+    paperType?: string;
+    handleType?: string;
 }
 
 interface CartContextType {
     items: CartItem[];
     addItem: (item: CartItem) => void;
-    removeItem: (id: string) => void;
-    updateQuantity: (id: string, quantity: number) => void;
+    removeItem: (id: string, paperType?: string, handleType?: string) => void;
+    updateQuantity: (id: string, quantity: number, paperType?: string, handleType?: string) => void;
     clearCart: () => void;
     totalItems: number;
     totalPrice: number;
@@ -26,10 +28,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     const addItem = (newItem: CartItem) => {
         setItems((currentItems) => {
-            const existingItem = currentItems.find((item) => item.id === newItem.id);
+            const existingItem = currentItems.find(
+                (item) => item.id === newItem.id &&
+                    item.paperType === newItem.paperType &&
+                    item.handleType === newItem.handleType
+            );
             if (existingItem) {
                 return currentItems.map((item) =>
-                    item.id === newItem.id
+                    item.id === newItem.id &&
+                        item.paperType === newItem.paperType &&
+                        item.handleType === newItem.handleType
                         ? { ...item, quantity: item.quantity + newItem.quantity }
                         : item
                 );
@@ -38,15 +46,25 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         });
     };
 
-    const removeItem = (id: string) => {
-        setItems((currentItems) => currentItems.filter((item) => item.id !== id));
+    const removeItem = (id: string, paperType?: string, handleType?: string) => {
+        setItems((currentItems) =>
+            currentItems.filter(
+                (item) => item.id !== id ||
+                    item.paperType !== paperType ||
+                    item.handleType !== handleType
+            )
+        );
     };
 
-    const updateQuantity = (id: string, newQuantity: number) => {
+    const updateQuantity = (id: string, newQuantity: number, paperType?: string, handleType?: string) => {
         if (newQuantity < 1) return;
         setItems((currentItems) =>
             currentItems.map((item) =>
-                item.id === id ? { ...item, quantity: newQuantity } : item
+                item.id === id &&
+                    item.paperType === paperType &&
+                    item.handleType === handleType
+                    ? { ...item, quantity: newQuantity }
+                    : item
             )
         );
     };

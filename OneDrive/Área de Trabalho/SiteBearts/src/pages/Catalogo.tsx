@@ -173,8 +173,8 @@ const Catalogo = () => {
       {/* Header */}
       <section className="bg-gradient-hero py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-3xl md:text-5xl font-bold text-foreground mb-4">
-            Nosso <span className="text-gradient">Catálogo</span>
+          <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">
+            <span className="text-primary">Nosso</span> <span style={{ color: '#E697b4' }}>Catálogo</span>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Explore nossa seleção especial de materiais de papelaria

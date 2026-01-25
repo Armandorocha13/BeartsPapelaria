@@ -6,6 +6,7 @@ import { products } from '@/data/products';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 
 const Index = () => {
   const featuredProducts = products.filter(p => p.isFeatured).slice(0, 4);
@@ -28,12 +29,12 @@ const Index = () => {
                 Os favoritos da nossa comunidade
               </p>
             </div>
-            <Button asChild variant="outline" className="hidden md:flex gap-2 rounded-2xl">
+            <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
               <Link to="/catalogo">
-                Ver todos
+                <span>Ver todos</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </Button>
+            </ButtonColorful>
           </div>
 
           {/* Products Grid */}
@@ -47,12 +48,12 @@ const Index = () => {
 
           {/* Mobile CTA */}
           <div className="mt-8 text-center md:hidden">
-            <Button asChild variant="outline" className="gap-2 rounded-2xl">
+            <ButtonColorful asChild className="h-11">
               <Link to="/catalogo">
-                Ver todos os produtos
+                <span>Ver todos os produtos</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
-            </Button>
+            </ButtonColorful>
           </div>
         </div>
       </section>
@@ -66,12 +67,12 @@ const Index = () => {
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
             Descubra nossa coleção completa e encontre os materiais perfeitos para você
           </p>
-          <Button asChild size="lg" className="rounded-2xl shadow-button gap-2">
+          <ButtonColorful asChild className="h-14 px-8 text-lg">
             <Link to="/catalogo">
-              Explorar Catálogo
+              <span>Explorar Catálogo</span>
               <ArrowRight className="w-5 h-5" />
             </Link>
-          </Button>
+          </ButtonColorful>
         </div>
       </section>
     </Layout>

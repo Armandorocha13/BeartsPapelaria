@@ -1,5 +1,6 @@
 import { ShoppingCart, Sparkles, Minus, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 import { Product } from '@/data/products';
 import { useState } from 'react';
 import { useCart } from '@/context/CartContext';
@@ -11,7 +12,28 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
+  const paperOptions = product.category === 'etiquetas'
+    ? ['OFFSET', 'KRAFT', 'FOTOGRÁFICO MATTE', 'FOTOGRÁFICO GLOSSY']
+    : product.category === 'adesivos'
+      ? ['VINIL TRANSPARENTE', 'FOTOGRÁFICO GLOSSY']
+      : product.category === 'cartoes'
+        ? ['OFFSET', 'FOTOGRÁFICO MATTE', 'FOTOGRÁFICO GLOSSY']
+        : (product.category === 'convites' && product.subcategory === 'impresso')
+          ? ['OFFSET', 'KRAFT', 'FOTOGRÁFICO MATTE', 'FOTOGRÁFICO GLOSSY']
+          : (product.category === 'chaveiros' || product.category === 'fotos')
+            ? ['FOTOGRÁFICO']
+            : ['OFFSET', 'KRAFT'];
+
+  const [paperType, setPaperType] = useState<string>(paperOptions[0]);
+  const [handleType, setHandleType] = useState<string>('Alça de Cordão');
   const { addItem } = useCart();
+
+  const handleOptions = [
+    'Alça de Cordão',
+    'Fita de Cetim',
+    'Alça de Gorgurão',
+    'Alça de Kraft'
+  ];
 
   const formatPrice = (price: number) => {
     return new Intl.NumberFormat('pt-BR', {
@@ -31,8 +53,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       image: product.image,
       quantity: quantity,
       category: product.category,
+      paperType: paperType,
+      handleType: product.category === 'sacolas' ? handleType : undefined,
     });
-    toast.success(`${quantity}x ${product.name} adicionado ao carrinho!`);
+
+    const info = product.category === 'sacolas'
+      ? `(${paperType}, ${handleType})`
+      : `(${paperType})`;
+
+    toast.success(`${quantity}x ${product.name} ${info} adicionado ao carrinho!`);
   };
 
   return (
@@ -83,6 +112,36 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
         {/* Price and quantity controls */}
         <div className="mt-4 pt-4 border-t border-border space-y-4">
+          {/* Paper Type Selection */}
+          <div className="space-y-2">
+            <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>
+            <select
+              value={paperType}
+              onChange={(e) => setPaperType(e.target.value)}
+              className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
+            >
+              {paperOptions.map(option => (
+                <option key={option} value={option}>{option}</option>
+              ))}
+            </select>
+          </div>
+
+          {/* Handle Type Selection - ONLY FOR SACOLAS */}
+          {product.category === 'sacolas' && (
+            <div className="space-y-2">
+              <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Alça:</span>
+              <select
+                value={handleType}
+                onChange={(e) => setHandleType(e.target.value)}
+                className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
+              >
+                {handleOptions.map(option => (
+                  <option key={option} value={option}>{option}</option>
+                ))}
+              </select>
+            </div>
+          )}
+
           <div className="flex items-center justify-between">
             <span className="font-heading font-bold text-lg text-primary">
               {formatPrice(product.price)}
@@ -107,13 +166,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
             </div>
           </div>
 
-          <Button
+          <ButtonColorful
             onClick={handleAddToCart}
-            className="w-full rounded-2xl gap-2 shadow-button"
-          >
-            <ShoppingCart className="w-4 h-4" />
-            Comprar
-          </Button>
+            className="w-full"
+            label="Comprar"
+          />
         </div>
       </div>
     </div>

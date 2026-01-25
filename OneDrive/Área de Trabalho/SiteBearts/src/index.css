@@ -47,7 +47,7 @@
     --radius: 1rem;
 
     /* Gradientes atualizados */
-    --gradient-hero: linear-gradient(135deg, #f8f3f9 0%, #d6bbda 100%);
+    --gradient-hero: radial-gradient(at center, #F5F5F4, #E2D8E3);
     --gradient-button: linear-gradient(135deg, #d6bbda 0%, #b898bc 100%);
     --gradient-card: linear-gradient(180deg, #ffffff 0%, #f9f4fa 100%);
 
@@ -130,5 +130,26 @@
     border-left: 2px solid #d6bbda;
     padding-left: 2rem;
     margin-left: 3rem;
+  }
+
+  .bg-gradient-primary {
+    @apply bg-gradient-to-r from-[#E697b4] via-[#D6BBDA] to-[#bea0c4];
+  }
+
+  .btn-colorful {
+    @apply relative overflow-hidden isolate border-none transition-all duration-300 shadow-button active:scale-95;
+  }
+
+  .btn-colorful::before {
+    content: '';
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#E697b4] via-[#ea8cb0] to-[#c78fcb] opacity-90 transition-opacity duration-500;
+  }
+
+  .btn-colorful:hover::before {
+    @apply opacity-100;
+  }
+
+  .btn-colorful>* {
+    @apply relative z-10;
   }
 }

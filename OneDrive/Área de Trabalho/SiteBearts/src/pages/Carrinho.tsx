@@ -2,6 +2,7 @@ import { useCart } from '@/context/CartContext';
 import { Layout } from '@/components/layout/Layout';
 import { Trash2, Plus, Minus, ShoppingBag, ArrowLeft } from 'lucide-react';
 import { Button } from '@/components/ui/button';
+import { ButtonColorful } from '@/components/ui/button-colorful';
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
@@ -30,7 +31,7 @@ const Carrinho = () => {
 
         // Construct items list message
         const itemsList = items.map(item =>
-            `• ${item.quantity}x ${item.name} (${formatPrice(item.price * item.quantity)})`
+            `• ${item.quantity}x ${item.name}${item.paperType ? ` (${item.paperType})` : ''}${item.handleType ? ` [${item.handleType}]` : ''} (${formatPrice(item.price * item.quantity)})`
         ).join('\n');
 
         const message = encodeURIComponent(
@@ -58,12 +59,12 @@ const Carrinho = () => {
                             Você tem {totalItems} item(s) no carrinho
                         </p>
                     </div>
-                    <Button asChild variant="outline" className="w-fit rounded-2xl">
-                        <Link to="/catalogo" className="flex items-center gap-2">
-                            <ArrowLeft className="w-4 h-4" />
-                            Continuar Comprando
+                    <ButtonColorful asChild className="w-fit h-11">
+                        <Link to="/catalogo">
+                            <ArrowLeft className="w-4 h-4 mr-2" />
+                            <span>Continuar Comprando</span>
                         </Link>
-                    </Button>
+                    </ButtonColorful>
                 </div>
 
                 {items.length === 0 ? (
@@ -75,9 +76,9 @@ const Carrinho = () => {
                         <p className="text-muted-foreground mb-8 max-w-md mx-auto">
                             Parece que você ainda não adicionou nenhum produto. Que tal explorar nosso catálogo e encontrar algo especial?
                         </p>
-                        <Button asChild size="lg" className="rounded-2xl shadow-button">
+                        <ButtonColorful asChild className="h-12 px-8">
                             <Link to="/catalogo">Ver Produtos</Link>
-                        </Button>
+                        </ButtonColorful>
                     </div>
                 ) : (
                     <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
@@ -85,7 +86,7 @@ const Carrinho = () => {
                         <div className="lg:col-span-2 space-y-4">
                             {items.map((item) => (
                                 <div
-                                    key={item.id}
+                                    key={`${item.id}-${item.paperType}-${item.handleType}`}
                                     className="bg-card rounded-2xl p-4 md:p-6 shadow-soft border border-border flex flex-col sm:flex-row items-center gap-6 animate-fade-in"
                                 >
                                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden bg-secondary flex-shrink-0">
@@ -100,21 +101,33 @@ const Carrinho = () => {
                                         <h3 className="font-heading font-bold text-lg md:text-xl text-foreground mb-1">
                                             {item.name}
                                         </h3>
-                                        <p className="text-sm text-muted-foreground uppercase tracking-wider mb-4">
-                                            {item.category}
-                                        </p>
+                                        <div className="flex flex-wrap items-center gap-2 mb-4">
+                                            <p className="text-sm text-muted-foreground uppercase tracking-wider">
+                                                {item.category}
+                                            </p>
+                                            {item.paperType && (
+                                                <span className="text-[10px] bg-primary/10 text-primary font-bold px-2 py-0.5 rounded-full shadow-sm">
+                                                    {item.paperType}
+                                                </span>
+                                            )}
+                                            {item.handleType && (
+                                                <span className="text-[10px] bg-accent/20 text-accent-foreground font-bold px-2 py-0.5 rounded-full shadow-sm">
+                                                    {item.handleType}
+                                                </span>
+                                            )}
+                                        </div>
 
                                         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-6">
                                             <div className="flex items-center gap-3 bg-secondary/50 rounded-2xl p-1">
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity - 1)}
+                                                    onClick={() => updateQuantity(item.id, item.quantity - 1, item.paperType, item.handleType)}
                                                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-background hover:text-primary transition-colors shadow-sm"
                                                 >
                                                     <Minus className="w-4 h-4" />
                                                 </button>
                                                 <span className="w-8 text-center font-bold">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity + 1)}
+                                                    onClick={() => updateQuantity(item.id, item.quantity + 1, item.paperType, item.handleType)}
                                                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-background hover:text-primary transition-colors shadow-sm"
                                                 >
                                                     <Plus className="w-4 h-4" />
@@ -128,7 +141,7 @@ const Carrinho = () => {
                                     </div>
 
                                     <button
-                                        onClick={() => removeItem(item.id)}
+                                        onClick={() => removeItem(item.id, item.paperType, item.handleType)}
                                         className="p-3 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-2xl transition-all"
                                         title="Remover item"
                                     >
@@ -201,12 +214,11 @@ const Carrinho = () => {
                                 </div>
                             </div>
 
-                            <Button
+                            <ButtonColorful
                                 onClick={handleCheckout}
-                                className="w-full rounded-2xl py-8 text-xl font-bold shadow-button mb-4"
-                            >
-                                Finalizar Compra
-                            </Button>
+                                className="w-full h-16 text-xl font-bold mb-4"
+                                label="Finalizar Compra"
+                            />
 
                             <p className="text-center text-sm text-muted-foreground">
                                 Finalize seu pedido enviando os detalhes para nosso WhatsApp
