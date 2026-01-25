@@ -16,11 +16,43 @@ import imgCaixaPiramide from '@/assets/subcat-caixa-piramide.png';
 import imgCaixaMilk from '@/assets/subcat-caixa-milk.png';
 import imgCaixaGeneric from '@/assets/subcat-caixa-generic.png';
 import imgEtiquetaGeneric from '@/assets/subcat-etiqueta-generic.png';
-import imgAdesivoRedondo from '@/assets/subcat-adesivo-redondo.png';
-import imgAdesivoQuadrado from '@/assets/subcat-adesivo-quadrado.png';
-import imgChaveiroRedondo from '@/assets/subcat-chaveiro-redondo.png';
+
+import imgChaveiroRedondo from '@/assets/products/ChaveiroRedondo.png';
+import imgChaveiroRedondo2 from '@/assets/products/ChaveiroRedondo2.png';
 import imgChaveiroQuadrado from '@/assets/subcat-chaveiro-quadrado.png';
+import imgChaveiroQuadrado1 from '@/assets/products/ChaveiroQuadrado1.jpg';
+import imgChaveiroQuadrado2 from '@/assets/products/ChaveiroQuadrado2.jpg';
 import imgCartaoGeneric from '@/assets/subcat-cartao-generic.png';
+import imgCartaoVisita1 from '@/assets/products/CartaoVisita1.jpg';
+import imgCartaoVisita2 from '@/assets/products/CartaoVisita2.png';
+import imgCartaoAgradecimento from '@/assets/products/CartaoAgradecimento.png';
+import imgCartaoFidelidade from '@/assets/products/CartaoFidelidade.jpg';
+import imgSacola18x21_1 from '@/assets/sacola-18-21-1.png';
+import imgSacola18x21_2 from '@/assets/sacola-18-21-2.png';
+import imgSacola18x21_3 from '@/assets/sacola-18-21-3.png';
+import imgSacola18x21_Kraft_1 from '@/assets/sacola-18-21-kraft-1.png';
+import imgSacola18x21_Kraft_2 from '@/assets/sacola-18-21-kraft-2.png';
+import imgSacola11x8_1 from '@/assets/sacola-11-8-1.png';
+import imgSacola11x8_2 from '@/assets/sacola-11-8-2.png';
+import imgSacola15x11_1 from '@/assets/sacola-15-11-1.png';
+import imgSacola15x11_2 from '@/assets/sacola-15-11-2.png';
+import imgCaixa9x4x2_1 from '@/assets/caixa-9-4-2-1.png';
+import imgCaixa9x4x2_2 from '@/assets/caixa-9-4-2-2.png';
+import imgEtiquetaCaixao from '@/assets/EtiquetaCaixao.png';
+import imgEtiquetaQuadrada from '@/assets/EtiquetaQuadrada.jpg';
+import imgAdesivoRedondo1 from '@/assets/AdesivoRedondo1.png';
+import imgAdesivoRedondo2 from '@/assets/AdesivoRedondo2.png';
+import imgAdesivoRedondo3 from '@/assets/AdesivoRedondo3.png';
+import imgAdesivoTransparente from '@/assets/AdesivoRedondoTransparente.png';
+import imgAdesivoQuadrado from '@/assets/products/AdesivoQuadrado.png';
+import imgAdesivoQuadradoTransparente from '@/assets/products/AdesivoQuadradoTransparente.png';
+import imgCartaoPresente from '@/assets/products/CartaoPresente.jpg';
+
+
+
+
+
+
 
 export interface Product {
   id: number;
@@ -30,7 +62,11 @@ export interface Product {
   category: string;
   subcategory?: string;
   image: string;
+  images?: string[];
+  kraftImages?: string[];
   isNew?: boolean;
+
+
   isFeatured?: boolean;
   variations?: { name: string; price: number }[];
 }
@@ -191,9 +227,13 @@ export const products: Product[] = [
     price: 8.50,
     category: 'sacolas',
     subcategory: '18x21',
-    image: imgSacola18x21,
+    image: imgSacola18x21_1,
+    images: [imgSacola18x21_1, imgSacola18x21_2, imgSacola18x21_3],
+    kraftImages: [imgSacola18x21_Kraft_1, imgSacola18x21_Kraft_2],
     isFeatured: true,
   },
+
+
   {
     id: 14,
     name: 'Sacola de Papel 11x8',
@@ -201,8 +241,10 @@ export const products: Product[] = [
     price: 5.50,
     category: 'sacolas',
     subcategory: '11x8',
-    image: imgSacola11x8,
+    image: imgSacola11x8_1,
+    images: [imgSacola11x8_1, imgSacola11x8_2],
   },
+
   {
     id: 110,
     name: 'Sacola de Papel 15x11',
@@ -210,15 +252,17 @@ export const products: Product[] = [
     price: 7.00,
     category: 'sacolas',
     subcategory: '15x11',
-    image: imgSacolaGeneric,
+    image: imgSacola15x11_1,
+    images: [imgSacola15x11_1, imgSacola15x11_2],
   },
+
   {
     id: 111,
-    name: 'Sacola de Papel 14x9',
-    description: 'Sacola de papel 14x9cm, perfeita para lembranças e acessórios.',
+    name: 'Sacola de Papel 10x9',
+    description: 'Sacola de papel 10x9cm, perfeita para lembranças e acessórios.',
     price: 6.00,
     category: 'sacolas',
-    subcategory: '14x9',
+    subcategory: '10x9',
     image: imgSacolaGeneric,
   },
   {
@@ -253,11 +297,11 @@ export const products: Product[] = [
   },
   {
     id: 113,
-    name: 'Caixa 14x9',
-    description: 'Caixa personalizada no tamanho 14x9cm, perfeita para pequenos presentes.',
+    name: 'Caixa 10x9',
+    description: 'Caixa personalizada no tamanho 10x9cm, perfeita para pequenos presentes.',
     price: 6.00,
     category: 'caixas',
-    subcategory: '14x9',
+    subcategory: '10x9',
     image: imgCaixaGeneric,
   },
   {
@@ -267,7 +311,7 @@ export const products: Product[] = [
     price: 4.00,
     category: 'caixas',
     subcategory: '9x4x2',
-    image: imgCaixaGeneric,
+    image: imgCaixa9x4x2_1, images: [imgCaixa9x4x2_1, imgCaixa9x4x2_2]
   },
   {
     id: 17,
@@ -293,7 +337,7 @@ export const products: Product[] = [
     price: 6.50,
     category: 'etiquetas',
     subcategory: 'quadrada',
-    image: adesivosFlorais,
+    image: imgEtiquetaQuadrada,
     isFeatured: true,
     variations: [
       { name: '2x2', price: 6.50 },
@@ -322,7 +366,8 @@ export const products: Product[] = [
     price: 8.00,
     category: 'etiquetas',
     subcategory: 'caixao',
-    image: imgEtiquetaGeneric,
+    image: imgEtiquetaCaixao,
+    images: [imgEtiquetaCaixao],
     variations: [
       { name: '6x10', price: 8.00 },
     ],
@@ -334,7 +379,8 @@ export const products: Product[] = [
     price: 6.50,
     category: 'adesivos',
     subcategory: 'redondo',
-    image: imgAdesivoRedondo,
+    image: imgAdesivoRedondo2, images: [imgAdesivoRedondo1, imgAdesivoRedondo2,
+      imgAdesivoTransparente, imgAdesivoRedondo3],
     isNew: true,
     variations: [
       { name: '2x2', price: 6.50 },
@@ -352,6 +398,7 @@ export const products: Product[] = [
     category: 'adesivos',
     subcategory: 'quadrado',
     image: imgAdesivoQuadrado,
+    images: [imgAdesivoQuadrado, imgAdesivoQuadradoTransparente],
     isFeatured: true,
     variations: [
       { name: '2x2', price: 6.50 },
@@ -369,7 +416,8 @@ export const products: Product[] = [
     price: 8.50,
     category: 'chaveiros',
     subcategory: 'acrilico-quadrado',
-    image: imgChaveiroQuadrado,
+    image: imgChaveiroQuadrado1,
+    images: [imgChaveiroQuadrado1, imgChaveiroQuadrado2],
     isNew: true,
   },
   {
@@ -380,6 +428,7 @@ export const products: Product[] = [
     category: 'chaveiros',
     subcategory: 'acrilico-redondo',
     image: imgChaveiroRedondo,
+    images: [imgChaveiroRedondo, imgChaveiroRedondo2],
     isFeatured: true,
   },
   {
@@ -389,7 +438,8 @@ export const products: Product[] = [
     price: 35.00,
     category: 'cartoes',
     subcategory: 'visita',
-    image: imgCartaoGeneric,
+    image: imgCartaoVisita1,
+    images: [imgCartaoVisita1, imgCartaoVisita2],
     isNew: true,
     variations: [
       { name: '50 unidades', price: 35.00 },
@@ -402,7 +452,7 @@ export const products: Product[] = [
     price: 15.00,
     category: 'cartoes',
     subcategory: 'agradecimento',
-    image: imgCartaoGeneric,
+    image: imgCartaoAgradecimento,
     isFeatured: true,
     variations: [
       { name: '10 unidades', price: 15.00 },
@@ -415,7 +465,7 @@ export const products: Product[] = [
     price: 15.00,
     category: 'cartoes',
     subcategory: 'fidelidade',
-    image: imgCartaoGeneric,
+    image: imgCartaoFidelidade,
     isNew: true,
     variations: [
       { name: '10 unidades', price: 15.00 },
@@ -428,22 +478,13 @@ export const products: Product[] = [
     price: 15.00,
     category: 'cartoes',
     subcategory: 'presente',
-    image: imgCartaoGeneric,
+    image: imgCartaoPresente,
     isNew: true,
     variations: [
       { name: '10 unidades', price: 15.00 },
     ],
   },
-  {
-    id: 120,
-    name: 'Cartão SUS',
-    description: 'Seu cartão do SUS com design exclusivo, e durável.',
-    price: 12.00,
-    category: 'cartoes',
-    subcategory: 'sus',
-    image: imgCartaoGeneric,
-    isNew: true,
-  },
+
   {
     id: 121,
     name: 'Convite Digital Simples',

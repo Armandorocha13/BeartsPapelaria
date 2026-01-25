@@ -12,21 +12,47 @@ import img3x4 from '@/assets/subcat-3x4.png';
 import img10x15 from '@/assets/subcat-10x15.png';
 import imgA5 from '@/assets/subcat-a5.png';
 import imgA4 from '@/assets/subcat-a4.png';
-import imgSacola18x21 from '@/assets/subcat-sacola-18-21.png';
-import imgSacola11x8 from '@/assets/subcat-sacola-11-8.png';
+import imgSacola18x21_1 from '@/assets/sacola-18-21-1.png';
+import imgSacola18x21_2 from '@/assets/sacola-18-21-2.png';
+import imgSacola18x21_3 from '@/assets/sacola-18-21-3.png';
+
+import imgSacola11x8_1 from '@/assets/sacola-11-8-1.png';
+import imgSacola11x8_2 from '@/assets/sacola-11-8-2.png';
+import imgSacola15x11_1 from '@/assets/sacola-15-11-1.png';
+import imgSacola15x11_2 from '@/assets/sacola-15-11-2.png';
+import imgCaixaPiramide_1 from '@/assets/caixa-piramide-1.png';
+import imgCaixaPiramide_2 from '@/assets/caixa-piramide-2.png';
+import imgCaixa15x13x4_1 from '@/assets/caixa-15-13-4-1.png';
+import imgCaixa15x13x4_2 from '@/assets/caixa-15-13-4-2.png';
+import imgCaixa9x4x2_1 from '@/assets/caixa-9-4-2-1.png';
+import imgCaixa9x4x2_2 from '@/assets/caixa-9-4-2-2.png';
+
+import imgEtiquetaCaixao from '@/assets/EtiquetaCaixao.png';
 import imgSacolaGeneric from '@/assets/subcat-sacola-generic.png';
 import imgCaixaPiramide from '@/assets/subcat-caixa-piramide.png';
 import imgCaixaMilk from '@/assets/subcat-caixa-milk.png';
 import imgCaixaGeneric from '@/assets/subcat-caixa-generic.png';
 import imgEtiquetaRedonda from '@/assets/subcat-etiqueta-redonda.png';
-import imgEtiquetaQuadrada from '@/assets/subcat-etiqueta-quadrada.png';
+import imgEtiquetaQuadrada from '@/assets/EtiquetaQuadrada.jpg';
 import imgEtiquetaGeneric from '@/assets/subcat-etiqueta-generic.png';
-import imgAdesivoRedondo from '@/assets/subcat-adesivo-redondo.png';
-import imgAdesivoQuadrado from '@/assets/subcat-adesivo-quadrado.png';
 import imgAdesivoPersonalizado from '@/assets/subcat-adesivo-personalizado.png';
-import imgChaveiroRedondo from '@/assets/subcat-chaveiro-redondo.png';
+import imgChaveiroRedondo from '@/assets/products/ChaveiroRedondo.png';
+import imgChaveiroRedondo2 from '@/assets/products/ChaveiroRedondo2.png';
 import imgChaveiroQuadrado from '@/assets/subcat-chaveiro-quadrado.png';
+import imgChaveiroQuadrado1 from '@/assets/products/ChaveiroQuadrado1.jpg';
+import imgChaveiroQuadrado2 from '@/assets/products/ChaveiroQuadrado2.jpg';
 import imgCartaoGeneric from '@/assets/subcat-cartao-generic.png';
+import imgCartaoVisita1 from '@/assets/products/CartaoVisita1.jpg';
+import imgCartaoVisita2 from '@/assets/products/CartaoVisita2.png';
+import imgCartaoAgradecimento from '@/assets/products/CartaoAgradecimento.png';
+import imgAdesivoRedondo1 from '@/assets/AdesivoRedondo1.png';
+import imgAdesivoQuadrado from '@/assets/products/AdesivoQuadrado.png';
+import imgCartaoFidelidade from '@/assets/products/CartaoFidelidade.jpg';
+import imgCartaoPresente from '@/assets/products/CartaoPresente.jpg';
+import imgGeneratedCard1 from '@/assets/products/generated_card_1.png';
+import imgGeneratedCard2 from '@/assets/products/generated_card_2.png';
+import imgGeneratedCard3 from '@/assets/products/generated_card_3.png';
+
 
 const categories = [
   { id: 'all', name: 'Todos' },
@@ -41,7 +67,7 @@ const categories = [
   { id: 'outros', name: 'Outros' },
 ];
 
-const subcategoriesList: Record<string, { id: string, name: string, image?: string }[]> = {
+const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
     { id: 'polaroide', name: 'Polaroide', image: imgPolaroide },
@@ -52,45 +78,72 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ],
   sacolas: [
     { id: 'all', name: 'Todas as Sacolas' },
-    { id: '18x21', name: 'Sacola de papel 18x21', image: imgSacola18x21 },
-    { id: '11x8', name: 'Sacola de papel 11x8', image: imgSacola11x8 },
-    { id: '15x11', name: 'Sacola de papel 15x11', image: imgSacolaGeneric },
-    { id: '14x9', name: 'Sacola de papel 14x9', image: imgSacolaGeneric },
+    {
+      id: '18x21',
+      name: 'Sacola de papel 18x21',
+      image: imgSacola18x21_1,
+      images: [imgSacola18x21_1, imgSacola18x21_2, imgSacola18x21_3]
+    },
+    {
+      id: '11x8',
+      name: 'Sacola de papel 11x8',
+      image: imgSacola11x8_1,
+      images: [imgSacola11x8_1, imgSacola11x8_2]
+    },
+
+    {
+      id: '15x11',
+      name: 'Sacola de papel 15x11',
+      image: imgSacola15x11_1,
+      images: [imgSacola15x11_1, imgSacola15x11_2]
+    },
+    { id: '10x9', name: 'Sacola de papel 10x9', image: imgSacolaGeneric },
   ],
   caixas: [
     { id: 'all', name: 'Todas as Caixas' },
-    { id: 'piramide', name: 'Caixa pirâmide', image: imgCaixaPiramide },
+    {
+      id: 'piramide',
+      name: 'Caixa pirâmide',
+      image: imgCaixaPiramide_1,
+      images: [imgCaixaPiramide_1, imgCaixaPiramide_2]
+    },
     { id: 'milk', name: 'Caixa milk', image: imgCaixaMilk },
-    { id: '15x13x4', name: 'Caixa 15x13x4', image: imgCaixaGeneric },
-    { id: '14x9', name: 'Caixa 14x9', image: imgCaixaGeneric },
-    { id: '9x4x2', name: 'Caixa 9x4x2', image: imgCaixaGeneric },
+    {
+      id: '15x13x4',
+      name: 'Caixa 15x13x4',
+      image: imgCaixa15x13x4_1,
+      images: [imgCaixa15x13x4_1, imgCaixa15x13x4_2]
+    },
+    { id: '10x9', name: 'Caixa 10x9', image: imgCaixaGeneric },
+    { id: '9x4x2', name: 'Caixa 9x4x2', image: imgCaixa9x4x2_1, images: [imgCaixa9x4x2_1, imgCaixa9x4x2_2] },
   ],
+
   etiquetas: [
     { id: 'all', name: 'Todas as Etiquetas' },
     { id: 'redonda', name: 'Etiqueta Redonda', image: imgEtiquetaRedonda },
     { id: 'quadrada', name: 'Etiqueta Quadrada', image: imgEtiquetaQuadrada },
     { id: 'retangular', name: 'Etiqueta Retangular', image: imgEtiquetaGeneric },
-    { id: 'caixao', name: 'Etiqueta Caixão', image: imgEtiquetaGeneric },
+    { id: 'caixao', name: 'Etiqueta Caixão', image: imgEtiquetaCaixao },
   ],
   adesivos: [
     { id: 'all', name: 'Todos os Adesivos' },
-    { id: 'redondo', name: 'Adesivos Redondos', image: imgAdesivoRedondo },
+    { id: 'redondo', name: 'Adesivos Redondos', image: imgAdesivoRedondo1 },
     { id: 'quadrado', name: 'Adesivos Quadrados', image: imgAdesivoQuadrado },
     { id: 'personalizado', name: 'Adesivos Personalizados', image: imgAdesivoPersonalizado },
   ],
   chaveiros: [
     { id: 'all', name: 'Todos os Chaveiros' },
-    { id: 'acrilico-quadrado', name: 'Chaveiro 3x4 acrílico quadrado', image: imgChaveiroQuadrado },
-    { id: 'acrilico-redondo', name: 'Chaveiro 3x4 acrílico redondo', image: imgChaveiroRedondo },
+    { id: 'acrilico-quadrado', name: 'Chaveiro 3x4 acrílico quadrado', image: imgChaveiroQuadrado, images: [imgChaveiroQuadrado1, imgChaveiroQuadrado2] },
+    { id: 'acrilico-redondo', name: 'Chaveiro 3x4 acrílico redondo', image: imgChaveiroRedondo, images: [imgChaveiroRedondo, imgChaveiroRedondo2] },
   ],
   cartoes: [
     { id: 'all', name: 'Todos os Cartões' },
-    { id: 'visita', name: 'Cartão de Visita', image: imgCartaoGeneric },
-    { id: 'agradecimento', name: 'Cartão de Agradecimento', image: imgCartaoGeneric },
-    { id: 'personalizado', name: 'Cartão Personalizado', image: imgCartaoGeneric },
-    { id: 'fidelidade', name: 'Cartão Fidelidade', image: imgCartaoGeneric },
-    { id: 'presente', name: 'Cartão Presente', image: imgCartaoGeneric },
-    { id: 'sus', name: 'Cartão SUS', image: imgCartaoGeneric },
+    { id: 'visita', name: 'Cartão de Visita', image: imgCartaoGeneric, images: [imgCartaoVisita1, imgCartaoVisita2] },
+    { id: 'agradecimento', name: 'Cartão de Agradecimento', image: imgCartaoAgradecimento },
+    { id: 'personalizado', name: 'Cartão Personalizado', image: imgGeneratedCard1, images: [imgGeneratedCard1, imgGeneratedCard2, imgGeneratedCard3] },
+    { id: 'fidelidade', name: 'Cartão Fidelidade', image: imgCartaoFidelidade },
+    { id: 'presente', name: 'Cartão Presente', image: imgCartaoPresente },
+
   ],
   convites: [
     { id: 'all', name: 'Todos os Convites' },
@@ -110,7 +163,35 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ]
 };
 
+const SubcategoryImage = ({ sub }: { sub: { image?: string, images?: string[], name: string } }) => {
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (sub.images && sub.images.length > 1) {
+      const interval = setInterval(() => {
+        setIndex((prev) => (prev + 1) % sub.images!.length);
+      }, 2500);
+      return () => clearInterval(interval);
+    }
+  }, [sub.images]);
+
+  const displayImage = (sub.images && sub.images.length > 0) ? sub.images[index] : sub.image;
+
+  return (
+    <img
+      src={displayImage}
+      alt={sub.name}
+      className="w-full h-full object-cover scale-[1.1] transition-transform duration-700 group-hover:scale-[1.5]"
+    />
+
+
+
+
+  );
+};
+
 const Catalogo = () => {
+
   const [searchParams, setSearchParams] = useSearchParams();
   const categoryParam = searchParams.get('categoria');
   const subcategoryParam = searchParams.get('subcategoria');
@@ -252,12 +333,9 @@ const Catalogo = () => {
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
                     <div className="aspect-square overflow-hidden bg-accent/20">
-                      <img
-                        src={sub.image}
-                        alt={sub.name}
-                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                      />
+                      <SubcategoryImage sub={sub} />
                     </div>
+
                     <div className="p-4 text-center bg-gradient-to-b from-transparent to-accent/5">
                       <h3 className="font-heading font-bold text-foreground group-hover:text-primary transition-colors text-sm">
                         {sub.name}
