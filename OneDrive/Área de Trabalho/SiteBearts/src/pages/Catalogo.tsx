@@ -8,10 +8,24 @@ import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 
 import imgPolaroide from '@/assets/subcat-polaroide.png';
+import imgPolaroidMini1 from '@/assets/products/PolaroidMini1.png';
+import imgPolaroidMini2 from '@/assets/products/PolaroidMini2.png';
+import imgPolaroidClassica1 from '@/assets/products/PolaroidClassica1.png';
+import imgPolaroidClassica2 from '@/assets/products/PolaroidClassica2.png';
+import imgPolaroidGrande1 from '@/assets/products/PolaroidGrande1.png';
+import imgPolaroidGrande2 from '@/assets/products/PolaroidGrande2.png';
 import img3x4 from '@/assets/subcat-3x4.png';
 import img10x15 from '@/assets/subcat-10x15.png';
 import imgA5 from '@/assets/subcat-a5.png';
 import imgA4 from '@/assets/subcat-a4.png';
+import imgFoto3x4_1 from '@/assets/products/Foto3x4_1.jpg';
+import imgFoto3x4_2 from '@/assets/products/Foto3x4_2.jpg';
+import imgFoto10x15_1 from '@/assets/products/Foto10x15_1.jpg';
+import imgFoto10x15_2 from '@/assets/products/Foto10x15_2.jpg';
+import imgFotoA5_1 from '@/assets/products/FotoA5_1.jpg';
+import imgFotoA5_2 from '@/assets/products/FotoA5_2.jpg';
+import imgFotoA4_1 from '@/assets/products/FotoA4_1.jpg';
+import imgFotoA4_2 from '@/assets/products/FotoA4_2.jpg';
 import imgSacola18x21_1 from '@/assets/sacola-18-21-1.png';
 import imgSacola18x21_2 from '@/assets/sacola-18-21-2.png';
 import imgSacola18x21_3 from '@/assets/sacola-18-21-3.png';
@@ -29,16 +43,14 @@ import imgCaixa9x4x2_2 from '@/assets/caixa-9-4-2-2.png';
 
 import imgEtiquetaCaixao from '@/assets/EtiquetaCaixao.png';
 import imgSacolaGeneric from '@/assets/subcat-sacola-generic.png';
-import imgCaixaPiramide from '@/assets/subcat-caixa-piramide.png';
-import imgCaixaMilk from '@/assets/subcat-caixa-milk.png';
-import imgCaixaGeneric from '@/assets/subcat-caixa-generic.png';
-import imgEtiquetaRedonda from '@/assets/subcat-etiqueta-redonda.png';
-import imgEtiquetaQuadrada from '@/assets/EtiquetaQuadrada.jpg';
+import imgCaixaPiramide1 from '@/assets/products/CaixaPiramide1.png';
+import imgCaixaMilk1 from '@/assets/products/CaixaMilk1.png';
+import imgCaixa10x9_1 from '@/assets/products/Caixa10x9_1.png';
 import imgEtiquetaGeneric from '@/assets/subcat-etiqueta-generic.png';
+import imgEtiquetaQuadrada1 from '@/assets/products/EtiquetaQuadrada1.png';
 import imgAdesivoPersonalizado from '@/assets/subcat-adesivo-personalizado.png';
 import imgChaveiroRedondo from '@/assets/products/ChaveiroRedondo.png';
 import imgChaveiroRedondo2 from '@/assets/products/ChaveiroRedondo2.png';
-import imgChaveiroQuadrado from '@/assets/subcat-chaveiro-quadrado.png';
 import imgChaveiroQuadrado1 from '@/assets/products/ChaveiroQuadrado1.jpg';
 import imgChaveiroQuadrado2 from '@/assets/products/ChaveiroQuadrado2.jpg';
 import imgCartaoGeneric from '@/assets/subcat-cartao-generic.png';
@@ -52,6 +64,12 @@ import imgCartaoPresente from '@/assets/products/CartaoPresente.jpg';
 import imgGeneratedCard1 from '@/assets/products/generated_card_1.png';
 import imgGeneratedCard2 from '@/assets/products/generated_card_2.png';
 import imgGeneratedCard3 from '@/assets/products/generated_card_3.png';
+import imgLabelRound1 from '@/assets/products/label_round_1.png';
+import imgLabelRound2 from '@/assets/products/label_round_2.png';
+import imgLabelRound3 from '@/assets/products/label_round_3.png';
+import imgLabelRect1 from '@/assets/products/label_rect_1.png';
+import imgLabelRect2 from '@/assets/products/label_rect_2.png';
+import imgLabelRect3 from '@/assets/products/label_rect_3.png';
 
 
 const categories = [
@@ -70,11 +88,11 @@ const categories = [
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
-    { id: 'polaroide', name: 'Polaroide', image: imgPolaroide },
-    { id: '3x4', name: 'Fotos 3x4', image: img3x4 },
-    { id: '10x15', name: 'Fotos 10x15', image: img10x15 },
-    { id: 'a5', name: 'Fotos A5', image: imgA5 },
-    { id: 'a4', name: 'Fotos A4', image: imgA4 },
+    { id: 'polaroide', name: 'Polaroide', image: imgPolaroidClassica2, images: [imgPolaroidClassica2, imgPolaroidClassica1, imgPolaroidGrande2, imgPolaroidGrande1, imgPolaroidMini2, imgPolaroidMini1] },
+    { id: '3x4', name: 'Fotos 3x4', image: imgFoto3x4_1, images: [imgFoto3x4_1, imgFoto3x4_2] },
+    { id: '10x15', name: 'Fotos 10x15', image: imgFoto10x15_1, images: [imgFoto10x15_1, imgFoto10x15_2] },
+    { id: 'a5', name: 'Fotos A5', image: imgFotoA5_1, images: [imgFotoA5_1, imgFotoA5_2] },
+    { id: 'a4', name: 'Fotos A4', image: imgFotoA4_1, images: [imgFotoA4_1, imgFotoA4_2] },
   ],
   sacolas: [
     { id: 'all', name: 'Todas as Sacolas' },
@@ -104,25 +122,25 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     {
       id: 'piramide',
       name: 'Caixa pirâmide',
-      image: imgCaixaPiramide_1,
+      image: imgCaixaPiramide1,
       images: [imgCaixaPiramide_1, imgCaixaPiramide_2]
     },
-    { id: 'milk', name: 'Caixa milk', image: imgCaixaMilk },
+    { id: 'milk', name: 'Caixa milk', image: imgCaixaMilk1 },
     {
       id: '15x13x4',
       name: 'Caixa 15x13x4',
       image: imgCaixa15x13x4_1,
       images: [imgCaixa15x13x4_1, imgCaixa15x13x4_2]
     },
-    { id: '10x9', name: 'Caixa 10x9', image: imgCaixaGeneric },
+    { id: '10x9', name: 'Caixa 10x9', image: imgCaixa10x9_1 },
     { id: '9x4x2', name: 'Caixa 9x4x2', image: imgCaixa9x4x2_1, images: [imgCaixa9x4x2_1, imgCaixa9x4x2_2] },
   ],
 
   etiquetas: [
     { id: 'all', name: 'Todas as Etiquetas' },
-    { id: 'redonda', name: 'Etiqueta Redonda', image: imgEtiquetaRedonda },
-    { id: 'quadrada', name: 'Etiqueta Quadrada', image: imgEtiquetaQuadrada },
-    { id: 'retangular', name: 'Etiqueta Retangular', image: imgEtiquetaGeneric },
+    { id: 'redonda', name: 'Etiqueta Redonda', image: imgLabelRound1, images: [imgLabelRound1, imgLabelRound2, imgLabelRound3] },
+    { id: 'quadrada', name: 'Etiqueta Quadrada', image: imgEtiquetaQuadrada1 },
+    { id: 'retangular', name: 'Etiqueta Retangular', image: imgLabelRect1, images: [imgLabelRect1, imgLabelRect2, imgLabelRect3] },
     { id: 'caixao', name: 'Etiqueta Caixão', image: imgEtiquetaCaixao },
   ],
   adesivos: [
@@ -133,7 +151,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ],
   chaveiros: [
     { id: 'all', name: 'Todos os Chaveiros' },
-    { id: 'acrilico-quadrado', name: 'Chaveiro 3x4 acrílico quadrado', image: imgChaveiroQuadrado, images: [imgChaveiroQuadrado1, imgChaveiroQuadrado2] },
+    { id: 'acrilico-quadrado', name: 'Chaveiro 3x4 acrílico quadrado', image: imgChaveiroQuadrado1, images: [imgChaveiroQuadrado1, imgChaveiroQuadrado2] },
     { id: 'acrilico-redondo', name: 'Chaveiro 3x4 acrílico redondo', image: imgChaveiroRedondo, images: [imgChaveiroRedondo, imgChaveiroRedondo2] },
   ],
   cartoes: [

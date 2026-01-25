@@ -2,7 +2,7 @@ import { ShoppingCart, Sparkles, Minus, Plus } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { Product } from '@/data/products';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useCart } from '@/context/CartContext';
 import { toast } from 'sonner';
 
@@ -103,15 +103,40 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     toast.success(`${quantity}x ${product.name} ${info} adicionado ao carrinho!`);
   };
 
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  const activeImages = (paperType === 'KRAFT' && product.kraftImages)
+    ? product.kraftImages
+    : (product.images || [product.image]);
+
+  useEffect(() => {
+    if (activeImages.length > 1) {
+      const interval = setInterval(() => {
+        setCurrentImageIndex((prev) => (prev + 1) % activeImages.length);
+      }, 2500);
+      return () => clearInterval(interval);
+    } else {
+      setCurrentImageIndex(0);
+    }
+  }, [activeImages]);
+
+  const displayImage = activeImages[currentImageIndex] || product.image;
+
+
   return (
     <div className="group bg-card rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 overflow-hidden animate-scale-in">
       {/* Image Container */}
       <div className="relative aspect-square bg-secondary overflow-hidden">
         <img
-          src={product.image}
+          src={displayImage}
           alt={product.name}
-          className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+          className="w-full h-full object-cover scale-[1.0] group-hover:scale-[1.05] transition-transform duration-500"
         />
+
+
+
+
+
 
         {/* Badges */}
         <div className="absolute top-3 left-3 flex flex-col gap-2">

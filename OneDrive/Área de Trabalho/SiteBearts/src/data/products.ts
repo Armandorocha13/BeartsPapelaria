@@ -7,19 +7,23 @@ import boxPresente from '@/assets/products/box-presente.jpg';
 import aquarela from '@/assets/products/aquarela.jpg';
 import planner from '@/assets/products/planner.jpg';
 import imgPolaroide from '@/assets/subcat-polaroide.png';
+import imgPolaroidMini1 from '@/assets/products/PolaroidMini1.png';
+import imgPolaroidMini2 from '@/assets/products/PolaroidMini2.png';
+import imgPolaroidClassica1 from '@/assets/products/PolaroidClassica1.png';
+import imgPolaroidClassica2 from '@/assets/products/PolaroidClassica2.png';
+import imgPolaroidGrande1 from '@/assets/products/PolaroidGrande1.png';
+import imgPolaroidGrande2 from '@/assets/products/PolaroidGrande2.png';
 import imgA5 from '@/assets/subcat-a5.png';
 import imgA4 from '@/assets/subcat-a4.png';
-import imgSacola18x21 from '@/assets/subcat-sacola-18-21.png';
-import imgSacola11x8 from '@/assets/subcat-sacola-11-8.png';
 import imgSacolaGeneric from '@/assets/subcat-sacola-generic.png';
-import imgCaixaPiramide from '@/assets/subcat-caixa-piramide.png';
-import imgCaixaMilk from '@/assets/subcat-caixa-milk.png';
-import imgCaixaGeneric from '@/assets/subcat-caixa-generic.png';
+import imgCaixaPiramide1 from '@/assets/products/CaixaPiramide1.png';
+import imgCaixaMilk1 from '@/assets/products/CaixaMilk1.png';
+import imgCaixa10x9_1 from '@/assets/products/Caixa10x9_1.png';
 import imgEtiquetaGeneric from '@/assets/subcat-etiqueta-generic.png';
-
+import imgCaixa15x13x4 from '@/assets/caixa-15-13-4-2.png';
+import imgCaixa15x13x4_1 from '@/assets/caixa-15-13-4-1.png';
 import imgChaveiroRedondo from '@/assets/products/ChaveiroRedondo.png';
 import imgChaveiroRedondo2 from '@/assets/products/ChaveiroRedondo2.png';
-import imgChaveiroQuadrado from '@/assets/subcat-chaveiro-quadrado.png';
 import imgChaveiroQuadrado1 from '@/assets/products/ChaveiroQuadrado1.jpg';
 import imgChaveiroQuadrado2 from '@/assets/products/ChaveiroQuadrado2.jpg';
 import imgCartaoGeneric from '@/assets/subcat-cartao-generic.png';
@@ -39,7 +43,8 @@ import imgSacola15x11_2 from '@/assets/sacola-15-11-2.png';
 import imgCaixa9x4x2_1 from '@/assets/caixa-9-4-2-1.png';
 import imgCaixa9x4x2_2 from '@/assets/caixa-9-4-2-2.png';
 import imgEtiquetaCaixao from '@/assets/EtiquetaCaixao.png';
-import imgEtiquetaQuadrada from '@/assets/EtiquetaQuadrada.jpg';
+import imgEtiquetaQuadrada1 from '@/assets/products/EtiquetaQuadrada1.png';
+import imgEtiquetaQuadrada2 from '@/assets/products/EtiquetaQuadrada2.png';
 import imgAdesivoRedondo1 from '@/assets/AdesivoRedondo1.png';
 import imgAdesivoRedondo2 from '@/assets/AdesivoRedondo2.png';
 import imgAdesivoRedondo3 from '@/assets/AdesivoRedondo3.png';
@@ -47,6 +52,15 @@ import imgAdesivoTransparente from '@/assets/AdesivoRedondoTransparente.png';
 import imgAdesivoQuadrado from '@/assets/products/AdesivoQuadrado.png';
 import imgAdesivoQuadradoTransparente from '@/assets/products/AdesivoQuadradoTransparente.png';
 import imgCartaoPresente from '@/assets/products/CartaoPresente.jpg';
+import imgPolaroideDeMesa1 from '@/assets/products/PolaroideDeMesa1.png';
+import imgFoto3x4_1 from '@/assets/products/Foto3x4_1.jpg';
+import imgFoto3x4_2 from '@/assets/products/Foto3x4_2.jpg';
+import imgFoto10x15_1 from '@/assets/products/Foto10x15_1.jpg';
+import imgFoto10x15_2 from '@/assets/products/Foto10x15_2.jpg';
+import imgFotoA5_1 from '@/assets/products/FotoA5_1.jpg';
+import imgFotoA5_2 from '@/assets/products/FotoA5_2.jpg';
+import imgFotoA4_1 from '@/assets/products/FotoA4_1.jpg';
+import imgFotoA4_2 from '@/assets/products/FotoA4_2.jpg';
 
 
 
@@ -80,7 +94,8 @@ export const products: Product[] = [
     price: 1.25,
     category: 'fotos',
     subcategory: 'polaroide',
-    image: imgPolaroide,
+    image: imgPolaroidMini2,
+    images: [imgPolaroidMini2, imgPolaroidMini1],
     isFeatured: true,
   },
   {
@@ -90,7 +105,8 @@ export const products: Product[] = [
     price: 3.00,
     category: 'fotos',
     subcategory: 'polaroide',
-    image: imgPolaroide,
+    image: imgPolaroidClassica2,
+    images: [imgPolaroidClassica2, imgPolaroidClassica1],
     isFeatured: true,
   },
   {
@@ -100,7 +116,8 @@ export const products: Product[] = [
     price: 6.00,
     category: 'fotos',
     subcategory: 'polaroide',
-    image: imgPolaroide,
+    image: imgPolaroidGrande2,
+    images: [imgPolaroidGrande2, imgPolaroidGrande1],
     isNew: true,
   },
   {
@@ -110,7 +127,7 @@ export const products: Product[] = [
     price: 12.00,
     category: 'fotos',
     subcategory: 'polaroide',
-    image: imgPolaroide,
+    image: imgPolaroideDeMesa1,
     isNew: true,
   },
 
@@ -121,7 +138,8 @@ export const products: Product[] = [
     price: 5.00,
     category: 'fotos',
     subcategory: '3x4',
-    image: canetasGel,
+    image: imgFoto3x4_1,
+    images: [imgFoto3x4_1, imgFoto3x4_2],
   },
   {
     id: 3,
@@ -130,7 +148,8 @@ export const products: Product[] = [
     price: 8.00,
     category: 'fotos',
     subcategory: '10x15',
-    image: canetasGel,
+    image: imgFoto10x15_1,
+    images: [imgFoto10x15_1, imgFoto10x15_2],
   },
   {
     id: 105,
@@ -139,7 +158,8 @@ export const products: Product[] = [
     price: 12.00,
     category: 'fotos',
     subcategory: 'a5',
-    image: imgA5,
+    image: imgFotoA5_1,
+    images: [imgFotoA5_1, imgFotoA5_2],
     isNew: true,
   },
   {
@@ -149,7 +169,8 @@ export const products: Product[] = [
     price: 18.00,
     category: 'fotos',
     subcategory: 'a4',
-    image: imgA4,
+    image: imgFotoA4_1,
+    images: [imgFotoA4_1, imgFotoA4_2],
     isFeatured: true,
   },
 
@@ -272,7 +293,7 @@ export const products: Product[] = [
     price: 4.50,
     category: 'caixas',
     subcategory: 'piramide',
-    image: imgCaixaPiramide,
+    image: imgCaixaPiramide1,
     isNew: true,
   },
   {
@@ -282,7 +303,7 @@ export const products: Product[] = [
     price: 4.50,
     category: 'caixas',
     subcategory: 'milk',
-    image: imgCaixaMilk,
+    image: imgCaixaMilk1,
     isFeatured: true,
   },
   {
@@ -292,7 +313,8 @@ export const products: Product[] = [
     price: 7.00,
     category: 'caixas',
     subcategory: '15x13x4',
-    image: imgCaixaGeneric,
+    image: imgCaixa15x13x4_1,
+    images: [imgCaixa15x13x4_1, imgCaixa15x13x4],
     isNew: true,
   },
   {
@@ -302,7 +324,7 @@ export const products: Product[] = [
     price: 6.00,
     category: 'caixas',
     subcategory: '10x9',
-    image: imgCaixaGeneric,
+    image: imgCaixa10x9_1,
   },
   {
     id: 114,
@@ -337,7 +359,8 @@ export const products: Product[] = [
     price: 6.50,
     category: 'etiquetas',
     subcategory: 'quadrada',
-    image: imgEtiquetaQuadrada,
+    image: imgEtiquetaQuadrada1,
+    images: [imgEtiquetaQuadrada1, imgEtiquetaQuadrada2],
     isFeatured: true,
     variations: [
       { name: '2x2', price: 6.50 },
