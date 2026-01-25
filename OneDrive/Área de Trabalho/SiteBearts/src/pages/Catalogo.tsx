@@ -178,6 +178,10 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'arte-personalizada', name: 'Arte Personalizada', image: imgCartaoGeneric },
     { id: 'identidade-visual', name: 'Identidade Visual', image: imgCartaoGeneric },
     { id: 'logomarca', name: 'Logomarca', image: imgCartaoGeneric },
+    { id: 'calendario', name: 'Calendário', image: imgCartaoGeneric },
+    { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgCartaoGeneric },
+    { id: 'imas-geladeira', name: 'Ímãs de Geladeira', image: imgCartaoGeneric },
+    { id: 'kit-festa', name: 'Kit Festa', image: imgCartaoGeneric },
   ]
 };
 
