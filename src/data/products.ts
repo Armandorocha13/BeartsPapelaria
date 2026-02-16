@@ -232,6 +232,17 @@ export const products: Product[] = [
     subcategory: '10x9',
     image: imgSacolaGeneric,
   },
+
+  {
+    id: 131,
+    name: 'Sacola de Papel 25x22',
+    description: 'Sacola de papel 25x22cm, tamanho grande ideal para presentes e compras.',
+    price: 9.50,
+    category: 'sacolas',
+    subcategory: '25x22',
+    image: imgSacolaGeneric,
+    isNew: true,
+  },
   {
     id: 15,
     name: 'Caixa Pirâmide Personalizada',

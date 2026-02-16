@@ -131,6 +131,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
       images: [imgSacola15x11_1, imgSacola15x11_2]
     },
     { id: '10x9', name: 'Sacola de papel 10x9', image: imgSacolaGeneric },
+    { id: '25x22', name: 'Sacola de papel 25x22', image: imgSacolaGeneric },
   ],
   caixas: [
     { id: 'all', name: 'Todas as Caixas' },
