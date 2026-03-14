@@ -104,9 +104,10 @@ const categories = [
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   pascoa: [
     { id: 'all', name: 'Todos de Páscoa' },
-    { id: 'caixas-doces', name: 'Caixas para Doces', image: '/images/3d_candybox.png' },
+    { id: 'caixas-personalizadas', name: 'Caixas Personalizadas', image: '/images/3d_candybox.png' },
     { id: 'mimos', name: 'Mimos e Lembrancinhas', image: '/images/3d_card.png' },
-    { id: 'embalagens', name: 'Embalagens', image: '/images/3d_packaging.png' },
+    { id: 'embalagens-personalizadas', name: 'Embalagens Personalizadas', image: '/images/3d_packaging.png' },
+    { id: 'buques', name: 'Buquês', image: '/images/3d_bouquet.png' },
   ],
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
