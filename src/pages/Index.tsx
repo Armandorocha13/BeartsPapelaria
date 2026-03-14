@@ -9,7 +9,7 @@ import { Button } from '@/components/ui/button';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 
 const Index = () => {
-  const featuredProducts = products.filter(p => p.isFeatured).slice(0, 4);
+  const featuredProducts = products.filter(p => p.category === 'pascoa').slice(0, 8);
 
   return (
     <Layout>
@@ -26,7 +26,7 @@ const Index = () => {
                 Produtos em <span style={{ color: '#E697b4' }}>Destaque</span>
               </h2>
               <p className="text-muted-foreground mt-2">
-                Os favoritos da nossa comunidade
+                Confira nossa coleção especial de Páscoa
               </p>
             </div>
             <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
@@ -40,7 +40,7 @@ const Index = () => {
           {/* Products Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product, index) => (
-              <div key={product.id} style={{ animationDelay: `${index * 0.1}s` }}>
+              <div key={product.id} className="w-full" style={{ animationDelay: `${index * 0.1}s` }}>
                 <ProductCard product={product} />
               </div>
             ))}
