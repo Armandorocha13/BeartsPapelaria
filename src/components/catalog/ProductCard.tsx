@@ -13,7 +13,7 @@ interface ProductCardProps {
 export const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const getPaperOptions = () => {
-    const base = ['GLOSSY', 'KRAFT', 'OFFSET'];
+    const base = ['GLOSSY', 'OFFSET'];
     if (product.category === 'adesivos') {
       return [...base, 'VINIL TRANSPARENTE'];
     }
@@ -199,7 +199,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.variations && (
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase text-muted-foreground">
-                {product.category === 'cartoes' || product.category === 'convites' ? 'Quantidade:' : 'Medida (Kit c/ 10):'}
+                {product.category === 'cartoes' || product.category === 'convites' ? 'Quantidade:' : 'Opções de Tamanho:'}
               </span>
               <select
                 value={selectedVariation?.name}
@@ -287,7 +287,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 <Minus className="w-4 h-4" />
               </button>
               <span className={`text-center font-medium ${product.variations ? 'w-12 text-xs' : 'w-6 text-base'}`}>
-                {quantity}{product.variations ? ` ${quantity > 1 ? 'Kits' : 'Kit'}` : ''}
+                {quantity}
               </span>
               <button
                 onClick={increment}
