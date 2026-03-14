@@ -637,7 +637,7 @@ export const products: Product[] = [
     price: 10.00,
     category: 'pascoa',
     subcategory: 'caixas-personalizadas',
-    image: '/images/3d_candybox.png',
+    image: '/images/caixa_4_bombons_azul.jpg',
     isNew: true,
   },
   {
@@ -647,7 +647,7 @@ export const products: Product[] = [
     price: 10.00,
     category: 'pascoa',
     subcategory: 'caixas-personalizadas',
-    image: '/images/3d_packaging.png',
+    image: '/images/caixas_ovo_tematicas.jpg',
     isNew: true,
   },
   {
