@@ -1,15 +1,15 @@
-import { Toaster } from "@/components/ui/toaster";
-import { Toaster as Sonner } from "@/components/ui/sonner";
-import { TooltipProvider } from "@/components/ui/tooltip";
+import { Toaster } from "@/componentes/interface/toaster";
+import { Toaster as Sonner } from "@/componentes/interface/sonner";
+import { TooltipProvider } from "@/componentes/interface/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import Index from "./pages/Index";
-import Catalogo from "./pages/Catalogo";
-import Sobre from "./pages/Sobre";
-import Carrinho from "./pages/Carrinho";
-import NotFound from "./pages/NotFound";
+import Index from "./paginas/inicio";
+import Catalogo from "./paginas/catalogo";
+import Sobre from "./paginas/sobre";
+import Carrinho from "./paginas/carrinho";
+import NotFound from "./paginas/naoEncontrado";
 
-import { CartProvider } from "./context/CartContext";
+import { CartProvider } from "./contexto/contextoCarrinho";
 
 const queryClient = new QueryClient();
 
