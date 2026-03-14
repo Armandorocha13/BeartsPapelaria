@@ -104,9 +104,9 @@ const categories = [
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   pascoa: [
     { id: 'all', name: 'Todos de Páscoa' },
-    { id: 'caixas-doces', name: 'Caixas para Doces', image: '/images/3d_egg.png' },
-    { id: 'mimos', name: 'Mimos e Lembrancinhas', image: '/images/3d_bunny.png' },
-    { id: 'embalagens', name: 'Embalagens', image: '/images/3d_chocolate.png' },
+    { id: 'caixas-doces', name: 'Caixas para Doces', image: '/images/3d_candybox.png' },
+    { id: 'mimos', name: 'Mimos e Lembrancinhas', image: '/images/3d_card.png' },
+    { id: 'embalagens', name: 'Embalagens', image: '/images/3d_packaging.png' },
   ],
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
@@ -367,7 +367,8 @@ const Catalogo = () => {
           {selectedCategory && subcategoriesList[selectedCategory] && selectedSubcategory === 'all' && (
             <div className="mb-16">
               <h2 className="font-heading text-2xl font-bold mb-8 text-center uppercase tracking-wider text-muted-foreground/60">
-                Escolha o modelo de <span className="text-primary">{categories.find(c => c.id === selectedCategory)?.name}</span>
+                {selectedCategory === 'pascoa' ? 'Escolha a opção de ' : 'Escolha o modelo de '}
+                <span className="text-primary">{categories.find(c => c.id === selectedCategory)?.name}</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {subcategoriesList[selectedCategory].filter(sub => sub.id !== 'all').map((sub, index) => (
