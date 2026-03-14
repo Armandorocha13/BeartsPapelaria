@@ -3,7 +3,12 @@ import { Link } from 'react-router-dom';
 import { Button } from '@/components/ui/button';
 import { ButtonColorful } from '@/components/ui/button-colorful';
 import { useState, useEffect } from 'react';
-const images = ['/images/easter_1.png', '/images/easter_2.png', '/images/easter_3.png'];
+const images = [
+  '/images/3d_egg.png',
+  '/images/3d_bunny.png',
+  '/images/3d_chocolate.png',
+  '/images/3d_bonbon.png'
+];
 
 export const Hero = () => {
   const [currentImage, setCurrentImage] = useState(0);
