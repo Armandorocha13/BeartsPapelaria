@@ -12,17 +12,18 @@ interface ProductCardProps {
 
 export const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
-  const paperOptions = product.category === 'etiquetas'
-    ? ['OFFSET', 'KRAFT', 'FOTOGRÁFICO MATTE', 'FOTOGRÁFICO GLOSSY']
-    : product.category === 'adesivos'
-      ? ['VINIL TRANSPARENTE', 'FOTOGRÁFICO GLOSSY']
-      : product.category === 'cartoes'
-        ? ['OFFSET', 'FOTOGRÁFICO MATTE', 'FOTOGRÁFICO GLOSSY']
-        : (product.category === 'convites' && product.subcategory === 'impresso')
-          ? ['OFFSET', 'KRAFT', 'FOTOGRÁFICO MATTE', 'FOTOGRÁFICO GLOSSY']
-          : (product.category === 'chaveiros' || product.category === 'fotos')
-            ? ['FOTOGRÁFICO']
-            : ['OFFSET', 'KRAFT'];
+  const getPaperOptions = () => {
+    const base = ['GLOSSY', 'KRAFT', 'OFFSET'];
+    if (product.category === 'adesivos') {
+      return [...base, 'VINIL TRANSPARENTE'];
+    }
+    if (['etiquetas', 'cartoes'].includes(product.category) || (product.category === 'convites' && product.subcategory === 'impresso')) {
+      return [...base, 'FOTOGRÁFICO MATTE'];
+    }
+    return base;
+  };
+
+  const paperOptions = getPaperOptions();
 
   const [paperType, setPaperType] = useState<string>(paperOptions[0]);
   const [handleType, setHandleType] = useState<string>('Alça de Cordão');
@@ -36,7 +37,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   if (product.category === 'adesivos' && (product.subcategory === 'redondo' || product.subcategory === 'quadrado')) {
     if (paperType === 'VINIL TRANSPARENTE') {
       currentPrice += 2.50;
-    } else if (paperType === 'FOTOGRÁFICO GLOSSY') {
+    } else if (paperType === 'GLOSSY') {
       currentPrice += 1.50;
     }
   }
@@ -48,14 +49,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         currentPrice = 15.00;
       } else if (paperType === 'FOTOGRÁFICO MATTE') {
         currentPrice = 20.00;
-      } else if (paperType === 'FOTOGRÁFICO GLOSSY') {
+      } else if (paperType === 'GLOSSY') {
         currentPrice = 25.00;
       }
     } else if (product.subcategory === 'sus') {
-      currentPrice = paperType === 'FOTOGRÁFICO GLOSSY' ? 15.00 : 12.00;
+      currentPrice = paperType === 'GLOSSY' ? 15.00 : 12.00;
     } else {
       // Outros cartões (Visita, etc)
-      if (paperType === 'FOTOGRÁFICO GLOSSY') {
+      if (paperType === 'GLOSSY') {
         currentPrice = 45.00;
       } else {
         currentPrice = 35.00;
@@ -65,7 +66,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   // Preços para Convites Individuais baseados no papel
   if (product.category === 'convites' && product.subcategory === 'impresso') {
-    currentPrice = paperType === 'FOTOGRÁFICO GLOSSY' ? 14.00 : 12.00;
+    currentPrice = paperType === 'GLOSSY' ? 14.00 : 12.00;
   }
 
   // Desconto Progressivo para Sacolas 18x21
@@ -218,8 +219,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
 
           {/* Paper Type Selection */}
-          {(product.category !== 'convites' || product.subcategory === 'impresso') &&
-            product.category !== 'outros' && (
+          {(!['logomarca', 'identidade-visual', 'arte-personalizada'].includes(product.subcategory || '') &&
+            (product.category !== 'convites' || product.subcategory === 'impresso')) && (
               <div className="space-y-2">
                 <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>
                 <select
