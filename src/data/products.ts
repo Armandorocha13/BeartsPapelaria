@@ -737,7 +737,7 @@ export const products: Product[] = [
     price: 9.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: imgSacolaGeneric,
+    image: '/images/sacola_bombom_mimo.jpg',
     isNew: true,
   },
   {
@@ -747,7 +747,7 @@ export const products: Product[] = [
     price: 10.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: '/images/3d_bunny.png',
+    image: '/images/coelhinho_3_bis.jpg',
     isNew: true,
   },
   {
@@ -787,7 +787,7 @@ export const products: Product[] = [
     price: 45.00,
     category: 'pascoa',
     subcategory: 'buques',
-    image: '/images/3d_bouquet.png',
+    image: '/images/buque_borboleta_ouro_branco.jpg',
     isNew: true,
     variations: [
       { name: 'P (10 borboletas + 4 bombons)', price: 45.00 },
@@ -802,7 +802,7 @@ export const products: Product[] = [
     price: 40.00,
     category: 'pascoa',
     subcategory: 'buques',
-    image: '/images/3d_bouquet.png',
+    image: '/images/caixa_buque_sonho_valsa.jpg',
     isNew: true,
     variations: [
       { name: 'P (6 bombons)', price: 40.00 },
@@ -817,7 +817,7 @@ export const products: Product[] = [
     price: 20.00,
     category: 'pascoa',
     subcategory: 'buques',
-    image: '/images/3d_bouquet.png',
+    image: '/images/buque_coracao_urso.jpg',
     isNew: true,
     variations: [
       { name: 'Sonho de Valsa', price: 20.00 },
