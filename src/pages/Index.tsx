@@ -68,9 +68,9 @@ const Index = () => {
             Descubra nossa coleção completa e encontre os materiais perfeitos para você
           </p>
           <ButtonColorful asChild className="h-14 px-8 text-lg">
-            <Link to="/catalogo">
-              <span>Explorar Catálogo</span>
-              <ArrowRight className="w-5 h-5" />
+            <Link to="/catalogo?categoria=pascoa">
+              <span>Explorar Catálogo de Páscoa</span>
+              <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </ButtonColorful>
         </div>

@@ -89,6 +89,7 @@ import imgConviteInterativo3 from '@/assets/products/ConviteInterativo3.jpg';
 
 const categories = [
   { id: 'all', name: 'Todos' },
+  { id: 'pascoa', name: 'Páscoa' },
   { id: 'fotos', name: 'Fotos' },
   { id: 'sacolas', name: 'Sacolas' },
   { id: 'caixas', name: 'Caixas' },
@@ -101,6 +102,12 @@ const categories = [
 ];
 
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
+  pascoa: [
+    { id: 'all', name: 'Todos de Páscoa' },
+    { id: 'caixas-doces', name: 'Caixas para Doces', image: '/images/3d_egg.png' },
+    { id: 'mimos', name: 'Mimos e Lembrancinhas', image: '/images/3d_bunny.png' },
+    { id: 'embalagens', name: 'Embalagens', image: '/images/3d_chocolate.png' },
+  ],
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
     { id: 'polaroide', name: 'Polaroide', image: imgPolaroidClassica2, images: [imgPolaroidClassica2, imgPolaroidClassica1, imgPolaroidGrande2, imgPolaroidGrande1, imgPolaroidMini2, imgPolaroidMini1] },
