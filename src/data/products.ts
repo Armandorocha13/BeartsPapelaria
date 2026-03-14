@@ -617,7 +617,7 @@ export const products: Product[] = [
     price: 30.00,
     category: 'pascoa',
     subcategory: 'caixas-personalizadas',
-    image: '/images/3d_candybox.png',
+    image: '/images/caixa_bombom_acta.jpg',
     isNew: true,
   },
   {
@@ -627,7 +627,7 @@ export const products: Product[] = [
     price: 25.00,
     category: 'pascoa',
     subcategory: 'caixas-personalizadas',
-    image: '/images/3d_candybox.png',
+    image: '/images/caixa_bis_coelhinho.jpg',
     isNew: true,
   },
   {
@@ -819,5 +819,11 @@ export const products: Product[] = [
     subcategory: 'buques',
     image: '/images/3d_bouquet.png',
     isNew: true,
+    variations: [
+      { name: 'Sonho de Valsa', price: 20.00 },
+      { name: 'Ouro Branco', price: 20.00 },
+      { name: 'Serenata do Amor', price: 20.00 },
+      { name: 'Personalizado', price: 20.00 },
+    ],
   },
 ];

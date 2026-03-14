@@ -103,7 +103,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const handleAddToCart = () => {
     addItem({
       id: `${product.id}${selectedVariation ? '-' + selectedVariation.name : ''}`,
-      name: `${product.name}${selectedVariation ? ' (' + selectedVariation.name + ')' : ''}`,
+      name: selectedVariation ? `${product.name} - ${selectedVariation.name}` : product.name,
       price: currentPrice,
       image: product.image,
       quantity: quantity,
@@ -199,7 +199,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.variations && (
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase text-muted-foreground">
-                {product.category === 'cartoes' || product.category === 'convites' ? 'Quantidade:' : 'Opções de Tamanho:'}
+                {product.category === 'cartoes' || product.category === 'convites'
+                  ? 'Quantidade:'
+                  : (product.category === 'pascoa' ? 'Opções de Tema:' : 'Opções de Tamanho:')}
               </span>
               <select
                 value={selectedVariation?.name}
