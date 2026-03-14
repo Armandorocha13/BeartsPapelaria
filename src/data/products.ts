@@ -657,7 +657,7 @@ export const products: Product[] = [
     price: 4.00,
     category: 'pascoa',
     subcategory: 'mimos',
-    image: '/images/3d_card.png',
+    image: '/images/card_1_bombom_pascoa.jpg',
     isNew: true,
   },
   {
@@ -667,7 +667,7 @@ export const products: Product[] = [
     price: 3.50,
     category: 'pascoa',
     subcategory: 'mimos',
-    image: '/images/3d_card.png',
+    image: '/images/card_batom_pascoa.jpg',
     isNew: true,
   },
   {
@@ -677,7 +677,7 @@ export const products: Product[] = [
     price: 2.50,
     category: 'pascoa',
     subcategory: 'mimos',
-    image: '/images/3d_card.png',
+    image: '/images/card_1_bis_pascoa.jpg',
     isNew: true,
   },
   {
@@ -687,7 +687,7 @@ export const products: Product[] = [
     price: 15.00,
     category: 'pascoa',
     subcategory: 'mimos',
-    image: '/images/easter_1.png',
+    image: '/images/caca_aos_ovos_completo.jpg',
     isNew: true,
   },
   {
@@ -697,7 +697,7 @@ export const products: Product[] = [
     price: 2.50,
     category: 'pascoa',
     subcategory: 'mimos',
-    image: '/images/3d_card.png',
+    image: '/images/tag_lembrancinha_pascoa.jpg',
     isNew: true,
   },
   {
@@ -707,7 +707,7 @@ export const products: Product[] = [
     price: 3.50,
     category: 'pascoa',
     subcategory: 'mimos',
-    image: '/images/3d_card.png',
+    image: '/images/card_moeda_pix.jpg',
     isNew: true,
   },
   {
@@ -717,7 +717,7 @@ export const products: Product[] = [
     price: 40.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: '/images/3d_packaging.png',
+    image: '/images/caixa_cenario_pascoa.jpg',
     isNew: true,
   },
   {
@@ -727,7 +727,7 @@ export const products: Product[] = [
     price: 14.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: imgSacolaGeneric,
+    image: '/images/caixas_ovo_tematicas.jpg',
     isNew: true,
   },
   {
@@ -757,7 +757,7 @@ export const products: Product[] = [
     price: 16.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: '/images/3d_packaging.png',
+    image: '/images/maletinha_3_ovos.jpg',
     isNew: true,
   },
   {
@@ -767,7 +767,7 @@ export const products: Product[] = [
     price: 10.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: '/images/3d_chocolate.png',
+    image: '/images/kitkat_personalizado.jpg',
     isNew: true,
   },
   {
@@ -777,7 +777,7 @@ export const products: Product[] = [
     price: 18.00,
     category: 'pascoa',
     subcategory: 'embalagens-personalizadas',
-    image: '/images/3d_chocolate.png',
+    image: '/images/barra_chocolate_personalizada.jpg',
     isNew: true,
   },
   {
