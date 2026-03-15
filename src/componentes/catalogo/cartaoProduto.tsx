@@ -14,6 +14,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(1);
   const getPaperOptions = () => {
     const base = ['GLOSSY', 'OFFSET'];
+    if (product.category === 'sacolas') {
+      return [...base, 'KRAFT'];
+    }
     if (product.category === 'adesivos') {
       return [...base, 'VINIL TRANSPARENTE'];
     }
@@ -81,6 +84,15 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const isCalendar = product.subcategory === 'calendario';
   if (isCalendar && magnetType === 'Com Ímã') {
     currentPrice += 1.50;
+  }
+
+  // Desconto para papel KRAFT em sacolas
+  if (product.category === 'sacolas' && paperType === 'KRAFT') {
+    if (product.subcategory === 'sacola-almofada') {
+      currentPrice -= 1.50; // 4.50 -> 3.00
+    } else {
+      currentPrice -= 0.50;
+    }
   }
 
   const handleOptions = [
@@ -237,8 +249,8 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               </div>
             )}
 
-          {/* Handle Type Selection - ONLY FOR SACOLAS */}
-          {product.category === 'sacolas' && (
+          {/* Handle Type Selection - ONLY FOR SACOLAS EXCLUDING ALMOFADA */}
+          {product.category === 'sacolas' && product.subcategory !== 'sacola-almofada' && (
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Alça:</span>
               <select

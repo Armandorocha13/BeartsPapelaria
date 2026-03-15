@@ -1,7 +1,7 @@
 import { ReactNode } from 'react';
-import { Navbar } from './Navbar';
-import { Footer } from './Footer';
-import { WelcomeModal } from '../home/WelcomeModal';
+import { Navbar } from './barraNavegacao';
+import { Footer } from './rodape';
+import { WelcomeModal } from '../inicio/modalBoasVindas';
 
 interface LayoutProps {
   children: ReactNode;

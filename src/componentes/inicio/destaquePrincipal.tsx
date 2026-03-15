@@ -4,10 +4,10 @@ import { Button } from '@/componentes/interface/button';
 import { ButtonColorful } from '@/componentes/interface/button-colorful';
 import { useState, useEffect } from 'react';
 const images = [
-  '/images/caixas_ovo_tematicas.jpg',
-  '/images/buque_borboleta_ouro_branco.jpg',
-  '/images/caixa_buque_sonho_valsa.jpg',
-  '/images/caca_aos_ovos_completo.jpg'
+  '/images/3d_bunny.png',
+  '/images/3d_chocolate.png',
+  '/images/3d_egg.png',
+  '/images/3d_bonbon.png'
 ];
 
 export const Hero = () => {

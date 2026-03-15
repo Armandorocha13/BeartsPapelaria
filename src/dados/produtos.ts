@@ -9,6 +9,9 @@ import imgPolaroidGrande2 from '@/ativos/produtos/PolaroidGrande2.png';
 import imgA5 from '@/ativos/subcat-a5.png';
 import imgA4 from '@/ativos/subcat-a4.png';
 import imgSacolaGeneric from '@/ativos/subcat-sacola-generic.png';
+import imgSacolaVertical from '@/ativos/subcat-sacola-vertical.jpg';
+import imgSacolaHorizontal from '@/ativos/subcat-sacola-horizontal.jpg';
+import imgSacolaAlmofada from '@/ativos/subcat-sacola-almofada.jpg';
 import imgCaixaPiramide1 from '@/ativos/produtos/CaixaPiramide1.png';
 import imgCaixaMilk1 from '@/ativos/produtos/CaixaMilk1.png';
 import imgCaixa10x9_1 from '@/ativos/produtos/Caixa10x9_1.png';
@@ -186,63 +189,55 @@ export const products: Product[] = [
     images: [imgFotoA4_1, imgFotoA4_2],
   },
 
+  {
+    id: 140,
+    name: 'Sacola Almofada',
+    description: 'Sacola em formato de almofada personalizada, ideal para brindes e mimos especiais.',
+    price: 4.50,
+    category: 'sacolas',
+    subcategory: 'sacola-almofada',
+    image: imgSacolaAlmofada,
+  },
 
   {
     id: 13,
-    name: 'Sacola de Papel 18x21',
-    description: 'Sacola resistente, ideal para presentes médios.',
+    name: 'Sacola de Papel',
+    description: 'Sacola de papel personalizada vertical, ideal para presentes e mimos.',
     price: 8.50,
     category: 'sacolas',
-    subcategory: '18x21',
-    image: imgSacola18x21_1,
-    images: [imgSacola18x21_1, imgSacola18x21_2, imgSacola18x21_3],
-    kraftImages: [imgSacola18x21_Kraft_1, imgSacola18x21_Kraft_2],
+    subcategory: 'sacola-vertical',
+    image: imgSacolaVertical,
     isFeatured: true,
+    variations: [
+      { name: 'PP', price: 3.50 },
+      { name: 'P', price: 4.50 },
+      { name: 'M', price: 6.00 },
+      { name: 'G', price: 8.50 },
+    ],
   },
 
 
   {
     id: 14,
-    name: 'Sacola de Papel 11x8',
-    description: 'Mini sacola charmosa, ideal para joias e pequenos mimos.',
-    price: 5.50,
+    name: 'Sacola de Papel',
+    description: 'Sacola de papel personalizada horizontal, ideal para presentes e mimos.',
+    price: 4.50,
     category: 'sacolas',
-    subcategory: '11x8',
-    image: imgSacola11x8_1,
-    images: [imgSacola11x8_1, imgSacola11x8_2],
+    subcategory: 'sacola-horizontal',
+    image: imgSacolaHorizontal,
+    variations: [
+      { name: 'PP', price: 3.50 },
+      { name: 'P', price: 4.50 },
+      { name: 'M', price: 6.00 },
+      { name: 'G', price: 8.50 },
+    ],
   },
 
-  {
-    id: 110,
-    name: 'Sacola de Papel 15x11',
-    description: 'Sacola de papel 15x11cm, tamanho ideal para itens médios e pequenos.',
-    price: 7.00,
-    category: 'sacolas',
-    subcategory: '15x11',
-    image: imgSacola15x11_1,
-    images: [imgSacola15x11_1, imgSacola15x11_2],
-  },
 
-  {
-    id: 111,
-    name: 'Sacola de Papel 10x9',
-    description: 'Sacola de papel 10x9cm, perfeita para lembranças e acessórios.',
-    price: 6.00,
-    category: 'sacolas',
-    subcategory: '10x9',
-    image: imgSacolaGeneric,
-  },
 
-  {
-    id: 131,
-    name: 'Sacola de Papel 25x22',
-    description: 'Sacola de papel 25x22cm, tamanho grande ideal para presentes e compras.',
-    price: 9.50,
-    category: 'sacolas',
-    subcategory: '25x22',
-    image: imgSacolaGeneric,
-    isNew: true,
-  },
+
+
+
   {
     id: 15,
     name: 'Caixa Pirâmide Personalizada',

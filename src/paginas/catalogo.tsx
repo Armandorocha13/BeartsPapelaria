@@ -26,16 +26,8 @@ import imgFotoA5_1 from '@/ativos/produtos/FotoA5_1.jpg';
 import imgFotoA5_2 from '@/ativos/produtos/FotoA5_2.jpg';
 import imgFotoA4_1 from '@/ativos/produtos/FotoA4_1.jpg';
 import imgFotoA4_2 from '@/ativos/produtos/FotoA4_2.jpg';
-import imgSacola18x21_1 from '@/ativos/sacola-18-21-1.png';
-import imgSacola18x21_2 from '@/ativos/sacola-18-21-2.png';
-import imgSacola18x21_3 from '@/ativos/sacola-18-21-3.png';
 
-import imgSacola11x8_1 from '@/ativos/sacola-11-8-1.png';
-import imgSacola11x8_2 from '@/ativos/sacola-11-8-2.png';
-import imgSacola15x11_1 from '@/ativos/sacola-15-11-1.png';
-import imgSacola15x11_2 from '@/ativos/sacola-15-11-2.png';
 import imgCaixaPiramide_1 from '@/ativos/caixa-piramide-1.png';
-import imgCaixaPiramide_2 from '@/ativos/caixa-piramide-2.png';
 import imgCaixa15x13x4_1 from '@/ativos/caixa-15-13-4-1.png';
 import imgCaixa15x13x4_2 from '@/ativos/caixa-15-13-4-2.png';
 import imgCaixa9x4x2_1 from '@/ativos/caixa-9-4-2-1.png';
@@ -43,9 +35,13 @@ import imgCaixa9x4x2_2 from '@/ativos/caixa-9-4-2-2.png';
 
 import imgEtiquetaCaixao from '@/ativos/EtiquetaCaixao.png';
 import imgSacolaGeneric from '@/ativos/subcat-sacola-generic.png';
+import imgSacolaVertical from '@/ativos/subcat-sacola-vertical.jpg';
+import imgSacolaAlmofada from '@/ativos/subcat-sacola-almofada.jpg';
+import imgSacolaHorizontal from '@/ativos/subcat-sacola-horizontal.jpg';
 import imgCaixaPiramide1 from '@/ativos/produtos/CaixaPiramide1.png';
 import imgCaixaMilk1 from '@/ativos/produtos/CaixaMilk1.png';
 import imgCaixa10x9_1 from '@/ativos/produtos/Caixa10x9_1.png';
+import imgCaixaGeneric from '@/ativos/subcat-caixa-generic.png';
 import imgEtiquetaGeneric from '@/ativos/subcat-etiqueta-generic.png';
 import imgEtiquetaQuadrada1 from '@/ativos/produtos/EtiquetaQuadrada1.png';
 import imgAdesivoPersonalizado from '@/ativos/subcat-adesivo-personalizado.png';
@@ -119,45 +115,33 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ],
   sacolas: [
     { id: 'all', name: 'Todas as Sacolas' },
-    {
-      id: '18x21',
-      name: 'Sacola de papel 18x21',
-      image: imgSacola18x21_1,
-      images: [imgSacola18x21_1, imgSacola18x21_2, imgSacola18x21_3]
-    },
-    {
-      id: '11x8',
-      name: 'Sacola de papel 11x8',
-      image: imgSacola11x8_1,
-      images: [imgSacola11x8_1, imgSacola11x8_2]
-    },
-
-    {
-      id: '15x11',
-      name: 'Sacola de papel 15x11',
-      image: imgSacola15x11_1,
-      images: [imgSacola15x11_1, imgSacola15x11_2]
-    },
-    { id: '10x9', name: 'Sacola de papel 10x9', image: imgSacolaGeneric },
-    { id: '25x22', name: 'Sacola de papel 25x22', image: imgSacolaGeneric },
+    { id: 'sacola-vertical', name: 'Sacola personalizada vertical', image: imgSacolaVertical },
+    { id: 'sacola-horizontal', name: 'Sacola personalizada horizontal', image: imgSacolaHorizontal },
+    { id: 'sacola-almofada', name: 'Sacola almofada', image: imgSacolaAlmofada },
   ],
+
+
+
   caixas: [
     { id: 'all', name: 'Todas as Caixas' },
-    {
-      id: 'piramide',
-      name: 'Caixa pirâmide',
-      image: imgCaixaPiramide1,
-      images: [imgCaixaPiramide_1, imgCaixaPiramide_2]
-    },
-    { id: 'milk', name: 'Caixa milk', image: imgCaixaMilk1 },
-    {
-      id: '15x13x4',
-      name: 'Caixa 15x13x4',
-      image: imgCaixa15x13x4_1,
-      images: [imgCaixa15x13x4_1, imgCaixa15x13x4_2]
-    },
-    { id: '10x9', name: 'Caixa 10x9', image: imgCaixa10x9_1 },
-    { id: '9x4x2', name: 'Caixa 9x4x2', image: imgCaixa9x4x2_1, images: [imgCaixa9x4x2_1, imgCaixa9x4x2_2] },
+    { id: 'piramide', name: 'Pirâmide', image: imgCaixaPiramide1, images: [imgCaixaPiramide_1] },
+    { id: 'milk', name: 'Milk', image: imgCaixaMilk1 },
+    { id: 'cone', name: 'Cone', image: imgCaixaGeneric },
+    { id: 'lanchinho', name: 'Lanchinho', image: imgCaixaGeneric },
+    { id: 'caixa-canudo', name: 'Caixa canudo', image: imgCaixaGeneric },
+    { id: 'maletinha', name: 'Maletinha', image: imgCaixaGeneric },
+    { id: 'almofada', name: 'Almofada', image: imgCaixaGeneric },
+    { id: 'caixa-cenario', name: 'Caixa cenário', image: imgCaixaGeneric },
+    { id: 'caixa-docinho', name: 'Caixa para docinho', image: imgCaixaGeneric },
+    { id: 'porta-caneta', name: 'Porta caneta', image: imgCaixaGeneric },
+    { id: 'porta-chaveiro', name: 'Porta chaveiro', image: imgCaixaGeneric },
+    { id: 'porta-sabonete', name: 'Porta sabonete', image: imgCaixaGeneric },
+    { id: 'cubo', name: 'Cubo', image: imgCaixaGeneric },
+    { id: 'cachepo', name: 'Cachepô', image: imgCaixaGeneric },
+    { id: 'centro-mesa', name: 'Centro de mesa', image: imgCaixaGeneric },
+    { id: 'porta-bis', name: 'Porta Bis', image: imgCaixaGeneric },
+    { id: 'mc-donalds', name: 'Mc donalds', image: imgCaixaGeneric },
+    { id: 'porta-tubete', name: 'Porta tubete', image: imgCaixaGeneric },
   ],
 
   etiquetas: [
