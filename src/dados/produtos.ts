@@ -12,7 +12,7 @@ import imgSacolaGeneric from '@/ativos/subcat-sacola-generic.png';
 import imgSacolaVertical from '@/ativos/subcat-sacola-vertical.jpg';
 import imgSacolaHorizontal from '@/ativos/subcat-sacola-horizontal.jpg';
 import imgSacolaAlmofada from '@/ativos/subcat-sacola-almofada.jpg';
-import imgCaixaPiramide1 from '@/ativos/produtos/CaixaPiramide1.png';
+import imgCaixaPiramide from '@/ativos/subcat-caixa-piramide.jpg';
 import imgCaixaMilk1 from '@/ativos/produtos/CaixaMilk1.png';
 import imgCaixa10x9_1 from '@/ativos/produtos/Caixa10x9_1.png';
 import imgEtiquetaGeneric from '@/ativos/subcat-etiqueta-generic.png';
@@ -245,7 +245,7 @@ export const products: Product[] = [
     price: 4.50,
     category: 'caixas',
     subcategory: 'piramide',
-    image: imgCaixaPiramide1,
+    image: imgCaixaPiramide,
     isNew: true,
   },
   {

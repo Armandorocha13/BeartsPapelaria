@@ -27,7 +27,6 @@ import imgFotoA5_2 from '@/ativos/produtos/FotoA5_2.jpg';
 import imgFotoA4_1 from '@/ativos/produtos/FotoA4_1.jpg';
 import imgFotoA4_2 from '@/ativos/produtos/FotoA4_2.jpg';
 
-import imgCaixaPiramide_1 from '@/ativos/caixa-piramide-1.png';
 import imgCaixa15x13x4_1 from '@/ativos/caixa-15-13-4-1.png';
 import imgCaixa15x13x4_2 from '@/ativos/caixa-15-13-4-2.png';
 import imgCaixa9x4x2_1 from '@/ativos/caixa-9-4-2-1.png';
@@ -38,10 +37,24 @@ import imgSacolaGeneric from '@/ativos/subcat-sacola-generic.png';
 import imgSacolaVertical from '@/ativos/subcat-sacola-vertical.jpg';
 import imgSacolaAlmofada from '@/ativos/subcat-sacola-almofada.jpg';
 import imgSacolaHorizontal from '@/ativos/subcat-sacola-horizontal.jpg';
-import imgCaixaPiramide1 from '@/ativos/produtos/CaixaPiramide1.png';
-import imgCaixaMilk1 from '@/ativos/produtos/CaixaMilk1.png';
+import imgCaixaPiramide from '@/ativos/subcat-caixa-piramide.jpg';
 import imgCaixa10x9_1 from '@/ativos/produtos/Caixa10x9_1.png';
+import imgCaixaMilk from '@/ativos/subcat-caixa-milk.jpg';
 import imgCaixaGeneric from '@/ativos/subcat-caixa-generic.png';
+import imgCaixaMaletinha from '@/ativos/subcat-caixa-maletinha.jpg';
+import imgCaixaDocinho from '@/ativos/subcat-caixa-docinho.jpg';
+import imgCaixaCanudo from '@/ativos/subcat-caixa-canudo.jpg';
+import imgCaixaLanchinho from '@/ativos/subcat-caixa-lanchinho.jpg';
+import imgCaixaPortaCaneta from '@/ativos/subcat-caixa-porta-caneta.jpg';
+import imgCaixaPortaChaveiro from '@/ativos/subcat-caixa-porta-chaveiro.jpg';
+import imgCaixaAlmofada from '@/ativos/subcat-caixa-almofada.jpg';
+import imgCaixaCenario from '@/ativos/subcat-caixa-cenario.jpg';
+import imgCaixaPortaSabonete from '@/ativos/subcat-caixa-porta-sabonete.jpg';
+import imgCaixaCubo from '@/ativos/subcat-caixa-cubo.jpg';
+import imgCaixaCachepo from '@/ativos/subcat-caixa-cachepo.jpg';
+import imgCaixaCentroMesa from '@/ativos/subcat-caixa-centro-mesa.jpg';
+import imgCaixaPortaBis from '@/ativos/subcat-caixa-porta-bis.jpg';
+import imgCaixaMcDonalds from '@/ativos/subcat-caixa-mcdonalds.jpg';
 import imgEtiquetaGeneric from '@/ativos/subcat-etiqueta-generic.png';
 import imgEtiquetaQuadrada1 from '@/ativos/produtos/EtiquetaQuadrada1.png';
 import imgAdesivoPersonalizado from '@/ativos/subcat-adesivo-personalizado.png';
@@ -124,23 +137,23 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
 
   caixas: [
     { id: 'all', name: 'Todas as Caixas' },
-    { id: 'piramide', name: 'Pirâmide', image: imgCaixaPiramide1, images: [imgCaixaPiramide_1] },
-    { id: 'milk', name: 'Milk', image: imgCaixaMilk1 },
+    { id: 'piramide', name: 'Pirâmide', image: imgCaixaPiramide },
+    { id: 'milk', name: 'Milk', image: imgCaixaMilk },
     { id: 'cone', name: 'Cone', image: imgCaixaGeneric },
-    { id: 'lanchinho', name: 'Lanchinho', image: imgCaixaGeneric },
-    { id: 'caixa-canudo', name: 'Caixa canudo', image: imgCaixaGeneric },
-    { id: 'maletinha', name: 'Maletinha', image: imgCaixaGeneric },
-    { id: 'almofada', name: 'Almofada', image: imgCaixaGeneric },
-    { id: 'caixa-cenario', name: 'Caixa cenário', image: imgCaixaGeneric },
-    { id: 'caixa-docinho', name: 'Caixa para docinho', image: imgCaixaGeneric },
-    { id: 'porta-caneta', name: 'Porta caneta', image: imgCaixaGeneric },
-    { id: 'porta-chaveiro', name: 'Porta chaveiro', image: imgCaixaGeneric },
-    { id: 'porta-sabonete', name: 'Porta sabonete', image: imgCaixaGeneric },
-    { id: 'cubo', name: 'Cubo', image: imgCaixaGeneric },
-    { id: 'cachepo', name: 'Cachepô', image: imgCaixaGeneric },
-    { id: 'centro-mesa', name: 'Centro de mesa', image: imgCaixaGeneric },
-    { id: 'porta-bis', name: 'Porta Bis', image: imgCaixaGeneric },
-    { id: 'mc-donalds', name: 'Mc donalds', image: imgCaixaGeneric },
+    { id: 'lanchinho', name: 'Lanchinho', image: imgCaixaLanchinho },
+    { id: 'caixa-canudo', name: 'Caixa canudo', image: imgCaixaCanudo },
+    { id: 'maletinha', name: 'Maletinha', image: imgCaixaMaletinha },
+    { id: 'almofada', name: 'Almofada', image: imgCaixaAlmofada },
+    { id: 'caixa-cenario', name: 'Caixa cenário', image: imgCaixaCenario },
+    { id: 'caixa-docinho', name: 'Caixa para docinho', image: imgCaixaDocinho },
+    { id: 'porta-caneta', name: 'Porta caneta', image: imgCaixaPortaCaneta },
+    { id: 'porta-chaveiro', name: 'Porta chaveiro', image: imgCaixaPortaChaveiro },
+    { id: 'porta-sabonete', name: 'Porta sabonete', image: imgCaixaPortaSabonete },
+    { id: 'cubo', name: 'Cubo', image: imgCaixaCubo },
+    { id: 'cachepo', name: 'Cachepô', image: imgCaixaCachepo },
+    { id: 'centro-mesa', name: 'Centro de mesa', image: imgCaixaCentroMesa },
+    { id: 'porta-bis', name: 'Porta Bis', image: imgCaixaPortaBis },
+    { id: 'mc-donalds', name: 'Mc donalds', image: imgCaixaMcDonalds },
     { id: 'porta-tubete', name: 'Porta tubete', image: imgCaixaGeneric },
   ],
 
@@ -193,7 +206,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ]
 };
 
-const SubcategoryImage = ({ sub }: { sub: { image?: string, images?: string[], name: string } }) => {
+const SubcategoryImage = ({ sub }: { sub: { id: string, image?: string, images?: string[], name: string } }) => {
   const [index, setIndex] = useState(0);
 
   useEffect(() => {
@@ -207,16 +220,16 @@ const SubcategoryImage = ({ sub }: { sub: { image?: string, images?: string[], n
 
   const displayImage = (sub.images && sub.images.length > 0) ? sub.images[index] : sub.image;
 
+  // Reduced zoom for specific subcategories requested by user
+  const lowZoomCategories = ['piramide', 'milk', 'lanchinho', 'caixa-docinho', 'porta-caneta', 'porta-sabonete', 'cubo', 'cachepo', 'centro-mesa', 'porta-bis', 'mc-donalds'];
+  const isLowZoom = lowZoomCategories.includes(sub.id);
+
   return (
     <img
       src={displayImage}
       alt={sub.name}
-      className="w-full h-full object-cover scale-[1.1] transition-transform duration-700 group-hover:scale-[1.5]"
+      className={`w-full h-full object-cover transition-transform duration-700 ${isLowZoom ? 'scale-100 group-hover:scale-[1.2]' : 'scale-[1.1] group-hover:scale-[1.5]'}`}
     />
-
-
-
-
   );
 };
 
