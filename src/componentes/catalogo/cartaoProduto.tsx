@@ -11,10 +11,10 @@ interface ProductCardProps {
 }
 
 export const ProductCard = ({ product }: ProductCardProps) => {
-  const [quantity, setQuantity] = useState(1);
+  const [quantity, setQuantity] = useState(product.minQuantity || 1);
   const getPaperOptions = () => {
     const base = ['GLOSSY', 'OFFSET'];
-    if (product.category === 'sacolas') {
+    if (product.category === 'sacolas' || product.subcategory === 'kit-corporativo') {
       return [...base, 'KRAFT'];
     }
     if (product.category === 'adesivos') {
@@ -22,6 +22,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     }
     if (['etiquetas', 'cartoes'].includes(product.category) || (product.category === 'convites' && product.subcategory === 'impresso')) {
       return [...base, 'FOTOGRÁFICO MATTE'];
+    }
+    if (product.subcategory === 'cofre' || product.subcategory === 'aplique-tubete') {
+      return ['GLOSSY'];
     }
     return base;
   };
@@ -35,6 +38,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const { addItem } = useCart();
 
   let currentPrice = selectedVariation ? selectedVariation.price : product.price;
+
+  if (product.subcategory === 'kit-corporativo') {
+    currentPrice = paperType === 'KRAFT' ? 15.00 : 18.00;
+  }
 
   // Adicionais para Adesivos Redondos e Quadrados
   if (product.category === 'adesivos' && (product.subcategory === 'redondo' || product.subcategory === 'quadrado')) {
@@ -110,7 +117,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   };
 
   const increment = () => setQuantity((prev) => prev + 1);
-  const decrement = () => setQuantity((prev) => (prev > 1 ? prev - 1 : 1));
+  const decrement = () => setQuantity((prev) => (prev > (product.minQuantity || 1) ? prev - 1 : (product.minQuantity || 1)));
 
   const handleAddToCart = () => {
     addItem({

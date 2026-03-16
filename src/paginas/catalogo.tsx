@@ -103,8 +103,9 @@ import imgConvitePdfLongo from '@/ativos/subcat-convite-pdf-longo.jpg';
 import imgConviteIndividualSub from '@/ativos/subcat-convite-individual.jpg';
 import imgCofre from '@/ativos/subcat-cofre.png';
 import imgApliqueTubete from '@/ativos/subcat-aplique-tubete.png';
-import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.png';
-import imgPortaDocinho from '@/ativos/subcat-porta-docinho.png';
+import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.jpg';
+import imgKitFesta from '@/ativos/subcat-kit-festa.jpg';
+import imgPortaDocinho from '@/ativos/subcat-porta-docinho.jpg';
 
 
 const categories = [
@@ -213,7 +214,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'calendario', name: 'Calendário', image: imgCalendarioMini1, images: [imgCalendarioMini1, imgCalendarioMini2] },
     { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas1, images: [imgBuqueBorboletas1, imgBuqueBorboletas2] },
     { id: 'imas-geladeira', name: 'Ímãs de Geladeira', image: imgImaGeladeira1, images: [imgImaGeladeira1, imgImaGeladeira2] },
-    { id: 'kit-festa', name: 'Kit Festa', image: imgCartaoGeneric },
+    { id: 'kit-festa', name: 'Kit só um bolinho', image: imgKitFesta },
     { id: 'cofre', name: 'Cofre personalizado', image: imgCofre },
     { id: 'aplique-tubete', name: 'Aplique para tubete', image: imgApliqueTubete },
     { id: 'kit-corporativo', name: 'Kit corporativo', image: imgKitCorporativo },

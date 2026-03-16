@@ -102,8 +102,9 @@ import imgConvitePdfLongo from '@/ativos/subcat-convite-pdf-longo.jpg';
 import imgConviteIndividualSub from '@/ativos/subcat-convite-individual.jpg';
 import imgCofre from '@/ativos/subcat-cofre.png';
 import imgApliqueTubete from '@/ativos/subcat-aplique-tubete.png';
-import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.png';
-import imgPortaDocinho from '@/ativos/subcat-porta-docinho.png';
+import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.jpg';
+import imgKitFesta from '@/ativos/subcat-kit-festa.jpg';
+import imgPortaDocinho from '@/ativos/subcat-porta-docinho.jpg';
 
 
 
@@ -126,6 +127,7 @@ export interface Product {
 
   isFeatured?: boolean;
   variations?: { name: string; price: number }[];
+  minQuantity?: number;
 }
 
 export const products: Product[] = [
@@ -777,28 +779,37 @@ export const products: Product[] = [
   },
   {
     id: 129,
-    name: 'Kit Festa Personalizado',
+    name: 'Kit só um bolinho',
     description: 'Combo com diversos itens personalizados para tornar sua festa inesquecível.',
-    price: 150.00,
+    price: 80.00,
     category: 'outros',
     subcategory: 'kit-festa',
-    image: imgCartaoGeneric,
+    image: imgKitFesta,
     isNew: true,
+    variations: [
+      { name: 'Sem display de mesa', price: 80.00 },
+      { name: 'Com display de mesa', price: 95.00 },
+    ],
   },
   {
     id: 317,
-    name: 'Cofre Personalizado Luxo',
-    description: 'Cofre personalizado em papel offset ou fotográfico, com tampa metálica e tema da festa.',
-    price: 6.50,
+    name: 'Cofre Personalizado',
+    description: 'Cofre personalizado no tema da sua preferencia. Pedido mínimo 10 unidades.',
+    price: 4.00,
     category: 'outros',
     subcategory: 'cofre',
     image: imgCofre,
     isNew: true,
+    minQuantity: 10,
+    variations: [
+      { name: 'Sem cofre', price: 4.00 },
+      { name: 'Com cofre', price: 6.50 },
+    ],
   },
   {
     id: 318,
     name: 'Aplique para Tubete',
-    description: 'Apliques em papel fotográfico cortados eletronicamente para decorar seus tubetes.',
+    description: 'Apliques em papel glossy personalizados no seu tema.',
     price: 1.50,
     category: 'outros',
     subcategory: 'aplique-tubete',
@@ -807,9 +818,9 @@ export const products: Product[] = [
   },
   {
     id: 319,
-    name: 'Kit Corporativo Minimalista',
-    description: 'Kit contendo caderneta, caneta e caneca personalizada com sua logo.',
-    price: 85.00,
+    name: 'Kit Corporativo',
+    description: 'Kit com Sacola personalizada, caneta e bloco de notas',
+    price: 18.00,
     category: 'outros',
     subcategory: 'kit-corporativo',
     image: imgKitCorporativo,
@@ -818,8 +829,8 @@ export const products: Product[] = [
   {
     id: 320,
     name: 'Porta Docinhos Personalizado',
-    description: 'Forminhas decoradas para docinhos gourmet, kit com 10 unidades.',
-    price: 8.00,
+    description: 'Forminhas decoradas para docinhos gourmet, kit com 25 unidades.',
+    price: 15.00,
     category: 'outros',
     subcategory: 'porta-docinho',
     image: imgPortaDocinho,
