@@ -78,6 +78,32 @@ import imgImaGeladeira2 from '@/ativos/produtos/ImaGeladeira2.jpg';
 import imgConviteInterativo1 from '@/ativos/produtos/ConviteInterativo1.jpg';
 import imgConviteInterativo2 from '@/ativos/produtos/ConviteInterativo2.jpg';
 import imgConviteInterativo3 from '@/ativos/produtos/ConviteInterativo3.jpg';
+import imgCaixaMilk from '@/ativos/subcat-caixa-milk.jpg';
+import imgCaixaMaletinha from '@/ativos/subcat-caixa-maletinha.jpg';
+import imgCaixaDocinho from '@/ativos/subcat-caixa-docinho.jpg';
+import imgCaixaCanudo from '@/ativos/subcat-caixa-canudo.jpg';
+import imgCaixaLanchinho from '@/ativos/subcat-caixa-lanchinho.jpg';
+import imgCaixaPortaCaneta from '@/ativos/subcat-caixa-porta-caneta.jpg';
+import imgCaixaPortaChaveiro from '@/ativos/subcat-caixa-porta-chaveiro.jpg';
+import imgCaixaAlmofada from '@/ativos/subcat-caixa-almofada.jpg';
+import imgCaixaCenario from '@/ativos/subcat-caixa-cenario.jpg';
+import imgCaixaPortaSabonete from '@/ativos/subcat-caixa-porta-sabonete.jpg';
+import imgCaixaCubo from '@/ativos/subcat-caixa-cubo.jpg';
+import imgCaixaCachepo from '@/ativos/subcat-caixa-cachepo.jpg';
+import imgCaixaCentroMesa from '@/ativos/subcat-caixa-centro-mesa.jpg';
+import imgCaixaPortaBis from '@/ativos/subcat-caixa-porta-bis.jpg';
+import imgCaixaMcDonalds from '@/ativos/subcat-caixa-mcdonalds.jpg';
+import imgCaixaPortaTubete from '@/ativos/subcat-caixa-porta-tubete.png';
+import imgTagXuxinha from '@/ativos/subcat-tag-xuxinha.png';
+import imgConviteVideo from '@/ativos/subcat-convite-video.png';
+import imgConviteDigital from '@/ativos/subcat-convite-digital.png';
+import imgConviteInterativoSub from '@/ativos/subcat-convite-interativo.jpg';
+import imgConvitePdfLongo from '@/ativos/subcat-convite-pdf-longo.jpg';
+import imgConviteIndividualSub from '@/ativos/subcat-convite-individual.jpg';
+import imgCofre from '@/ativos/subcat-cofre.png';
+import imgApliqueTubete from '@/ativos/subcat-aplique-tubete.png';
+import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.png';
+import imgPortaDocinho from '@/ativos/subcat-porta-docinho.png';
 
 
 
@@ -251,12 +277,156 @@ export const products: Product[] = [
   {
     id: 16,
     name: 'Caixa Milk',
-    description: 'Caixa milk decoradas para festa e eventos',
-    price: 4.50,
+    description: 'Caixa milk personalizada, clássica e versátil para festas.',
+    price: 5.00,
     category: 'caixas',
     subcategory: 'milk',
-    image: imgCaixaMilk1,
-
+    image: imgCaixaMilk,
+  },
+  {
+    id: 301,
+    name: 'Caixa Lanchinho',
+    description: 'Caixa lanchinho ideal para kits lanches e lembrancinhas.',
+    price: 5.00,
+    category: 'caixas',
+    subcategory: 'lanchinho',
+    image: imgCaixaLanchinho,
+  },
+  {
+    id: 302,
+    name: 'Caixa Canudo',
+    description: 'Caixa com suporte para canudo, um charme extra na sua festa.',
+    price: 6.00,
+    category: 'caixas',
+    subcategory: 'caixa-canudo',
+    image: imgCaixaCanudo,
+  },
+  {
+    id: 303,
+    name: 'Caixa Maletinha',
+    description: 'Caixa formato maletinha, prática e decorativa.',
+    price: 6.00,
+    category: 'caixas',
+    subcategory: 'maletinha',
+    image: imgCaixaMaletinha,
+  },
+  {
+    id: 304,
+    name: 'Caixa Almofada',
+    description: 'Caixa em formato de almofada, perfeita para mimos delicados.',
+    price: 4.50,
+    category: 'caixas',
+    subcategory: 'almofada',
+    image: imgCaixaAlmofada,
+  },
+  {
+    id: 305,
+    name: 'Caixa Cenário',
+    description: 'Embalagem de luxo com cenário 3D temático para decoração.',
+    price: 15.00,
+    category: 'caixas',
+    subcategory: 'caixa-cenario',
+    image: imgCaixaCenario,
+  },
+  {
+    id: 306,
+    name: 'Caixa para Docinho',
+    description: 'Caixa personalizada para docinhos gourmet (1 a 4 unidades).',
+    price: 2.50,
+    category: 'caixas',
+    subcategory: 'caixa-docinho',
+    image: imgCaixaDocinho,
+    variations: [
+      { name: 'caixa para 1', price: 2.50 },
+      { name: 'caixa para 2', price: 3.50 },
+      { name: 'caixa para 3', price: 5.00 },
+      { name: 'caixa para 4', price: 6.00 },
+    ],
+  },
+  {
+    id: 307,
+    name: 'Porta Caneta',
+    description: 'Caixa porta caneta personalizada, útil e linda para festas.',
+    price: 5.00,
+    category: 'caixas',
+    subcategory: 'porta-caneta',
+    image: imgCaixaPortaCaneta,
+  },
+  {
+    id: 308,
+    name: 'Porta Chaveiro',
+    description: 'Caixa expositora para chaveiros e pequenos mimos personalizados.',
+    price: 6.00,
+    category: 'caixas',
+    subcategory: 'porta-chaveiro',
+    image: imgCaixaPortaChaveiro,
+  },
+  {
+    id: 309,
+    name: 'Porta Sabonete',
+    description: 'Caixa delicada para sabonetes ou mimos artesanais.',
+    price: 5.00,
+    category: 'caixas',
+    subcategory: 'porta-sabonete',
+    image: imgCaixaPortaSabonete,
+  },
+  {
+    id: 310,
+    name: 'Caixa Cubo',
+    description: 'Caixa em formato de cubo, moderna e minimalista.',
+    price: 4.50,
+    category: 'caixas',
+    subcategory: 'cubo',
+    image: imgCaixaCubo,
+  },
+  {
+    id: 311,
+    name: 'Cachepô',
+    description: 'Cachepô personalizado para guloseimas ou pequenos vasos.',
+    price: 3.00,
+    category: 'caixas',
+    subcategory: 'cachepo',
+    image: imgCaixaCachepo,
+  },
+  {
+    id: 312,
+    name: 'Centro de Mesa',
+    description: 'Peça central para mesa de convidados, completa a decoração.',
+    price: 9.00,
+    category: 'caixas',
+    subcategory: 'centro-mesa',
+    image: imgCaixaCentroMesa,
+  },
+  {
+    id: 313,
+    name: 'Porta Bis',
+    description: 'Suporte personalizado para chocolate Bis (Simples ou Duplo).',
+    price: 4.50,
+    category: 'caixas',
+    subcategory: 'porta-bis',
+    image: imgCaixaPortaBis,
+    variations: [
+      { name: 'Porta Bis', price: 4.50 },
+      { name: 'Porta Bis Duplo', price: 5.50 },
+    ],
+  },
+  {
+    id: 314,
+    name: 'Caixa Mc Donalds',
+    description: 'Caixa estilo fast food, divertida e espaçosa.',
+    price: 7.00,
+    category: 'caixas',
+    subcategory: 'mc-donalds',
+    image: imgCaixaMcDonalds,
+  },
+  {
+    id: 315,
+    name: 'Porta Tubete',
+    description: 'Suporte personalizado para tubete de acrílico.',
+    price: 3.50,
+    category: 'caixas',
+    subcategory: 'porta-tubete',
+    image: imgCaixaPortaTubete,
   },
   {
     id: 112,
@@ -347,6 +517,16 @@ export const products: Product[] = [
     variations: [
       { name: '6x10', price: 8.00 },
     ],
+  },
+  {
+    id: 316,
+    name: 'Tag para Xuxinha',
+    description: 'Tag personalizada: "Para seu cabelo não grudar no gloss". Acompanha xuxinha.',
+    price: 3.00,
+    category: 'etiquetas',
+    subcategory: 'tag-xuxinha',
+    image: imgTagXuxinha,
+    isNew: true,
   },
   {
     id: 19,
@@ -467,7 +647,7 @@ export const products: Product[] = [
     price: 20.00,
     category: 'convites',
     subcategory: 'digital-simples',
-    image: imgCartaoGeneric,
+    image: imgConviteDigital,
   },
   {
     id: 25,
@@ -476,8 +656,8 @@ export const products: Product[] = [
     price: 35.00,
     category: 'convites',
     subcategory: 'interativo',
-    image: imgConviteInterativo1,
-    images: [imgConviteInterativo1, imgConviteInterativo2, imgConviteInterativo3],
+    image: imgConviteInterativoSub,
+    images: [imgConviteInterativoSub, imgConviteInterativo1, imgConviteInterativo2, imgConviteInterativo3],
     isNew: true,
     isFeatured: true,
   },
@@ -488,7 +668,7 @@ export const products: Product[] = [
     price: 50.00,
     category: 'convites',
     subcategory: 'pdf-longo',
-    image: imgCartaoGeneric,
+    image: imgConvitePdfLongo,
   },
   {
     id: 26,
@@ -497,7 +677,7 @@ export const products: Product[] = [
     price: 65.00,
     category: 'convites',
     subcategory: 'video-1min',
-    image: boxPresente,
+    image: imgConviteVideo,
   },
   {
     id: 123,
@@ -506,7 +686,7 @@ export const products: Product[] = [
     price: 75.00,
     category: 'convites',
     subcategory: 'video-plus-1min',
-    image: boxPresente,
+    image: imgConviteVideo,
   },
   {
     id: 27,
@@ -535,7 +715,7 @@ export const products: Product[] = [
     price: 12.00,
     category: 'convites',
     subcategory: 'impresso',
-    image: boxPresente,
+    image: imgConviteIndividualSub,
     isNew: true,
     variations: [
       { name: 'Kit com 10', price: 12.00 },
@@ -603,6 +783,46 @@ export const products: Product[] = [
     category: 'outros',
     subcategory: 'kit-festa',
     image: imgCartaoGeneric,
+    isNew: true,
+  },
+  {
+    id: 317,
+    name: 'Cofre Personalizado Luxo',
+    description: 'Cofre personalizado em papel offset ou fotográfico, com tampa metálica e tema da festa.',
+    price: 6.50,
+    category: 'outros',
+    subcategory: 'cofre',
+    image: imgCofre,
+    isNew: true,
+  },
+  {
+    id: 318,
+    name: 'Aplique para Tubete',
+    description: 'Apliques em papel fotográfico cortados eletronicamente para decorar seus tubetes.',
+    price: 1.50,
+    category: 'outros',
+    subcategory: 'aplique-tubete',
+    image: imgApliqueTubete,
+    isNew: true,
+  },
+  {
+    id: 319,
+    name: 'Kit Corporativo Minimalista',
+    description: 'Kit contendo caderneta, caneta e caneca personalizada com sua logo.',
+    price: 85.00,
+    category: 'outros',
+    subcategory: 'kit-corporativo',
+    image: imgKitCorporativo,
+    isNew: true,
+  },
+  {
+    id: 320,
+    name: 'Porta Docinhos Personalizado',
+    description: 'Forminhas decoradas para docinhos gourmet, kit com 10 unidades.',
+    price: 8.00,
+    category: 'outros',
+    subcategory: 'porta-docinho',
+    image: imgPortaDocinho,
     isNew: true,
   },
   {

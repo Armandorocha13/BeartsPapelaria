@@ -94,6 +94,17 @@ import imgImaGeladeira2 from '@/ativos/produtos/ImaGeladeira2.jpg';
 import imgConviteInterativo1 from '@/ativos/produtos/ConviteInterativo1.jpg';
 import imgConviteInterativo2 from '@/ativos/produtos/ConviteInterativo2.jpg';
 import imgConviteInterativo3 from '@/ativos/produtos/ConviteInterativo3.jpg';
+import imgCaixaPortaTubete from '@/ativos/subcat-caixa-porta-tubete.png';
+import imgTagXuxinha from '@/ativos/subcat-tag-xuxinha.png';
+import imgConviteVideo from '@/ativos/subcat-convite-video.png';
+import imgConviteDigital from '@/ativos/subcat-convite-digital.png';
+import imgConviteInterativoSub from '@/ativos/subcat-convite-interativo.jpg';
+import imgConvitePdfLongo from '@/ativos/subcat-convite-pdf-longo.jpg';
+import imgConviteIndividualSub from '@/ativos/subcat-convite-individual.jpg';
+import imgCofre from '@/ativos/subcat-cofre.png';
+import imgApliqueTubete from '@/ativos/subcat-aplique-tubete.png';
+import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.png';
+import imgPortaDocinho from '@/ativos/subcat-porta-docinho.png';
 
 
 const categories = [
@@ -139,7 +150,6 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'all', name: 'Todas as Caixas' },
     { id: 'piramide', name: 'Pirâmide', image: imgCaixaPiramide },
     { id: 'milk', name: 'Milk', image: imgCaixaMilk },
-    { id: 'cone', name: 'Cone', image: imgCaixaGeneric },
     { id: 'lanchinho', name: 'Lanchinho', image: imgCaixaLanchinho },
     { id: 'caixa-canudo', name: 'Caixa canudo', image: imgCaixaCanudo },
     { id: 'maletinha', name: 'Maletinha', image: imgCaixaMaletinha },
@@ -154,7 +164,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'centro-mesa', name: 'Centro de mesa', image: imgCaixaCentroMesa },
     { id: 'porta-bis', name: 'Porta Bis', image: imgCaixaPortaBis },
     { id: 'mc-donalds', name: 'Mc donalds', image: imgCaixaMcDonalds },
-    { id: 'porta-tubete', name: 'Porta tubete', image: imgCaixaGeneric },
+    { id: 'porta-tubete', name: 'Porta tubete', image: imgCaixaPortaTubete },
   ],
 
   etiquetas: [
@@ -163,6 +173,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'quadrada', name: 'Etiqueta Quadrada', image: imgEtiquetaQuadrada1 },
     { id: 'retangular', name: 'Etiqueta Retangular', image: imgLabelRect1, images: [imgLabelRect1, imgLabelRect2, imgLabelRect3] },
     { id: 'caixao', name: 'Etiqueta Caixão', image: imgEtiquetaCaixao },
+    { id: 'tag-xuxinha', name: 'Tag para Xuxinha', image: imgTagXuxinha },
   ],
   adesivos: [
     { id: 'all', name: 'Todos os Adesivos' },
@@ -186,12 +197,12 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ],
   convites: [
     { id: 'all', name: 'Todos os Convites' },
-    { id: 'digital-simples', name: 'Convite digital simples', image: imgCartaoGeneric },
-    { id: 'interativo', name: 'Convite interativo', image: imgConviteInterativo1, images: [imgConviteInterativo1, imgConviteInterativo2, imgConviteInterativo3] },
-    { id: 'pdf-longo', name: 'Convite PDF longo', image: imgCartaoGeneric },
-    { id: 'video-1min', name: 'Convite em vídeo 1 min', image: imgCartaoGeneric },
-    { id: 'video-plus-1min', name: 'Convite em vídeo +1 min', image: imgCartaoGeneric },
-    { id: 'impresso', name: 'Convite individual 5x5', image: imgCartaoGeneric },
+    { id: 'digital-simples', name: 'Convite digital simples', image: imgConviteDigital },
+    { id: 'interativo', name: 'Convite interativo', image: imgConviteInterativoSub, images: [imgConviteInterativoSub, imgConviteInterativo1, imgConviteInterativo2, imgConviteInterativo3] },
+    { id: 'pdf-longo', name: 'Convite PDF longo', image: imgConvitePdfLongo },
+    { id: 'video-1min', name: 'Convite em vídeo 1 min', image: imgConviteVideo },
+    { id: 'video-plus-1min', name: 'Convite em vídeo +1 min', image: imgConviteVideo },
+    { id: 'impresso', name: 'Convite individual 5x5', image: imgConviteIndividualSub },
     { id: 'a5', name: 'Convite A5', image: imgA5 },
   ],
   outros: [
@@ -199,10 +210,14 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'arte-personalizada', name: 'Arte Personalizada', image: imgCartaoGeneric },
     { id: 'identidade-visual', name: 'Identidade Visual', image: imgIdentidadeVisualSamira },
     { id: 'logomarca', name: 'Logomarca', image: imgLogoDianaSantos, images: [imgLogoDianaSantos, imgLogoSolangeAlves, imgLogoKatiaNunes] },
-    { id: 'calendario', name: 'Calendário', image: imgCalendarioMini1, images: [imgCalendarioMini2, imgCalendarioA4_1, imgCalendarioA4_2] },
+    { id: 'calendario', name: 'Calendário', image: imgCalendarioMini1, images: [imgCalendarioMini1, imgCalendarioMini2] },
     { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas1, images: [imgBuqueBorboletas1, imgBuqueBorboletas2] },
     { id: 'imas-geladeira', name: 'Ímãs de Geladeira', image: imgImaGeladeira1, images: [imgImaGeladeira1, imgImaGeladeira2] },
     { id: 'kit-festa', name: 'Kit Festa', image: imgCartaoGeneric },
+    { id: 'cofre', name: 'Cofre personalizado', image: imgCofre },
+    { id: 'aplique-tubete', name: 'Aplique para tubete', image: imgApliqueTubete },
+    { id: 'kit-corporativo', name: 'Kit corporativo', image: imgKitCorporativo },
+    { id: 'porta-docinho', name: 'Porta docinhos', image: imgPortaDocinho },
   ]
 };
 
@@ -221,7 +236,7 @@ const SubcategoryImage = ({ sub }: { sub: { id: string, image?: string, images?:
   const displayImage = (sub.images && sub.images.length > 0) ? sub.images[index] : sub.image;
 
   // Reduced zoom for specific subcategories requested by user
-  const lowZoomCategories = ['piramide', 'milk', 'lanchinho', 'caixa-docinho', 'porta-caneta', 'porta-sabonete', 'cubo', 'cachepo', 'centro-mesa', 'porta-bis', 'mc-donalds'];
+  const lowZoomCategories = ['piramide', 'milk', 'lanchinho', 'caixa-docinho', 'porta-caneta', 'porta-sabonete', 'cubo', 'cachepo', 'centro-mesa', 'porta-bis', 'mc-donalds', 'porta-tubete'];
   const isLowZoom = lowZoomCategories.includes(sub.id);
 
   return (
