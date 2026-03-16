@@ -71,8 +71,8 @@ import imgCalendarioMini1 from '@/ativos/produtos/CalendarioMini1.jpg';
 import imgCalendarioMini2 from '@/ativos/produtos/CalendarioMini2.png';
 import imgCalendarioA4_1 from '@/ativos/produtos/CalendarioA4_1.jpg';
 import imgCalendarioA4_2 from '@/ativos/produtos/CalendarioA4_2.png';
-import imgBuqueBorboletas1 from '@/ativos/produtos/BuqueBorboletas1.jpg';
-import imgBuqueBorboletas2 from '@/ativos/produtos/BuqueBorboletas2.jpg';
+import imgBuqueBorboletas from '@/ativos/subcat-buque-borboletas.jpg';
+import imgBuqueVanGogh from '@/ativos/subcat-buque-vangogh.jpg';
 import imgImaGeladeira1 from '@/ativos/produtos/ImaGeladeira1.jpg';
 import imgImaGeladeira2 from '@/ativos/produtos/ImaGeladeira2.jpg';
 import imgConviteInterativo1 from '@/ativos/produtos/ConviteInterativo1.jpg';
@@ -105,6 +105,11 @@ import imgApliqueTubete from '@/ativos/subcat-aplique-tubete.png';
 import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.jpg';
 import imgKitFesta from '@/ativos/subcat-kit-festa.jpg';
 import imgPortaDocinho from '@/ativos/subcat-porta-docinho.jpg';
+import imgLivreto from '@/ativos/subcat-livreto.jpg';
+import imgCaderno from '@/ativos/subcat-caderno.jpg';
+import imgLambeLambe from '@/ativos/subcat-lambe-lambe.jpg';
+import imgCadernoEspiral from '@/ativos/subcat-caderno-espiral.jpg';
+import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
 
 
@@ -127,6 +132,8 @@ export interface Product {
 
   isFeatured?: boolean;
   variations?: { name: string; price: number }[];
+  secondaryVariations?: { name: string; price: number }[];
+  secondaryVariationTitle?: string;
   minQuantity?: number;
 }
 
@@ -758,23 +765,62 @@ export const products: Product[] = [
   {
     id: 127,
     name: 'Buquê de Borboletas',
-    description: 'Lindo buquê artesanal com borboletas delicadas, perfeito para presentear.',
-    price: 45.00,
+    description: 'Buque de borboletas, iluminado, com 3 polaroides, selecione a cor apos a compra',
+    price: 55.00,
     category: 'outros',
     subcategory: 'buque-borboletas',
-    image: imgBuqueBorboletas1,
-    images: [imgBuqueBorboletas1, imgBuqueBorboletas2],
+    image: imgBuqueBorboletas,
     isNew: true,
+    variations: [
+      { name: 'P', price: 55.00 },
+      { name: 'M', price: 70.00 },
+      { name: 'G', price: 80.00 },
+    ],
+  },
+  {
+    id: 324,
+    name: 'Buquê Van Gogh',
+    description: 'Buque de borboletas azuis com girassois amarelos, 1 polaroide inclusa',
+    price: 55.00,
+    category: 'outros',
+    subcategory: 'buque-borboletas',
+    image: imgBuqueVanGogh,
+    isNew: true,
+    variations: [
+      { name: 'P', price: 55.00 },
+      { name: 'M', price: 70.00 },
+      { name: 'G', price: 80.00 },
+    ],
   },
   {
     id: 128,
-    name: 'Ímãs de Geladeira',
+    name: 'Kit Mini Ímã',
     description: 'Kit com 6 ímãs personalizados com suas fotos, alta qualidade de impressão.',
     price: 18.00,
     category: 'outros',
     subcategory: 'imas-geladeira',
     image: imgImaGeladeira1,
     images: [imgImaGeladeira1, imgImaGeladeira2],
+    isNew: true,
+  },
+  {
+    id: 325,
+    name: 'Ímã Polaroide',
+    description: 'Ímã 8x9 personalizado no estilo polaroide.',
+    price: 6.00,
+    category: 'outros',
+    subcategory: 'imas-geladeira',
+    image: imgImaGeladeira1,
+    isNew: true,
+  },
+  {
+    id: 326,
+    name: 'Ímã de Geladeira',
+    description: 'Ímã 8x9 personalizado com sua foto preferida.',
+    price: 7.00,
+    category: 'outros',
+    subcategory: 'imas-geladeira',
+    image: imgImaGeladeira2,
     isNew: true,
   },
   {
@@ -835,6 +881,104 @@ export const products: Product[] = [
     subcategory: 'porta-docinho',
     image: imgPortaDocinho,
     isNew: true,
+  },
+  {
+    id: 321,
+    name: 'Painel Lambe Lambe',
+    description: 'Painel em papel glossy a4, estilo lambe lambe, personalizado.',
+    price: 45.00,
+    category: 'outros',
+    subcategory: 'lambe-lambe',
+    image: imgLambeLambe,
+    isNew: true,
+    variations: [
+      { name: '10 folhas', price: 45.00 },
+      { name: '20 folhas', price: 90.00 },
+      { name: '30 folhas', price: 130.00 },
+      { name: '40 folhas', price: 175.00 },
+      { name: '50 folhas', price: 215.00 },
+    ],
+  },
+  {
+    id: 322,
+    name: 'Caderno Personalizado A5',
+    description: 'Caderno de anotações tamanho A5 com capa dura personalizada no seu tema.',
+    price: 6.00,
+    category: 'outros',
+    subcategory: 'caderno',
+    image: imgCadernoA5,
+    isNew: true,
+    variations: [
+      { name: 'Apenas frente ou verso', price: 6.00 },
+      { name: 'Frente e verso', price: 14.00 },
+      { name: 'Frente, verso e guarda', price: 26.00 },
+    ],
+    secondaryVariationTitle: 'Opções de caderno:',
+    secondaryVariations: [
+      { name: 'Sem caderno', price: 0 },
+      { name: 'Com caderno', price: 8.00 },
+    ],
+  },
+  {
+    id: 327,
+    name: 'Caderno Personalizado Brochurao',
+    description: 'Caderno estilo brochurão com capa personalizada no seu tema preferido.',
+    price: 12.00,
+    category: 'outros',
+    subcategory: 'caderno',
+    image: imgCaderno,
+    isNew: true,
+    variations: [
+      { name: 'Apenas frente ou verso', price: 12.00 },
+      { name: 'Frente e verso', price: 26.00 },
+      { name: 'Frente, verso e guarda', price: 50.00 },
+    ],
+    secondaryVariationTitle: 'Opções de caderno:',
+    secondaryVariations: [
+      { name: 'Sem caderno', price: 0 },
+      { name: 'Com caderno', price: 12.00 },
+    ],
+  },
+  {
+    id: 328,
+    name: 'Caderno Personalizado Espiral',
+    description: 'Caderno espiral com capa dura e personalizada no seu tema.',
+    price: 12.00,
+    category: 'outros',
+    subcategory: 'caderno',
+    image: imgCadernoEspiral,
+    isNew: true,
+    variations: [
+      { name: 'Apenas frente ou verso', price: 12.00 },
+      { name: 'Frente e verso', price: 24.00 },
+      { name: 'Frente, verso e guarda', price: 48.00 },
+    ],
+    secondaryVariationTitle: 'Opções de caderno:',
+    secondaryVariations: [
+      { name: 'Sem caderno', price: 0 },
+      { name: 'Com caderno 1 Matéria', price: 15.00 },
+      { name: 'Com caderno 10 Matérias', price: 30.00 },
+    ],
+  },
+  {
+    id: 323,
+    name: 'Formas de dizer Eu Te Amo',
+    description: 'livreto ilustrado, formas de dizer eu te amo.',
+    price: 40.00,
+    category: 'outros',
+    subcategory: 'livreto',
+    image: imgLivreto,
+    isNew: true,
+    variations: [
+      { name: 'Marvel', price: 40.00 },
+      { name: 'Disney', price: 40.00 },
+      { name: 'Personalizado', price: 40.00 },
+    ],
+    secondaryVariationTitle: 'Sacola personalizada:',
+    secondaryVariations: [
+      { name: 'Sem sacola personalizada', price: 0 },
+      { name: 'Com sacola personalizada', price: 5.00 },
+    ],
   },
   {
     id: 200,

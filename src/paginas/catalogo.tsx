@@ -87,8 +87,7 @@ import imgCalendarioMini1 from '@/ativos/produtos/CalendarioMini1.jpg';
 import imgCalendarioMini2 from '@/ativos/produtos/CalendarioMini2.png';
 import imgCalendarioA4_1 from '@/ativos/produtos/CalendarioA4_1.jpg';
 import imgCalendarioA4_2 from '@/ativos/produtos/CalendarioA4_2.png';
-import imgBuqueBorboletas1 from '@/ativos/produtos/BuqueBorboletas1.jpg';
-import imgBuqueBorboletas2 from '@/ativos/produtos/BuqueBorboletas2.jpg';
+import imgBuqueBorboletas from '@/ativos/subcat-buque-borboletas.jpg';
 import imgImaGeladeira1 from '@/ativos/produtos/ImaGeladeira1.jpg';
 import imgImaGeladeira2 from '@/ativos/produtos/ImaGeladeira2.jpg';
 import imgConviteInterativo1 from '@/ativos/produtos/ConviteInterativo1.jpg';
@@ -106,6 +105,9 @@ import imgApliqueTubete from '@/ativos/subcat-aplique-tubete.png';
 import imgKitCorporativo from '@/ativos/subcat-kit-corporativo.jpg';
 import imgKitFesta from '@/ativos/subcat-kit-festa.jpg';
 import imgPortaDocinho from '@/ativos/subcat-porta-docinho.jpg';
+import imgLivreto from '@/ativos/subcat-livreto.jpg';
+import imgCaderno from '@/ativos/subcat-caderno.jpg';
+import imgLambeLambe from '@/ativos/subcat-lambe-lambe.jpg';
 
 
 const categories = [
@@ -212,13 +214,16 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'identidade-visual', name: 'Identidade Visual', image: imgIdentidadeVisualSamira },
     { id: 'logomarca', name: 'Logomarca', image: imgLogoDianaSantos, images: [imgLogoDianaSantos, imgLogoSolangeAlves, imgLogoKatiaNunes] },
     { id: 'calendario', name: 'Calendário', image: imgCalendarioMini1, images: [imgCalendarioMini1, imgCalendarioMini2] },
-    { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas1, images: [imgBuqueBorboletas1, imgBuqueBorboletas2] },
+    { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas },
     { id: 'imas-geladeira', name: 'Ímãs de Geladeira', image: imgImaGeladeira1, images: [imgImaGeladeira1, imgImaGeladeira2] },
     { id: 'kit-festa', name: 'Kit só um bolinho', image: imgKitFesta },
     { id: 'cofre', name: 'Cofre personalizado', image: imgCofre },
     { id: 'aplique-tubete', name: 'Aplique para tubete', image: imgApliqueTubete },
     { id: 'kit-corporativo', name: 'Kit corporativo', image: imgKitCorporativo },
     { id: 'porta-docinho', name: 'Porta docinhos', image: imgPortaDocinho },
+    { id: 'lambe-lambe', name: 'Painel lambe lambe', image: imgLambeLambe },
+    { id: 'caderno', name: 'Caderno personalizado', image: imgCaderno },
+    { id: 'livreto', name: 'Livreto personalizado', image: imgLivreto },
   ]
 };
 

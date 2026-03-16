@@ -23,7 +23,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     if (['etiquetas', 'cartoes'].includes(product.category) || (product.category === 'convites' && product.subcategory === 'impresso')) {
       return [...base, 'FOTOGRÁFICO MATTE'];
     }
-    if (product.subcategory === 'cofre' || product.subcategory === 'aplique-tubete') {
+    if (product.subcategory === 'cofre' || product.subcategory === 'aplique-tubete' || product.subcategory === 'buque-borboletas' || product.subcategory === 'imas-geladeira' || product.subcategory === 'lambe-lambe' || product.subcategory === 'caderno' || product.subcategory === 'livreto') {
       return ['GLOSSY'];
     }
     return base;
@@ -35,9 +35,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const [handleType, setHandleType] = useState<string>('Alça de Cordão');
   const [magnetType, setMagnetType] = useState<string>('Sem Ímã');
   const [selectedVariation, setSelectedVariation] = useState(product.variations?.[0] || null);
+  const [selectedSecondaryVariation, setSelectedSecondaryVariation] = useState(product.secondaryVariations?.[0] || null);
   const { addItem } = useCart();
 
   let currentPrice = selectedVariation ? selectedVariation.price : product.price;
+
+  if (selectedSecondaryVariation) {
+    currentPrice += selectedSecondaryVariation.price;
+  }
 
   if (product.subcategory === 'kit-corporativo') {
     currentPrice = paperType === 'KRAFT' ? 15.00 : 18.00;
@@ -121,8 +126,10 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
   const handleAddToCart = () => {
     addItem({
-      id: `${product.id}${selectedVariation ? '-' + selectedVariation.name : ''}`,
-      name: selectedVariation ? `${product.name} - ${selectedVariation.name}` : product.name,
+      id: `${product.id}${selectedVariation ? '-' + selectedVariation.name : ''}${selectedSecondaryVariation ? '-' + selectedSecondaryVariation.name : ''}`,
+      name: selectedVariation 
+        ? `${product.name} - ${selectedVariation.name}${selectedSecondaryVariation ? ' (' + selectedSecondaryVariation.name + ')' : ''}` 
+        : product.name,
       price: currentPrice,
       image: product.image,
       quantity: quantity,
@@ -130,13 +137,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       paperType: isCalendar ? undefined : paperType,
       handleType: product.category === 'sacolas' ? handleType : undefined,
       magnetType: isCalendar ? magnetType : undefined,
+      secondaryVariation: selectedSecondaryVariation ? selectedSecondaryVariation.name : undefined,
     });
 
     const info = product.category === 'sacolas'
       ? `(${paperType}, ${handleType}${selectedVariation ? ', ' + selectedVariation.name : ''})`
       : isCalendar
         ? `(${magnetType}${selectedVariation ? ', ' + selectedVariation.name : ''})`
-        : `(${paperType}${selectedVariation ? ', ' + selectedVariation.name : ''})`;
+        : `(${paperType}${selectedVariation ? ', ' + selectedVariation.name : ''}${selectedSecondaryVariation ? ', ' + selectedSecondaryVariation.name : ''})`;
 
     toast.success(`${quantity}x ${product.name} ${info} adicionado ao carrinho!`);
   };
@@ -231,6 +239,29 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
               >
                 {product.variations.map(variation => (
+                  <option key={variation.name} value={variation.name}>
+                    {variation.name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
+
+          {/* Secondary Variation Selection (ex: Opções de Caderno) */}
+          {product.secondaryVariations && (
+            <div className="space-y-2">
+              <span className="text-xs font-semibold uppercase text-muted-foreground">
+                {product.secondaryVariationTitle || 'Opções:'}
+              </span>
+              <select
+                value={selectedSecondaryVariation?.name}
+                onChange={(e) => {
+                  const variation = product.secondaryVariations?.find(v => v.name === e.target.value);
+                  if (variation) setSelectedSecondaryVariation(variation);
+                }}
+                className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
+              >
+                {product.secondaryVariations.map(variation => (
                   <option key={variation.name} value={variation.name}>
                     {variation.name}
                   </option>

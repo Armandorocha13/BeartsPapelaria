@@ -10,13 +10,14 @@ export interface CartItem {
     paperType?: string;
     handleType?: string;
     magnetType?: string;
+    secondaryVariation?: string;
 }
 
 interface CartContextType {
     items: CartItem[];
     addItem: (item: CartItem) => void;
-    removeItem: (id: string, paperType?: string, handleType?: string, magnetType?: string) => void;
-    updateQuantity: (id: string, quantity: number, paperType?: string, handleType?: string, magnetType?: string) => void;
+    removeItem: (id: string, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => void;
+    updateQuantity: (id: string, quantity: number, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => void;
     clearCart: () => void;
     totalItems: number;
     totalPrice: number;
@@ -33,14 +34,16 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
                 (item) => item.id === newItem.id &&
                     item.paperType === newItem.paperType &&
                     item.handleType === newItem.handleType &&
-                    item.magnetType === newItem.magnetType
+                    item.magnetType === newItem.magnetType &&
+                    item.secondaryVariation === newItem.secondaryVariation
             );
             if (existingItem) {
                 return currentItems.map((item) =>
                     item.id === newItem.id &&
                         item.paperType === newItem.paperType &&
                         item.handleType === newItem.handleType &&
-                        item.magnetType === newItem.magnetType
+                        item.magnetType === newItem.magnetType &&
+                        item.secondaryVariation === newItem.secondaryVariation
                         ? { ...item, quantity: item.quantity + newItem.quantity }
                         : item
                 );
@@ -49,25 +52,27 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         });
     };
 
-    const removeItem = (id: string, paperType?: string, handleType?: string, magnetType?: string) => {
+    const removeItem = (id: string, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => {
         setItems((currentItems) =>
             currentItems.filter(
                 (item) => item.id !== id ||
                     item.paperType !== paperType ||
                     item.handleType !== handleType ||
-                    item.magnetType !== magnetType
+                    item.magnetType !== magnetType ||
+                    item.secondaryVariation !== secondaryVariation
             )
         );
     };
 
-    const updateQuantity = (id: string, newQuantity: number, paperType?: string, handleType?: string, magnetType?: string) => {
+    const updateQuantity = (id: string, newQuantity: number, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => {
         if (newQuantity < 1) return;
         setItems((currentItems) =>
             currentItems.map((item) =>
                 item.id === id &&
                     item.paperType === paperType &&
                     item.handleType === handleType &&
-                    item.magnetType === magnetType
+                    item.magnetType === magnetType &&
+                    item.secondaryVariation === secondaryVariation
                     ? { ...item, quantity: newQuantity }
                     : item
             )
