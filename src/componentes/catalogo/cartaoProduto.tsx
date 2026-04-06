@@ -92,6 +92,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     currentPrice = 7.00;
   }
 
+  if (product.id === 144 && quantity >= 10) {
+    currentPrice = 3.50;
+  }
+
+  if (product.id === 145 && quantity >= 10) {
+    currentPrice = 6.50;
+  }
+
   // Preço adicional para calendários com ímã
   const isCalendar = product.subcategory === 'calendario';
   if (isCalendar && magnetType === 'Com Ímã') {
@@ -228,7 +236,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               <span className="text-xs font-semibold uppercase text-muted-foreground">
                 {product.category === 'cartoes' || product.category === 'convites'
                   ? 'Quantidade:'
-                  : (product.category === 'pascoa' ? 'Opções de Tema:' : 'Opções de Tamanho:')}
+                  : 'Opções de Tamanho:'}
               </span>
               <select
                 value={selectedVariation?.name}
@@ -271,7 +279,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
 
           {/* Paper Type Selection */}
-          {(!['logomarca', 'identidade-visual', 'arte-personalizada'].includes(product.subcategory || '') &&
+          {(!product.noPaper && !['logomarca', 'identidade-visual', 'arte-personalizada', 'caixas-personalizadas'].includes(product.subcategory || '') &&
             (product.category !== 'convites' || product.subcategory === 'impresso')) && (
               <div className="space-y-2">
                 <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>

@@ -31,7 +31,7 @@ const Carrinho = () => {
 
         // Construct items list message
         const itemsList = items.map(item =>
-            `• ${item.quantity}x ${item.name}${item.paperType ? ` (${item.paperType})` : ''}${item.handleType ? ` [${item.handleType}]` : ''} (${formatPrice(item.price * item.quantity)})`
+            `• ${item.quantity}x ${item.name}${item.paperType && item.category !== 'dia-das-maes' ? ` (${item.paperType})` : ''}${item.handleType ? ` [${item.handleType}]` : ''} (${formatPrice(item.price * item.quantity)})`
         ).join('\n');
 
         const message = encodeURIComponent(
@@ -105,7 +105,7 @@ const Carrinho = () => {
                                             <p className="text-sm text-muted-foreground uppercase tracking-wider">
                                                 {item.category}
                                             </p>
-                                            {item.paperType && (
+                                            {item.paperType && item.category !== 'dia-das-maes' && (
                                                 <span className="text-[10px] bg-primary/10 text-primary font-bold px-2 py-0.5 rounded-full shadow-sm">
                                                     {item.paperType}
                                                 </span>

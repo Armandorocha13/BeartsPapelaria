@@ -86,7 +86,7 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                                             <span className="text-xs text-red-600">
                                                 [magnetType: {item.magnetType || 'undefined'}]
                                             </span>
-                                            {item.paperType && (
+                                            {item.paperType && item.category !== 'dia-das-maes' && (
                                                 <span className="text-[10px] bg-primary/10 text-primary font-bold px-1.5 py-0.5 rounded shadow-sm">
                                                     {item.paperType}
                                                 </span>

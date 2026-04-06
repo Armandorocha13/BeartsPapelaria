@@ -6,12 +6,12 @@
 
 @layer base {
   :root {
-    /* Novo esquema de cores: Thistle (#D6BBDA) e Pink (#E697b4) */
-    --background: 292 30% 98%;
-    --foreground: 292 40% 12%;
+    /* Novo esquema de cores: Rose Gold e Soft Pink para Dia das Mães */
+    --background: 350 30% 98%;
+    --foreground: 350 40% 12%;
     /* Contraste alto para texto */
-    --accent-pink: #E697b4;
-    --main-thistle: #D6BBDA;
+    --accent-pink: #f472b6;
+    --main-rose: #fce7f3;
 
     /* Cards e superfícies */
     --card: 0 0% 100%;
@@ -46,10 +46,10 @@
 
     --radius: 1rem;
 
-    /* Gradientes atualizados */
-    --gradient-hero: radial-gradient(at center, #F5F5F4, #E2D8E3);
-    --gradient-button: linear-gradient(135deg, #d6bbda 0%, #b898bc 100%);
-    --gradient-card: linear-gradient(180deg, #ffffff 0%, #f9f4fa 100%);
+    /* Gradientes atualizados para Dia das Mães */
+    --gradient-hero: radial-gradient(at center, #fff1f2, #ffe4e6);
+    --gradient-button: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
+    --gradient-card: linear-gradient(180deg, #ffffff 0%, #fff1f2 100%);
 
     /* Sombras */
     --shadow-soft: 0 4px 20px -4px rgba(214, 187, 218, 0.3);
@@ -127,13 +127,13 @@
   }
 
   .notebook-margin {
-    border-left: 2px solid #d6bbda;
+    border-left: 2px solid #f472b6;
     padding-left: 2rem;
     margin-left: 3rem;
   }
 
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-[#E697b4] via-[#D6BBDA] to-[#bea0c4];
+    @apply bg-gradient-to-r from-[#f472b6] via-[#fb7185] to-[#db2777];
   }
 
   .btn-colorful {
@@ -142,7 +142,7 @@
 
   .btn-colorful::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#E697b4] via-[#ea8cb0] to-[#c78fcb] opacity-90 transition-opacity duration-500;
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#f472b6] via-[#ec4899] to-[#db2777] opacity-90 transition-opacity duration-500;
   }
 
   .btn-colorful:hover::before {

@@ -4,10 +4,9 @@ import { Button } from '@/componentes/interface/button';
 import { ButtonColorful } from '@/componentes/interface/button-colorful';
 import { useState, useEffect } from 'react';
 const images = [
-  '/images/3d_bunny.png',
-  '/images/3d_chocolate.png',
-  '/images/3d_egg.png',
-  '/images/3d_bonbon.png'
+  '/images/hero_mae_1.png',
+  '/images/hero_mae_2.png',
+  '/images/hero_mae_3.png'
 ];
 
 export const Hero = () => {
@@ -29,19 +28,19 @@ export const Hero = () => {
           <div className="relative z-10 text-center lg:text-left">
             {/* Banner Destaque */}
             <div className="inline-flex items-start md:items-center gap-2 bg-white/80 backdrop-blur-sm rounded-2xl px-5 py-3 mb-8 shadow-soft animate-fade-in border border-primary/20">
-              <span className="text-lg leading-none mt-0.5">🐰</span>
+              <span className="text-lg leading-none mt-0.5">💝</span>
               <span className="text-sm font-medium text-foreground leading-snug">
-                <strong className="text-primary mr-1">Catálogo de Páscoa 2026 Disponível:</strong>
-                Confira nossas opções exclusivas de mimos e embalagens personalizadas!
+                <strong className="text-primary mr-1">Especial Dia das Mães 2026:</strong>
+                Presentes personalizados cheios de carinho e afeto!
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight" style={{ animationDelay: '0.1s' }}>
-              <span style={{ color: '#E697b4' }}>Uma Páscoa <br className="md:hidden" /> feita à mão</span>
+              <span style={{ color: '#f472b6' }}>Um Dia das Mães <br className="md:hidden" /> com Afeto</span>
               <br className="hidden md:block" />
               <br className="md:hidden" />
-              <span className="text-primary">e cheia de afeto!</span>
+              <span className="text-primary">e muita ternura!</span>
             </h1>
 
             {/* Description */}
@@ -52,14 +51,14 @@ export const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <ButtonColorful asChild className="h-14 px-8 text-xl">
-                <Link to="/catalogo?categoria=pascoa" className="gap-2">
-                  <span>Ver Catálogo de Páscoa</span>
+                <Link to="/catalogo?categoria=dia-das-maes" className="gap-2">
+                  <span>Ver Coleção de Mães</span>
                   <ArrowRight className="w-5 h-5" />
                 </Link>
               </ButtonColorful>
               <ButtonColorful asChild className="h-14 px-8 text-lg">
-                <Link to="/sobre">
-                  <span>Conheça nossa história</span>
+                <Link to="/catalogo">
+                  <span>Catálogo Completo</span>
                 </Link>
               </ButtonColorful>
             </div>

@@ -9,7 +9,7 @@ import { Button } from '@/componentes/interface/button';
 import { ButtonColorful } from '@/componentes/interface/button-colorful';
 
 const Index = () => {
-  const featuredProducts = products.filter(p => p.category === 'pascoa').slice(0, 8);
+  const featuredProducts = products.filter(p => p.category === 'dia-das-maes').slice(0, 8);
 
   return (
     <Layout>
@@ -23,10 +23,10 @@ const Index = () => {
           <div className="flex items-center justify-between mb-12">
             <div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-                Produtos em <span style={{ color: '#E697b4' }}>Destaque</span>
+                Produtos em <span style={{ color: '#f472b6' }}>Destaque</span>
               </h2>
               <p className="text-muted-foreground mt-2">
-                Confira nossa coleção especial de Páscoa
+                Confira nossa coleção especial de Dia das Mães
               </p>
             </div>
             <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
@@ -62,14 +62,14 @@ const Index = () => {
       <section className="py-20 bg-gradient-hero">
         <div className="container mx-auto px-4 text-center">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Pronto para <span style={{ color: '#E697b4' }}>organizar sua vida</span>?
+            Pronto para <span style={{ color: '#f472b6' }}>presentear com amor</span>?
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
             Descubra nossa coleção completa e encontre os materiais perfeitos para você
           </p>
           <ButtonColorful asChild className="h-14 px-8 text-lg">
-            <Link to="/catalogo?categoria=pascoa">
-              <span>Explorar Catálogo de Páscoa</span>
+            <Link to="/catalogo?categoria=dia-das-maes">
+              <span>Explorar Catálogo de Mães</span>
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </ButtonColorful>
