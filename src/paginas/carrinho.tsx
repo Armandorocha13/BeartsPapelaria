@@ -7,12 +7,26 @@ import { Link } from 'react-router-dom';
 import { useState } from 'react';
 
 const Carrinho = () => {
-    const { items, removeItem, updateQuantity, totalPrice, totalItems } = useCart();
+    const { items, removeItem, updateQuantity, totalPrice, totalItems, applyCoupon, removeCoupon, discount, activeCoupon } = useCart();
+    const [couponInput, setCouponInput] = useState('');
+    const [couponMessage, setCouponMessage] = useState<{ text: string, type: 'success' | 'error' } | null>(null);
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
         observations: ''
     });
+
+    const handleApplyCoupon = () => {
+        if (!couponInput) return;
+        const result = applyCoupon(couponInput);
+        setCouponMessage({ text: result.message, type: result.success ? 'success' : 'error' });
+        if (result.success) setCouponInput('');
+    };
+
+    const handleRemoveCoupon = () => {
+        removeCoupon();
+        setCouponMessage(null);
+    };
 
     const formatPrice = (price: number) => {
         return new Intl.NumberFormat('pt-BR', {
@@ -38,6 +52,7 @@ const Carrinho = () => {
             `*Novo Pedido - Bearts Papelaria*\n\n` +
             `*Cliente:* ${formData.firstName} ${formData.lastName}\n` +
             `*Resumo do Pedido:*\n${itemsList}\n\n` +
+            (activeCoupon ? `*Cupom Aplicado:* ${activeCoupon} (-${formatPrice(discount)})\n` : '') +
             `*Total:* ${formatPrice(totalPrice)}\n` +
             `*Frete:* A combinar\n\n` +
             `*Observações:* ${formData.observations || 'Nenhuma'}`
@@ -86,7 +101,7 @@ const Carrinho = () => {
                         <div className="lg:col-span-2 space-y-4">
                             {items.map((item) => (
                                 <div
-                                    key={`${item.id}-${item.paperType}-${item.handleType}`}
+                                    key={`${item.id}-${item.paperType}-${item.handleType}-${item.magnetType}-${item.secondaryVariation}`}
                                     className="bg-card rounded-2xl p-4 md:p-6 shadow-soft border border-border flex flex-col sm:flex-row items-center gap-6 animate-fade-in"
                                 >
                                     <div className="w-24 h-24 md:w-32 md:h-32 rounded-xl overflow-hidden bg-secondary flex-shrink-0">
@@ -115,19 +130,29 @@ const Carrinho = () => {
                                                     {item.handleType}
                                                 </span>
                                             )}
+                                            {item.magnetType && item.magnetType !== 'Sem Ímã' && (
+                                                <span className="text-[10px] bg-purple-100 text-purple-700 font-bold px-2 py-0.5 rounded-full shadow-sm">
+                                                    {item.magnetType}
+                                                </span>
+                                            )}
+                                            {item.secondaryVariation && (
+                                                <span className="text-[10px] bg-secondary text-secondary-foreground font-bold px-2 py-0.5 rounded-full shadow-sm">
+                                                    {item.secondaryVariation}
+                                                </span>
+                                            )}
                                         </div>
 
                                         <div className="flex flex-wrap items-center justify-center sm:justify-start gap-6">
                                             <div className="flex items-center gap-3 bg-secondary/50 rounded-2xl p-1">
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity - 1, item.paperType, item.handleType)}
+                                                    onClick={() => updateQuantity(item.id, item.quantity - 1, item.paperType, item.handleType, item.magnetType, item.secondaryVariation)}
                                                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-background hover:text-primary transition-colors shadow-sm"
                                                 >
                                                     <Minus className="w-4 h-4" />
                                                 </button>
                                                 <span className="w-8 text-center font-bold">{item.quantity}</span>
                                                 <button
-                                                    onClick={() => updateQuantity(item.id, item.quantity + 1, item.paperType, item.handleType)}
+                                                    onClick={() => updateQuantity(item.id, item.quantity + 1, item.paperType, item.handleType, item.magnetType, item.secondaryVariation)}
                                                     className="w-10 h-10 flex items-center justify-center rounded-xl bg-background hover:text-primary transition-colors shadow-sm"
                                                 >
                                                     <Plus className="w-4 h-4" />
@@ -141,7 +166,7 @@ const Carrinho = () => {
                                     </div>
 
                                     <button
-                                        onClick={() => removeItem(item.id, item.paperType, item.handleType)}
+                                        onClick={() => removeItem(item.id, item.paperType, item.handleType, item.magnetType, item.secondaryVariation)}
                                         className="p-3 text-muted-foreground hover:text-destructive hover:bg-destructive/10 rounded-2xl transition-all"
                                         title="Remover item"
                                     >
@@ -158,12 +183,57 @@ const Carrinho = () => {
                             <div className="space-y-4 mb-8">
                                 <div className="flex justify-between text-muted-foreground">
                                     <span>Subtotal ({totalItems} itens)</span>
-                                    <span>{formatPrice(totalPrice)}</span>
+                                    <span>{formatPrice(totalPrice + discount)}</span>
                                 </div>
+                                
+                                {discount > 0 && (
+                                    <div className="flex justify-between text-green-600 font-medium">
+                                        <div className="flex flex-col">
+                                            <span>Desconto ({activeCoupon})</span>
+                                            <button 
+                                                onClick={handleRemoveCoupon}
+                                                className="text-[10px] text-left underline opacity-70 hover:opacity-100"
+                                            >
+                                                Remover cupom
+                                            </button>
+                                        </div>
+                                        <span>-{formatPrice(discount)}</span>
+                                    </div>
+                                )}
+
                                 <div className="flex justify-between text-muted-foreground">
                                     <span>Frete</span>
                                     <span className="text-primary font-medium">A combinar</span>
                                 </div>
+
+                                <div className="h-px bg-border my-4" />
+
+                                {/* Coupon Code Input */}
+                                <div className="space-y-2">
+                                    <label className="text-xs font-semibold uppercase tracking-wider text-muted-foreground">Possui um cupom?</label>
+                                    <div className="flex gap-2">
+                                        <input
+                                            type="text"
+                                            value={couponInput}
+                                            onChange={(e) => setCouponInput(e.target.value)}
+                                            className="flex-1 bg-secondary/30 border-none rounded-xl px-4 py-2 text-sm focus:ring-2 focus:ring-primary/20 transition-all outline-none uppercase"
+                                            placeholder="CÓDIGO"
+                                        />
+                                        <Button 
+                                            variant="outline" 
+                                            onClick={handleApplyCoupon}
+                                            className="rounded-xl px-4 h-10"
+                                        >
+                                            Aplicar
+                                        </Button>
+                                    </div>
+                                    {couponMessage && (
+                                        <p className={`text-xs font-medium ${couponMessage.type === 'success' ? 'text-green-600' : 'text-red-500'}`}>
+                                            {couponMessage.text}
+                                        </p>
+                                    )}
+                                </div>
+
                                 <div className="h-px bg-border my-4" />
 
                                 {/* Form fields */}

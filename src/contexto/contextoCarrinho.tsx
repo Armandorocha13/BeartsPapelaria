@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useState, ReactNode } from 'react';
+import React, { createContext, useContext, useState, useEffect, ReactNode } from 'react';
 
 export interface CartItem {
     id: string;
@@ -20,14 +20,19 @@ interface CartContextType {
     removeItem: (id: string, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => void;
     updateQuantity: (id: string, quantity: number, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => void;
     clearCart: () => void;
+    applyCoupon: (code: string) => { success: boolean; message: string };
+    removeCoupon: () => void;
     totalItems: number;
     totalPrice: number;
+    discount: number;
+    activeCoupon: string | null;
 }
 
 const CartContext = createContext<CartContextType | undefined>(undefined);
 
 export const CartProvider = ({ children }: { children: ReactNode }) => {
     const [items, setItems] = useState<CartItem[]>([]);
+    const [activeCoupon, setActiveCoupon] = useState<string | null>(null);
 
     const addItem = (newItem: CartItem) => {
         setItems((currentItems) => {
@@ -80,14 +85,33 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         );
     };
 
-    const clearCart = () => setItems([]);
+    const clearCart = () => {
+        setItems([]);
+        setActiveCoupon(null);
+    };
+
+    const applyCoupon = (code: string) => {
+        const upperCode = code.toUpperCase().trim();
+        
+        if (upperCode === 'BEARTS10') {
+            if (subtotal < 50) {
+                return { success: false, message: 'O cupom BEARTS10 só é válido para compras acima de R$ 50,00.' };
+            }
+            setActiveCoupon(upperCode);
+            return { success: true, message: 'Cupom aplicado: 10% de desconto!' };
+        }
+
+        return { success: false, message: 'Cupom inválido ou expirado.' };
+    };
+
+    const removeCoupon = () => setActiveCoupon(null);
 
     const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
     
-    const totalPrice = items.reduce((acc, item) => {
+    // Cálculo do subtotal base (com descontos de volume inclusos por item)
+    const subtotal = items.reduce((acc, item) => {
         let itemTotal = item.price * item.quantity;
         
-        // Aplica desconto por volume se existir
         if (item.volumeDiscounts && item.volumeDiscounts.length > 0) {
             const applicableDiscount = [...item.volumeDiscounts]
                 .sort((a, b) => b.quantity - a.quantity)
@@ -101,6 +125,21 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
         return acc + itemTotal;
     }, 0);
 
+    // Revalidação do cupom caso o subtotal mude (ex: remover itens)
+    useEffect(() => {
+        if (activeCoupon === 'BEARTS10' && subtotal < 50) {
+            setActiveCoupon(null);
+        }
+    }, [subtotal, activeCoupon]);
+
+    // Calcula o desconto do cupom sobre o subtotal
+    let couponDiscountValue = 0;
+    if (activeCoupon === 'BEARTS10' && subtotal >= 50) {
+        couponDiscountValue = subtotal * 0.10; // 10% de desconto
+    }
+
+    const totalPrice = Math.max(0, subtotal - couponDiscountValue);
+
     return (
         <CartContext.Provider
             value={{
@@ -109,8 +148,12 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
                 removeItem,
                 updateQuantity,
                 clearCart,
+                applyCoupon,
+                removeCoupon,
                 totalItems,
                 totalPrice,
+                discount: couponDiscountValue,
+                activeCoupon,
             }}
         >
             {children}
