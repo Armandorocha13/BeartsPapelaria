@@ -100,6 +100,18 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     currentPrice = 6.50;
   }
 
+  // Aplica desconto por volume genérico se existir (ex: Polaroides)
+  if (product.volumeDiscounts && product.volumeDiscounts.length > 0) {
+    const applicableDiscount = [...product.volumeDiscounts]
+      .sort((a, b) => b.quantity - a.quantity)
+      .find(d => quantity >= d.quantity);
+    
+    if (applicableDiscount) {
+      // O desconto é sobre o total, então subtraímos do preço individual proporcionalmente
+      // ou apenas mostramos o valor final. Para manter a coerência, vamos aplicar no final.
+    }
+  }
+
   // Preço adicional para calendários com ímã
   const isCalendar = product.subcategory === 'calendario';
   if (isCalendar && magnetType === 'Com Ímã') {
@@ -142,17 +154,18 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       image: product.image,
       quantity: quantity,
       category: product.category,
-      paperType: isCalendar ? undefined : paperType,
+      paperType: isCalendar || product.secondaryVariationTitle === 'Tipo de Papel:' ? undefined : paperType,
       handleType: product.category === 'sacolas' ? handleType : undefined,
       magnetType: isCalendar ? magnetType : undefined,
       secondaryVariation: selectedSecondaryVariation ? selectedSecondaryVariation.name : undefined,
+      volumeDiscounts: product.volumeDiscounts,
     });
 
     const info = product.category === 'sacolas'
       ? `(${paperType}, ${handleType}${selectedVariation ? ', ' + selectedVariation.name : ''})`
       : isCalendar
         ? `(${magnetType}${selectedVariation ? ', ' + selectedVariation.name : ''})`
-        : `(${paperType}${selectedVariation ? ', ' + selectedVariation.name : ''}${selectedSecondaryVariation ? ', ' + selectedSecondaryVariation.name : ''})`;
+        : `(${product.secondaryVariationTitle === 'Tipo de Papel:' ? '' : paperType + (selectedVariation || selectedSecondaryVariation ? ', ' : '')}${selectedVariation ? selectedVariation.name : ''}${selectedSecondaryVariation ? (selectedVariation ? ', ' : '') + selectedSecondaryVariation.name : ''})`;
 
     toast.success(`${quantity}x ${product.name} ${info} adicionado ao carrinho!`);
   };
@@ -197,7 +210,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.isNew && (
             <span
               className="inline-flex items-center gap-1 text-primary-foreground text-xs font-semibold px-2.5 py-1 rounded-full shadow-button"
-              style={{ background: 'var(--accent-pink)' }}
+              style={{ background: 'var(--accent-red)' }}
             >
               <Sparkles className="w-3 h-3" />
               Novo
@@ -279,7 +292,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
 
           {/* Paper Type Selection */}
-          {(!product.noPaper && !['logomarca', 'identidade-visual', 'arte-personalizada', 'caixas-personalizadas'].includes(product.subcategory || '') &&
+          {(!product.noPaper && product.secondaryVariationTitle !== 'Tipo de Papel:' && !['logomarca', 'identidade-visual', 'arte-personalizada', 'caixas-personalizadas'].includes(product.subcategory || '') &&
             (product.category !== 'convites' || product.subcategory === 'impresso')) && (
               <div className="space-y-2">
                 <span className="text-xs font-semibold uppercase text-muted-foreground">Tipo de Papel:</span>
@@ -328,14 +341,41 @@ export const ProductCard = ({ product }: ProductCardProps) => {
 
           <div className="flex items-center justify-between">
             <div className="flex flex-col">
-              {currentPrice < originalIndividualPrice && (
-                <span className="text-xs text-muted-foreground/60 line-through leading-none mb-1">
-                  {formatPrice(originalIndividualPrice * quantity)}
-                </span>
-              )}
-              <span className="font-heading font-bold text-lg text-primary leading-none">
-                {formatPrice(currentPrice * quantity)}
-              </span>
+              {(() => {
+                let total = currentPrice * quantity;
+                let originalTotal = currentPrice * quantity;
+                let hasDiscount = false;
+
+                // Aplica desconto por volume genérico se existir (ex: Polaroides)
+                if (product.volumeDiscounts) {
+                  const discount = [...product.volumeDiscounts]
+                    .sort((a, b) => b.quantity - a.quantity)
+                    .find(d => quantity >= d.quantity);
+                  if (discount) {
+                    total -= discount.discount;
+                    hasDiscount = true;
+                  }
+                }
+
+                // Caso especial para sacolas 18x21 e outros que usam a lógica antiga de individualPrice
+                if (currentPrice < originalIndividualPrice) {
+                  originalTotal = originalIndividualPrice * quantity;
+                  hasDiscount = true;
+                }
+
+                return (
+                  <>
+                    {hasDiscount && (
+                      <span className="text-xs text-muted-foreground/60 line-through leading-none mb-1">
+                        {formatPrice(originalTotal)}
+                      </span>
+                    )}
+                    <span className="font-heading font-bold text-lg text-primary leading-none">
+                      {formatPrice(total)}
+                    </span>
+                  </>
+                );
+              })()}
             </div>
 
             <div className="flex items-center gap-3 bg-secondary/50 rounded-2xl p-1">

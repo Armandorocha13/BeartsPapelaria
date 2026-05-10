@@ -65,7 +65,7 @@ export const Categories = () => {
         {/* Header */}
         <div className="text-center mb-12">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Explore por <span style={{ color: '#f472b6' }}>Categoria</span>
+            Explore por <span style={{ color: '#e11d48' }}>Categoria</span>
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Encontre tudo o que precisa organizado especialmente para você
@@ -83,7 +83,7 @@ export const Categories = () => {
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center group-hover:bg-[#f472b6] group-hover:shadow-button transition-all duration-300">
+                  <div className="w-14 h-14 rounded-2xl bg-accent flex items-center justify-center group-hover:bg-[#e11d48] group-hover:shadow-button transition-all duration-300">
                     <category.icon className="w-7 h-7 text-primary group-hover:text-primary-foreground transition-colors" />
                   </div>
                   <div>

@@ -11,6 +11,7 @@ export interface CartItem {
     handleType?: string;
     magnetType?: string;
     secondaryVariation?: string;
+    volumeDiscounts?: { quantity: number; discount: number }[];
 }
 
 interface CartContextType {
@@ -82,7 +83,23 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     const clearCart = () => setItems([]);
 
     const totalItems = items.reduce((acc, item) => acc + item.quantity, 0);
-    const totalPrice = items.reduce((acc, item) => acc + item.price * item.quantity, 0);
+    
+    const totalPrice = items.reduce((acc, item) => {
+        let itemTotal = item.price * item.quantity;
+        
+        // Aplica desconto por volume se existir
+        if (item.volumeDiscounts && item.volumeDiscounts.length > 0) {
+            const applicableDiscount = [...item.volumeDiscounts]
+                .sort((a, b) => b.quantity - a.quantity)
+                .find(d => item.quantity >= d.quantity);
+                
+            if (applicableDiscount) {
+                itemTotal -= applicableDiscount.discount;
+            }
+        }
+        
+        return acc + itemTotal;
+    }, 0);
 
     return (
         <CartContext.Provider

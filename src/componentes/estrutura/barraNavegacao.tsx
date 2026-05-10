@@ -10,7 +10,7 @@ import logoBee from '@/ativos/logo-bee.png';
 
 const navLinks = [
   { name: 'Início', path: '/' },
-  { name: 'Dia das Mães', path: '/dia-das-maes' },
+  { name: 'Dia dos Namorados', path: '/catalogo?categoria=dia-dos-namorados' },
   { name: 'Catálogo', path: '/catalogo' },
   { name: 'Sobre', path: '/sobre' },
 ];
@@ -57,7 +57,7 @@ export const Navbar = () => {
             <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
           </div>
           <span className="font-heading font-bold text-lg text-primary hidden sm:inline-block">
-            Bearts <span style={{ color: '#f472b6' }}>Papelaria</span>
+            Bearts <span style={{ color: '#e11d48' }}>Papelaria</span>
           </span>
         </Link>
 
@@ -89,7 +89,7 @@ export const Navbar = () => {
               {totalItems > 0 && (
                 <span
                   className="absolute -top-1 -right-1 text-primary-foreground text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-button animate-scale-in"
-                  style={{ background: 'var(--accent-pink)' }}
+                  style={{ background: 'var(--accent-red)' }}
                 >
                   {totalItems}
                 </span>
@@ -110,7 +110,7 @@ export const Navbar = () => {
               {totalItems > 0 && (
                 <span
                   className="absolute -top-1 -right-1 text-primary-foreground text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full"
-                  style={{ background: 'var(--accent-pink)' }}
+                  style={{ background: 'var(--accent-red)' }}
                 >
                   {totalItems}
                 </span>
@@ -168,7 +168,7 @@ export const Navbar = () => {
               Subtotal do Carrinho
             </div>
             {totalItems > 0 && (
-              <span className="bg-accent-pink px-3 py-1 rounded-full text-white text-xs font-bold">
+              <span className="bg-accent-red px-3 py-1 rounded-full text-white text-xs font-bold">
                 {totalItems} itens
               </span>
             )}

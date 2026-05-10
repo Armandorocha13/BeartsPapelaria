@@ -6,55 +6,55 @@
 
 @layer base {
   :root {
-    /* Novo esquema de cores: Rose Gold e Soft Pink para Dia das Mães */
-    --background: 350 30% 98%;
-    --foreground: 350 40% 12%;
+    /* Novo esquema de cores: Vermelho e Tons Românticos para Dia dos Namorados */
+    --background: 0 30% 98%;
+    --foreground: 0 40% 12%;
     /* Contraste alto para texto */
-    --accent-pink: #f472b6;
-    --main-rose: #fce7f3;
+    --accent-red: #e11d48;
+    --main-romantic: #fff1f2;
 
     /* Cards e superfícies */
     --card: 0 0% 100%;
-    --card-foreground: 292 40% 12%;
+    --card-foreground: 0 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 292 40% 12%;
+    --popover-foreground: 0 40% 12%;
 
-    /* Cor Primária baseada em #D6BBDA, mas ligeiramente mais escura para botões se necessário */
-    --primary: 292 30% 65%;
-    /* Um pouco mais escuro que #D6BBDA para melhor leitura */
+    /* Cor Primária baseada em tons de vermelho/vinho */
+    --primary: 349 70% 50%;
+    /* Um pouco mais escuro para melhor leitura */
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary baseada em #D6BBDA mais suave */
-    --secondary: 292 30% 92%;
-    --secondary-foreground: 292 40% 20%;
+    /* Secondary mais suave */
+    --secondary: 349 70% 95%;
+    --secondary-foreground: 349 70% 20%;
 
     /* Muted */
-    --muted: 292 20% 96%;
-    --muted-foreground: 292 20% 45%;
+    --muted: 349 20% 96%;
+    --muted-foreground: 349 20% 45%;
 
-    /* Accent baseada no Pink #E697b4 */
-    --accent: 338 61% 92%;
-    --accent-foreground: 338 61% 35%;
+    /* Accent baseada no Vermelho Vivo */
+    --accent: 349 80% 92%;
+    --accent-foreground: 349 80% 35%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 292 30% 88%;
-    --input: 292 30% 88%;
-    --ring: 338 61% 75%;
+    --border: 349 30% 88%;
+    --input: 349 30% 88%;
+    --ring: 349 80% 75%;
 
     --radius: 1rem;
 
-    /* Gradientes atualizados para Dia das Mães */
+    /* Gradientes atualizados para Dia dos Namorados */
     --gradient-hero: radial-gradient(at center, #fff1f2, #ffe4e6);
-    --gradient-button: linear-gradient(135deg, #f472b6 0%, #db2777 100%);
+    --gradient-button: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
     --gradient-card: linear-gradient(180deg, #ffffff 0%, #fff1f2 100%);
 
     /* Sombras */
-    --shadow-soft: 0 4px 20px -4px rgba(214, 187, 218, 0.3);
-    --shadow-card: 0 8px 30px -8px rgba(214, 187, 218, 0.25);
-    --shadow-button: 0 4px 14px -3px rgba(214, 187, 218, 0.5);
+    --shadow-soft: 0 4px 20px -4px rgba(225, 29, 72, 0.15);
+    --shadow-card: 0 8px 30px -8px rgba(225, 29, 72, 0.1);
+    --shadow-button: 0 4px 14px -3px rgba(225, 29, 72, 0.3);
 
     --sidebar-background: 292 30% 98%;
     --sidebar-foreground: 292 40% 12%;
@@ -127,13 +127,13 @@
   }
 
   .notebook-margin {
-    border-left: 2px solid #f472b6;
+    border-left: 2px solid #e11d48;
     padding-left: 2rem;
     margin-left: 3rem;
   }
 
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-[#f472b6] via-[#fb7185] to-[#db2777];
+    @apply bg-gradient-to-r from-[#e11d48] via-[#fb7185] to-[#db2777];
   }
 
   .btn-colorful {
@@ -142,7 +142,7 @@
 
   .btn-colorful::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#f472b6] via-[#ec4899] to-[#db2777] opacity-90 transition-opacity duration-500;
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#e11d48] via-[#ec4899] to-[#db2777] opacity-90 transition-opacity duration-500;
   }
 
   .btn-colorful:hover::before {

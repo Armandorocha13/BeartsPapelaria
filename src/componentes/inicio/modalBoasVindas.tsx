@@ -31,22 +31,22 @@ export const WelcomeModal = () => {
 
     const steps = [
         {
-            icon: <ShoppingBag className="w-4 h-4 text-pink-500" />,
+            icon: <ShoppingBag className="w-4 h-4 text-red-500" />,
             title: "1. Escolha seus itens",
             description: "Navegue pelo nosso catálogo e encontre os itens de papelaria perfeitos para você."
         },
         {
-            icon: <ShoppingCart className="w-4 h-4 text-pink-500" />,
+            icon: <ShoppingCart className="w-4 h-4 text-red-500" />,
             title: "2. Adicione ao carrinho",
             description: "Escolha as opções de cada produto e adicione-os ao seu carrinho de compras."
         },
         {
-            icon: <CheckCircle2 className="w-4 h-4 text-pink-500" />,
+            icon: <CheckCircle2 className="w-4 h-4 text-red-500" />,
             title: "3. Revise seu pedido",
             description: "Confira todos os itens no carrinho e clique em 'Finalizar Pedido'."
         },
         {
-            icon: <MessageSquare className="w-4 h-4 text-pink-500" />,
+            icon: <MessageSquare className="w-4 h-4 text-red-500" />,
             title: "4. Finalize no WhatsApp",
             description: "Você será direcionado ao nosso WhatsApp com o resumo do seu pedido para confirmarmos tudo."
         }
@@ -55,12 +55,12 @@ export const WelcomeModal = () => {
     return (
         <Dialog open={isOpen} onOpenChange={handleClose}>
             <DialogContent className="w-[94vw] sm:max-w-[500px] max-h-[92vh] overflow-y-auto border-none bg-white rounded-[1.5rem] shadow-2xl custom-scrollbar p-0">
-                <div className="sticky top-0 left-0 w-full h-1 bg-gradient-to-r from-pink-300 via-purple-300 to-blue-300 shrink-0 z-10" />
+                <div className="sticky top-0 left-0 w-full h-1 bg-gradient-to-r from-red-300 via-purple-300 to-blue-300 shrink-0 z-10" />
                 <div className="p-4 sm:p-8">
 
                 <DialogHeader className="pt-1 sm:pt-4">
                     <DialogTitle className="text-lg sm:text-2xl font-heading font-bold text-center text-gray-800 leading-tight">
-                        Bem-vinda à <span className="text-pink-500">Bearts Papelaria</span>! ✨
+                        Bem-vindo à <span className="text-red-500">Bearts Papelaria</span>! ✨
                     </DialogTitle>
                     <DialogDescription className="text-center text-gray-500 pt-1 text-[11px] sm:text-sm leading-tight">
                         Guia rápido para seu pedido com facilidade.
@@ -71,7 +71,7 @@ export const WelcomeModal = () => {
                     <div className="grid grid-cols-2 sm:grid-cols-1 gap-2 mt-1">
                         {steps.map((step, idx) => (
                             <div key={idx} className="flex flex-col sm:flex-row gap-2 sm:gap-3 items-start sm:items-center p-2 rounded-xl bg-gray-50/50 border border-gray-100/30">
-                                <div className="shrink-0 bg-white p-1.5 rounded-lg shadow-sm border border-pink-100">
+                                <div className="shrink-0 bg-white p-1.5 rounded-lg shadow-sm border border-red-100">
                                     {step.icon}
                                 </div>
                                 <div className="flex flex-col">

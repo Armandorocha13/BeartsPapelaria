@@ -112,7 +112,7 @@ import imgLambeLambe from '@/ativos/subcat-lambe-lambe.jpg';
 
 const categories = [
   { id: 'all', name: 'Todos' },
-  { id: 'dia-das-maes', name: 'Dia das Mães' },
+  { id: 'dia-dos-namorados', name: 'Dia dos Namorados' },
   { id: 'fotos', name: 'Fotos' },
   { id: 'sacolas', name: 'Sacolas' },
   { id: 'caixas', name: 'Caixas' },
@@ -125,12 +125,26 @@ const categories = [
 ];
 
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
-  'dia-das-maes': [
-    { id: 'all', name: 'Todos de Mães' },
-    { id: 'caixas-personalizadas', name: 'Kits Personalizados', image: '/images/kits_geral_mae_gen.png' },
-    { id: 'mimos', name: 'Mimos e Lembrancinhas', image: '/images/mimos_mae_gen.png' },
-    { id: 'embalagens-personalizadas', name: 'Embalagens Especiais', image: '/images/embalagens_mae_gen.png' },
-    { id: 'buques', name: 'Buquês e Flores', image: '/images/buques_mae_gen.png' },
+  'dia-dos-namorados': [
+    { id: 'all', name: 'Todos de Amor' },
+    { id: 'buques', name: 'Buquês e Flores', image: '/images/buque.jpeg' },
+    { id: 'polaroide-personalizada', name: 'Polaroide Personalizada', image: '/images/polaroide amor.jpeg' },
+    { id: 'album-copa-love', name: 'Álbum da Copa Love', image: '/images/album da copa love.jpeg' },
+    { id: 'livro-personalizado', name: 'Livro Personalizado', image: '/images/maarvel.jpeg' },
+    { id: 'caneca-acrilico', name: 'Caneca Acrílico Personalizada', image: '/images/caneca.jpeg' },
+    { id: 'quadros-personalizados', name: 'Quadros Personalizados', image: '/images/quadro.jpeg' },
+    { id: '12-motivos', name: '12 Motivos para te Amar', image: '/images/12 motibos.jpeg' },
+    { id: 'vinho-personalizado', name: 'Vinho Personalizado', image: '/images/vinho.jpeg' },
+    { id: 'cartao-google', name: 'Cartão Google', image: '/images/google.jpeg' },
+    { id: 'love-goods', name: 'Love Goods', image: '/images/love goods.jpeg' },
+    { id: 'chaveiro-personalizado', name: 'Chaveiro Personalizado', image: imgChaveiroRedondo },
+    { id: 'hotwheels-personalizado', name: 'Carrinho Hotwheels Personalizado', image: imgCaixaGeneric },
+    { id: 'caixa-bombom', name: 'Caixa Bombom Personalizada', image: imgCaixaDocinho },
+    { id: 'caixa-cascata', name: 'Caixa Cascata', image: imgCaixaGeneric },
+    { id: 'caixa-explosao', name: 'Caixa Explosão', image: imgCaixaCubo },
+    { id: 'caixa-cenario', name: 'Caixa Cenário', image: imgCaixaCenario },
+    { id: 'vela-personalizada', name: 'Vela Personalizada', image: imgCaixaGeneric },
+    { id: 'jornal-personalizado', name: 'Jornal Personalizado', image: imgFotoA4_1 },
   ],
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
@@ -318,7 +332,7 @@ const Catalogo = () => {
       <section className="bg-gradient-hero py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-primary">Nosso</span> <span style={{ color: '#f472b6' }}>Catálogo</span>
+            <span className="text-primary">Nosso</span> <span style={{ color: '#e11d48' }}>Catálogo</span>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Explore nossa seleção especial de materiais de papelaria
@@ -386,7 +400,7 @@ const Catalogo = () => {
           {selectedCategory && subcategoriesList[selectedCategory] && selectedSubcategory === 'all' && (
             <div className="mb-16">
               <h2 className="font-heading text-2xl font-bold mb-8 text-center uppercase tracking-wider text-muted-foreground/60">
-                {selectedCategory === 'dia-das-maes' ? 'Escolha o presente de ' : 'Escolha o modelo de '}
+                {selectedCategory === 'dia-dos-namorados' ? 'Escolha o presente do seu ' : 'Escolha o modelo de '}
                 <span className="text-primary">{categories.find(c => c.id === selectedCategory)?.name}</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
