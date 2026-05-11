@@ -147,6 +147,13 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'caixa-cenario', name: 'Caixa Cenário', image: '/images/cenario.jpeg' },
     { id: 'vela-personalizada', name: 'Vela Personalizada', image: '/images/vela.jpeg' },
     { id: 'jornal-personalizado', name: 'Jornal Personalizado', image: '/images/jornal.jpeg' },
+    { id: 'certidao-namoro', name: 'Certidão de Namoro', image: '/images/certidao.jpeg' },
+    { id: 'caixa-envelope', name: 'Caixa Envelope', image: '/images/caixa envelope.jpeg' },
+    { id: 'kit-cinema', name: 'Kit Cinema', image: '/images/kit cinema.jpeg' },
+    { id: 'uno-amor', name: 'Uno do Amor', image: '/images/uno do amor.jpeg' },
+    { id: 'cartao-popup', name: 'Cartão Pop Up', image: '/images/popup.jpeg' },
+    { id: 'tickets', name: 'Tickets', image: '/images/ticket.jpeg' },
+    { id: '10-musicas-nos', name: '10 Músicas sobre Nós', image: '/images/10musicas.jpeg' },
   ],
   casamento: [
     { id: 'all', name: 'Tudo para Casamento' },
