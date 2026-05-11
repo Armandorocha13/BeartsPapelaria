@@ -14,6 +14,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const [quantity, setQuantity] = useState(product.minQuantity || 1);
   const getPaperOptions = () => {
     const base = ['GLOSSY', 'OFFSET'];
+    if (product.subcategory === 'tag-bem-casado') {
+      return ['KRAFT', 'MATTE', 'COUCHÊ FOSCO', 'COUCHÊ BRILHO'];
+    }
+    if (product.subcategory === 'vale-conforto') {
+      return ['KRAFT', 'COUCHÊ FOSCO', 'COUCHÊ BRILHO', 'MATTE', 'GLOSSY'];
+    }
     if (product.category === 'sacolas' || product.subcategory === 'kit-corporativo') {
       return [...base, 'KRAFT'];
     }
