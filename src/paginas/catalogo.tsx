@@ -173,8 +173,8 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'placa-pix', name: 'Placa Pix', image: '/images/placa pix.jpeg' },
     { id: 'placa-reservado', name: 'Placa Reservado', image: '/images/reservado.jpeg' },
     { id: 'placa-numerada', name: 'Placa Numerada', image: '/images/placa numero.jpeg' },
-    { id: 'menu', name: 'Menu', image: imgFotoA5_1 },
-    { id: 'caderno-de-votos', name: 'Caderno de Votos', image: imgCaderno },
+    { id: 'menu', name: 'Menu', image: '/images/menu.jpeg' },
+    { id: 'caderno-de-votos', name: 'Caderno de Votos', image: '/images/aderno de votos.jpeg' },
   ],
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },
