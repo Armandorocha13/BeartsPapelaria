@@ -12,7 +12,7 @@ import imgSacolaGeneric from '@/ativos/subcat-sacola-generic.png';
 import imgSacolaVertical from '@/ativos/subcat-sacola-vertical.jpg';
 import imgSacolaHorizontal from '@/ativos/subcat-sacola-horizontal.jpg';
 import imgSacolaAlmofada from '@/ativos/subcat-sacola-almofada.jpg';
-import imgCaixaPiramide from '@/ativos/subcat-caixa-piramide.jpg';
+import imgCaixaPiramide from '@/ativos/subcat-caixa-piramide.png';
 import imgCaixaMilk1 from '@/ativos/produtos/CaixaMilk1.png';
 import imgCaixa10x9_1 from '@/ativos/produtos/Caixa10x9_1.png';
 import imgEtiquetaGeneric from '@/ativos/subcat-etiqueta-generic.png';
@@ -22,6 +22,7 @@ import imgChaveiroRedondo from '@/ativos/produtos/ChaveiroRedondo.png';
 import imgChaveiroRedondo2 from '@/ativos/produtos/ChaveiroRedondo2.png';
 import imgChaveiroQuadrado1 from '@/ativos/produtos/ChaveiroQuadrado1.jpg';
 import imgChaveiroQuadrado2 from '@/ativos/produtos/ChaveiroQuadrado2.jpg';
+import imgChaveiroCereja from '@/ativos/ChaveiroCereja.png';
 import imgCartaoGeneric from '@/ativos/subcat-cartao-generic.png';
 import imgCartaoVisita1 from '@/ativos/produtos/CartaoVisita1.jpg';
 import imgCartaoVisita2 from '@/ativos/produtos/CartaoVisita2.png';
@@ -111,12 +112,6 @@ import imgLambeLambe from '@/ativos/subcat-lambe-lambe.jpg';
 import imgCadernoEspiral from '@/ativos/subcat-caderno-espiral.jpg';
 import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
-
-
-
-
-
-
 export interface Product {
   id: number;
   name: string;
@@ -128,14 +123,13 @@ export interface Product {
   images?: string[];
   kraftImages?: string[];
   isNew?: boolean;
-
-
   isFeatured?: boolean;
   variations?: { name: string; price: number }[];
   secondaryVariations?: { name: string; price: number }[];
   secondaryVariationTitle?: string;
   minQuantity?: number;
   noPaper?: boolean;
+  volumeDiscounts?: { quantity: number; discount: number }[];
 }
 
 export const products: Product[] = [
@@ -420,7 +414,7 @@ export const products: Product[] = [
     ],
   },
   {
-    id: 217,
+    id: 400,
     name: 'Jornal Personalizado',
     description: 'A notícia principal do dia: eu amo você! Nossa história em formato de jornal.',
     price: 30.00,
@@ -434,7 +428,214 @@ export const products: Product[] = [
       { name: '4 páginas', price: 50.00 },
     ],
   },
-  // Novos produtos Polaroid
+  {
+    id: 401,
+    name: 'Manual dos Padrinhos',
+    description: 'Um guia especial para os seus padrinhos. Disponível em formato impresso ou digital.',
+    price: 5.00,
+    category: 'casamento',
+    subcategory: 'manual-padrinhos',
+    image: '/images/manual.jpg',
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Impresso (A partir de)', price: 5.00 },
+      { name: 'Digital PDF (Incluso Padrinho/Madrinha)', price: 45.00 },
+    ],
+  },
+  {
+    id: 402,
+    name: 'Convite Tradicional',
+    description: 'Elegância para o seu grande dia. (Selecionar no ato da compra)',
+    price: 5.00,
+    category: 'casamento',
+    subcategory: 'convite-tradicional',
+    image: '/images/conv casam.jpeg',
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Tamanho 10x15', price: 5.00 },
+      { name: 'Tamanho 10x20', price: 7.00 },
+      { name: 'Tamanho 15x20', price: 10.00 },
+    ],
+    secondaryVariationTitle: 'Tipo de Papel:',
+    secondaryVariations: [
+      { name: 'Couchê Brilho', price: 0 },
+      { name: 'Couchê Fosco', price: 0 },
+      { name: 'Fotográfico Matte (Fosco)', price: 0 },
+      { name: 'Fotográfico Glossy (Brilho)', price: 0 },
+      { name: 'Offset', price: 0 },
+      { name: 'Kraft', price: 0 },
+    ],
+  },
+  {
+    id: 403,
+    name: 'Convite Individual',
+    description: 'Complemento indispensável para o seu convite. (Selecionar no ato da compra)',
+    price: 1.50,
+    category: 'casamento',
+    subcategory: 'convite-individual',
+    image: imgConviteIndividualSub,
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Tamanho 5x5cm', price: 1.50 },
+      { name: 'Tamanho 7x7cm', price: 2.00 },
+    ],
+    secondaryVariationTitle: 'Tipo de Papel:',
+    secondaryVariations: [
+      { name: 'Offset (Fosco)', price: 0 },
+      { name: 'Matte (Especial)', price: 0 },
+      { name: 'Glossy (Brilho)', price: 0 },
+    ],
+  },
+  {
+    id: 404,
+    name: 'Lágrimas de Alegria',
+    description: 'Lenços personalizados para momentos emocionantes. (Selecionar no ato da compra)',
+    price: 35.00,
+    category: 'casamento',
+    subcategory: 'lagrimas-alegria',
+    image: '/images/lagrimas.jpeg',
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Kit 25un - Completo (Lenço + Embalagem)', price: 35.00 },
+      { name: 'Kit 25un - Apenas Embalagem (Sem Lenço)', price: 27.00 },
+      { name: 'Kit 50un - Completo (Lenço + Embalagem)', price: 65.00 },
+      { name: 'Kit 50un - Apenas Embalagem (Sem Lenço)', price: 57.00 },
+    ],
+    secondaryVariationTitle: 'Tipo de Papel:',
+    secondaryVariations: [
+      { name: 'Offset', price: 0 },
+      { name: 'Matte (Fosco)', price: 0 },
+      { name: 'Glossy (Brilho)', price: 0 },
+      { name: 'Couchê Brilho', price: 0 },
+      { name: 'Couchê Fosco', price: 0 },
+      { name: 'Kraft', price: 0 },
+    ],
+  },
+  {
+    id: 405,
+    name: 'Placa Pix',
+    description: 'Facilite o presente com estilo e QR Code. (Selecionar no ato da compra)',
+    price: 15.00,
+    category: 'casamento',
+    subcategory: 'placa-pix',
+    image: imgCartaoGeneric,
+    isNew: true,
+    noPaper: true,
+  },
+  {
+    id: 406,
+    name: 'Convite Digital',
+    description: 'Praticidade e beleza em um só clique para WhatsApp.',
+    price: 45.00,
+    category: 'casamento',
+    subcategory: 'convite-digital',
+    image: imgConviteInterativoSub,
+    isNew: true,
+    noPaper: true,
+  },
+  {
+    id: 410,
+    name: 'Convite Padrinhos',
+    description: 'Um convite especial para quem você ama. (Selecionar no ato da compra)',
+    price: 6.00,
+    category: 'casamento',
+    subcategory: 'convite-padrinhos',
+    image: '/images/caixa padr.jpeg',
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Impresso 10x15cm', price: 6.00 },
+      { name: 'Impresso 14x21cm', price: 9.50 },
+      { name: 'Digital (PDF)', price: 18.00 },
+    ],
+    secondaryVariationTitle: 'Tipo de Papel:',
+    secondaryVariations: [
+      { name: 'Glossy (Brilho)', price: 0 },
+      { name: 'Glossy (Brilho) Adesivo', price: 0 },
+      { name: 'Kraft', price: 0 },
+      { name: 'Couchê Brilho', price: 0 },
+      { name: 'Couchê Fosco', price: 0 },
+      { name: 'Matte (Fosco)', price: 0 },
+    ],
+  },
+  {
+    id: 408,
+    name: 'Envelope',
+    description: 'O acabamento perfeito. (Selecionar no ato da compra)',
+    price: 3.00,
+    category: 'casamento',
+    subcategory: 'convite-tradicional',
+    image: '/images/envelope.jpeg',
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Para Convite 10x15', price: 3.00 },
+      { name: 'Para Convite 10x20', price: 5.00 },
+      { name: 'Para Convite 15x20', price: 7.00 },
+    ],
+    secondaryVariationTitle: 'Tipo de Papel:',
+    secondaryVariations: [
+      { name: 'Offset', price: 0 },
+      { name: 'Kraft', price: 0 },
+      { name: 'Couchê', price: 0 },
+      { name: 'Papel Linho', price: 6.00 },
+      { name: 'Papel Vegetal', price: 5.00 },
+    ],
+  },
+  {
+    id: 409,
+    name: 'Lacre de Cera',
+    description: 'Toque clássico e artesanal. (Selecionar no ato da compra)',
+    price: 18.00,
+    category: 'casamento',
+    subcategory: 'convite-tradicional',
+    image: '/images/lacres.jpeg',
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Kit 5 unidades', price: 18.00 },
+      { name: 'Kit 20 unidades', price: 38.00 },
+      { name: 'Kit 30 unidades', price: 53.00 },
+      { name: 'Kit 40 unidades', price: 68.00 },
+    ],
+    secondaryVariationTitle: 'Cor do Lacre:',
+    secondaryVariations: [
+      { name: 'Dourado', price: 0 },
+      { name: 'Prata', price: 0 },
+      { name: 'Rosê Gold', price: 0 },
+      { name: 'Vermelho', price: 0 },
+      { name: 'Branco', price: 0 },
+      { name: 'Preto', price: 0 },
+      { name: 'Rosa', price: 0 },
+    ],
+  },
+  {
+    id: 411,
+    name: 'Menu Personalizado',
+    description: 'Cardápio personalizado com a identidade do casal. (Selecionar no ato da compra)',
+    price: 5.00,
+    category: 'casamento',
+    subcategory: 'menu',
+    image: imgFotoA5_1,
+    isNew: true,
+    noPaper: true,
+    variations: [
+      { name: 'Tamanho 10x20cm', price: 5.00 },
+      { name: 'Tamanho 14x21cm', price: 8.00 },
+      { name: 'Tamanho 21x29cm', price: 15.00 },
+    ],
+    secondaryVariationTitle: 'Tipo de Papel:',
+    secondaryVariations: [
+      { name: 'Offset', price: 0 },
+      { name: 'Matte (Fosco)', price: 0 },
+      { name: 'Glossy (Brilho)', price: 0 },
+      { name: 'Kraft', price: 0 },
+    ],
+  },
   {
     id: 101,
     name: 'Polaroid Mini',
@@ -473,7 +674,6 @@ export const products: Product[] = [
     image: '/images/WhatsApp Image 2026-04-06 at 14.57.00.jpeg',
     isNew: true,
   },
-
   {
     id: 2,
     name: 'Kit Fotos 3x4 Tradicional',
@@ -496,8 +696,8 @@ export const products: Product[] = [
   },
   {
     id: 105,
-    name: 'Revelação  Fotográfica A5',
-    description: 'Revelação  de alta resolução em tamanho A5 (15x21cm).',
+    name: 'Revelação Fotográfica A5',
+    description: 'Revelação de alta resolução em tamanho A5 (15x21cm).',
     price: 12.00,
     category: 'fotos',
     subcategory: 'a5',
@@ -507,7 +707,7 @@ export const products: Product[] = [
   },
   {
     id: 106,
-    name: 'Revelação  Fotográfica A4',
+    name: 'Revelação Fotográfica A4',
     description: 'Ampliação fotográfica em tamanho A4 (21x30cm), perfeita para emoldurar.',
     price: 18.00,
     category: 'fotos',
@@ -515,20 +715,18 @@ export const products: Product[] = [
     image: imgFotoA4_1,
     images: [imgFotoA4_1, imgFotoA4_2],
   },
-
   {
     id: 140,
     name: 'Sacola Almofada',
-    description: 'Sacola em formato de almofada personalizada, ideal para brindes e mimos especiais.',
+    description: 'Sacola em formato de almofada personalizada, ideal for brindes e mimos especiais.',
     price: 4.50,
     category: 'sacolas',
     subcategory: 'sacola-almofada',
     image: imgSacolaAlmofada,
   },
-
   {
     id: 13,
-    name: 'Sacola de Papel',
+    name: 'Sacola de Papel Vertical',
     description: 'Sacola de papel personalizada vertical, ideal para presentes e mimos.',
     price: 8.50,
     category: 'sacolas',
@@ -542,11 +740,9 @@ export const products: Product[] = [
       { name: 'G', price: 8.50 },
     ],
   },
-
-
   {
     id: 14,
-    name: 'Sacola de Papel',
+    name: 'Sacola de Papel Horizontal',
     description: 'Sacola de papel personalizada horizontal, ideal para presentes e mimos.',
     price: 4.50,
     category: 'sacolas',
@@ -559,12 +755,6 @@ export const products: Product[] = [
       { name: 'G', price: 8.50 },
     ],
   },
-
-
-
-
-
-
   {
     id: 15,
     name: 'Caixa Pirâmide Personalizada',
@@ -752,7 +942,7 @@ export const products: Product[] = [
   {
     id: 114,
     name: 'Caixa 9x4x2',
-    description: 'Mini caixa personalizada no formato 9x4x2cm, ideal para doces e lembrancinhas.',
+    description: 'Mini caixa personalizada no formato 9x4x2cm, ideal for doces e lembrancinhas.',
     price: 4.00,
     category: 'caixas',
     subcategory: '9x4x2',
@@ -864,7 +1054,6 @@ export const products: Product[] = [
       { name: '6x6', price: 14.00 },
     ],
   },
-
   {
     id: 21,
     name: 'Chaveiro Quadrado 3x4',
@@ -886,7 +1075,6 @@ export const products: Product[] = [
     subcategory: 'acrilico-redondo',
     image: imgChaveiroRedondo,
     images: [imgChaveiroRedondo, imgChaveiroRedondo2],
-
   },
   {
     id: 23,
@@ -940,7 +1128,6 @@ export const products: Product[] = [
       { name: '10 unidades', price: 15.00 },
     ],
   },
-
   {
     id: 121,
     name: 'Convite Digital Simples',
@@ -1426,11 +1613,11 @@ export const products: Product[] = [
   },
   {
     id: 156,
-    name: 'Caixa Buquê',
-    description: 'Caixa buquê personalizada. Ideal para 8 bombons, flores ou maquiagem (favor informar o tema nas observações).',
+    name: 'Caixa Buquê Especial Casamento',
+    description: 'Um presente sofisticado para madrinhas ou decoração da mesa dos noivos.',
     price: 45.00,
-    category: 'dia-dos-namorados',
-    subcategory: 'buques',
+    category: 'casamento',
+    subcategory: 'lembrancinhas-casamento',
     image: '/images/WhatsApp Image 2026-04-06 at 14.38.29 (1).jpeg',
     isNew: true,
     isFeatured: true,
@@ -1442,29 +1629,30 @@ export const products: Product[] = [
     ],
     secondaryVariationTitle: 'Opção de Cor:',
     secondaryVariations: [
-      { name: 'Rosa', price: 0 },
+      { name: 'Branco/Pérola', price: 0 },
+      { name: 'Dourado', price: 0 },
+      { name: 'Rosê Gold', price: 0 },
       { name: 'Vermelho', price: 0 },
-      { name: 'Azul', price: 0 },
-      { name: 'Lilás', price: 0 },
-      { name: 'Temático (definir no pedido)', price: 0 },
+      { name: 'Azul Serenity', price: 0 },
     ]
   },
   {
     id: 158,
-    name: 'Buquê de Borboletas (Dia dos Namorados)',    description: 'Buquê iluminado com borboletas e 3 fotos polaroides inclusas.',
+    name: 'Buquê de Borboletas (Wedding Edition)',
+    description: 'Buquê iluminado com borboletas, perfeito para o pré-wedding ou daminhas.',
     price: 55.00,
-    category: 'dia-dos-namorados',
-    subcategory: 'buques',
+    category: 'casamento',
+    subcategory: 'lembrancinhas-casamento',
     image: imgBuqueBorboletas,
     isNew: true,
     noPaper: true,
     secondaryVariationTitle: 'Opção de Cor:',
     secondaryVariations: [
-      { name: 'Rosa', price: 0 },
-      { name: 'Azul', price: 0 },
-      { name: 'Amarelo', price: 0 },
-      { name: 'Lilás', price: 0 },
-      { name: 'Vermelho', price: 0 },
+      { name: 'Branco Clássico', price: 0 },
+      { name: 'Azul Serenity', price: 0 },
+      { name: 'Rosa Quartzo', price: 0 },
+      { name: 'Dourado', price: 0 },
+      { name: 'Marsala', price: 0 },
     ],
     variations: [
       { name: 'P', price: 55.00 },

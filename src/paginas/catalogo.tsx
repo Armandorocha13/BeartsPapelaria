@@ -37,7 +37,7 @@ import imgSacolaGeneric from '@/ativos/subcat-sacola-generic.png';
 import imgSacolaVertical from '@/ativos/subcat-sacola-vertical.jpg';
 import imgSacolaAlmofada from '@/ativos/subcat-sacola-almofada.jpg';
 import imgSacolaHorizontal from '@/ativos/subcat-sacola-horizontal.jpg';
-import imgCaixaPiramide from '@/ativos/subcat-caixa-piramide.jpg';
+import imgCaixaPiramide from '@/ativos/subcat-caixa-piramide.png';
 import imgCaixa10x9_1 from '@/ativos/produtos/Caixa10x9_1.png';
 import imgCaixaMilk from '@/ativos/subcat-caixa-milk.jpg';
 import imgCaixaGeneric from '@/ativos/subcat-caixa-generic.png';
@@ -108,6 +108,7 @@ import imgPortaDocinho from '@/ativos/subcat-porta-docinho.jpg';
 import imgLivreto from '@/ativos/subcat-livreto.jpg';
 import imgCaderno from '@/ativos/subcat-caderno.jpg';
 import imgLambeLambe from '@/ativos/subcat-lambe-lambe.jpg';
+import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
 
 const categories = [
@@ -149,11 +150,11 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
   ],
   casamento: [
     { id: 'all', name: 'Tudo para Casamento' },
-    { id: 'manual-padrinhos', name: 'Manual dos Padrinhos', image: imgLivreto },
-    { id: 'convite-tradicional', name: 'Convite Tradicional', image: imgA5 },
+    { id: 'manual-padrinhos', name: 'Manual dos Padrinhos', image: '/images/manual.jpg' },
+    { id: 'convite-tradicional', name: 'Convite Tradicional', image: '/images/conv casam.jpeg' },
     { id: 'convite-individual', name: 'Convite Individual', image: imgConviteIndividualSub },
-    { id: 'lagrimas-alegria', name: 'Lágrimas de Alegria', image: imgSacolaAlmofada },
-    { id: 'convite-padrinhos', name: 'Convite Padrinhos', image: imgCaixa15x13x4_1 },
+    { id: 'lagrimas-alegria', name: 'Lágrimas de Alegria', image: '/images/lagrimas.jpeg' },
+    { id: 'convite-padrinhos', name: 'Convite Padrinhos', image: '/images/caixa padr.jpeg' },
     { id: 'convite-altar', name: 'Convite Altar', image: imgCartaoAgradecimento },
     { id: 'tag-bem-casado', name: 'Tag Bem Casado', image: imgLabelRound1 },
     { id: 'vale-conforto', name: 'Vale Conforto', image: imgGeneratedCard1 },
@@ -162,6 +163,8 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'placa-pix', name: 'Placa Pix', image: imgCartaoGeneric },
     { id: 'placa-reservado', name: 'Placa Reservado', image: imgA4 },
     { id: 'placa-numerada', name: 'Placa Numerada', image: imgA5 },
+    { id: 'menu', name: 'Menu', image: imgFotoA5_1 },
+    { id: 'caderno-de-votos', name: 'Caderno de Votos', image: imgCaderno },
   ],
   fotos: [
     { id: 'all', name: 'Todas as Fotos' },

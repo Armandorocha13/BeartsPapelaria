@@ -10,6 +10,7 @@ import Carrinho from "./paginas/carrinho";
 import NotFound from "./paginas/naoEncontrado";
 
 import { CartProvider } from "./contexto/contextoCarrinho";
+import { ScrollToTop } from "./componentes/estrutura/scrollParaTopo";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <ScrollToTop />
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/catalogo" element={<Catalogo />} />
