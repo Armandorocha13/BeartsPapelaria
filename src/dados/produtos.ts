@@ -176,17 +176,13 @@ export const products: Product[] = [
     id: 201,
     name: 'Álbum Personalizado',
     description: 'Cada figurinha é um momento especial para guardar!',
-    price: 55.00,
+    price: 65.00,
     category: 'dia-dos-namorados',
     subcategory: 'album-copa-love',
     image: '/images/album da copa love.jpeg',
     isNew: true,
     isFeatured: true,
-    noPaper: true,
-    variations: [
-      { name: '26 fotos', price: 55.00 },
-      { name: '36 fotos', price: 65.00 },
-    ],
+    noPaper: true
   },
   {
     id: 202,
@@ -2033,7 +2029,7 @@ export const products: Product[] = [
     id: 223,
     name: 'Uno do Amor',
     description: 'O jogo que você já conhece, agora com cartas personalizadas para o casal!',
-    price: 45.00,
+    price: 60.00,
     category: 'dia-dos-namorados',
     subcategory: 'uno-amor',
     image: '/images/uno do amor.jpeg',
