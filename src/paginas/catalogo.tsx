@@ -129,7 +129,7 @@ const categories = [
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos de Amor' },
-    { id: 'buques', name: 'Buquês e Flores', image: '/images/buque.jpeg' },
+    { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas },
     { id: 'polaroide-personalizada', name: 'Polaroide Personalizada', image: '/images/polaroide amor.jpeg' },
     { id: 'album-copa-love', name: 'Álbum da Copa Love', image: '/images/album da copa love.jpeg' },
     { id: 'livro-personalizado', name: 'Livro Personalizado', image: '/images/maarvel.jpeg' },
@@ -154,6 +154,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'cartao-popup', name: 'Cartão Pop Up', image: '/images/popup.jpeg' },
     { id: 'tickets', name: 'Tickets', image: '/images/ticket.jpeg' },
     { id: '10-musicas-nos', name: '10 Músicas sobre Nós', image: '/images/10musicas.jpeg' },
+    { id: 'uno-18', name: 'Uno +18', image: '/images/WhatsApp Image 2026-05-28 at 10.53.04.jpeg' },
   ],
     casamento: [
       { id: 'all', name: 'Tudo para Casamento' },
