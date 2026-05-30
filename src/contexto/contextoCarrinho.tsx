@@ -93,9 +93,9 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     const applyCoupon = (code: string) => {
         const upperCode = code.toUpperCase().trim();
         
-        if (upperCode === 'BEARTS10') {
+        if (upperCode === 'BEARTS10' || upperCode === 'BRENDHA') {
             if (subtotal < 50) {
-                return { success: false, message: 'O cupom BEARTS10 só é válido para compras acima de R$ 50,00.' };
+                return { success: false, message: `O cupom ${upperCode} só é válido para compras acima de R$ 50,00.` };
             }
             setActiveCoupon(upperCode);
             return { success: true, message: 'Cupom aplicado: 10% de desconto!' };
@@ -127,14 +127,14 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
 
     // Revalidação do cupom caso o subtotal mude (ex: remover itens)
     useEffect(() => {
-        if (activeCoupon === 'BEARTS10' && subtotal < 50) {
+        if ((activeCoupon === 'BEARTS10' || activeCoupon === 'BRENDHA') && subtotal < 50) {
             setActiveCoupon(null);
         }
     }, [subtotal, activeCoupon]);
 
     // Calcula o desconto do cupom sobre o subtotal
     let couponDiscountValue = 0;
-    if (activeCoupon === 'BEARTS10' && subtotal >= 50) {
+    if ((activeCoupon === 'BEARTS10' || activeCoupon === 'BRENDHA') && subtotal >= 50) {
         couponDiscountValue = subtotal * 0.10; // 10% de desconto
     }
 
