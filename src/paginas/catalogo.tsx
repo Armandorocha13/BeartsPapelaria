@@ -113,7 +113,8 @@ import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
 const categories = [
   { id: 'all', name: 'Todos' },
-  { id: 'dia-dos-namorados', name: 'Dia dos Namorados' },
+  { id: 'festa-junina', name: 'Festa Junina' },
+  { id: 'dia-dos-namorados', name: 'Presentes Afetivos' },
   { id: 'casamento', name: 'Casamento' },
   { id: 'fotos', name: 'Fotos' },
   { id: 'sacolas', name: 'Sacolas' },
@@ -127,8 +128,21 @@ const categories = [
 ];
 
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
+  'festa-junina': [
+    { id: 'all', name: 'Tudo de Festa Junina' },
+    { id: 'toppers', name: 'Toppers', image: '/images/1 junina.jpeg' },
+    { id: 'forminhas-personalizadas', name: 'Forminhas Personalizadas', image: '/images/2 junina.jpeg' },
+    { id: 'caixinhas-personalizadas', name: 'Caixinhas Personalizadas', image: '/images/3 junina.jpeg' },
+    { id: 'centro-mesa', name: 'Centro de Mesa', image: '/images/4 junina.jpeg' },
+    { id: 'tags', name: 'Tags', image: '/images/5 junina.jpeg' },
+    { id: 'kit-correio-elegante', name: 'Kit Correio Elegante', image: '/images/6 junina.jpeg' },
+    { id: 'sacolinhas', name: 'Sacolinhas', image: '/images/7 junina.jpeg' },
+    { id: 'bandeirolas-personalizadas', name: 'Bandeirolas Personalizadas', image: '/images/8 junina.jpeg' },
+    { id: 'displays-mesa', name: 'Displays de Mesa', image: '/images/9 junina.jpeg' },
+    { id: 'lambe-lambe', name: 'Painel Lambe Lambe', image: '/images/10 junina.jpeg' },
+  ],
   'dia-dos-namorados': [
-    { id: 'all', name: 'Todos de Amor' },
+    { id: 'all', name: 'Todos Afetivos' },
     { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas },
     { id: 'polaroide-personalizada', name: 'Polaroide Personalizada', image: '/images/polaroide amor.jpeg' },
     { id: 'album-copa-love', name: 'Álbum da Copa Love', image: '/images/album da copa love.jpeg' },

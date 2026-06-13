@@ -10,7 +10,7 @@ import logoBee from '@/ativos/logo-bee.png';
 
 const navLinks = [
   { name: 'Início', path: '/' },
-  { name: 'Dia dos Namorados', path: '/catalogo?categoria=dia-dos-namorados' },
+  { name: 'Festa Junina', path: '/catalogo?categoria=festa-junina' },
   { name: 'Catálogo', path: '/catalogo' },
   { name: 'Sobre', path: '/sobre' },
 ];

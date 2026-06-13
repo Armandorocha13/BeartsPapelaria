@@ -6,7 +6,7 @@
 
 @layer base {
   :root {
-    /* Novo esquema de cores: Vermelho e Tons Românticos para Dia dos Namorados */
+    /* Esquema de cores: Tons Românticos (Rosa/Roxo/Vermelho) */
     --background: 0 30% 98%;
     --foreground: 0 40% 12%;
     /* Contraste alto para texto */
@@ -46,7 +46,7 @@
 
     --radius: 1rem;
 
-    /* Gradientes atualizados para Dia dos Namorados */
+    /* Gradientes baseados em tons de rosa/vermelho */
     --gradient-hero: radial-gradient(at center, #fff1f2, #ffe4e6);
     --gradient-button: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
     --gradient-card: linear-gradient(180deg, #ffffff 0%, #fff1f2 100%);
@@ -134,6 +134,29 @@
 
   .bg-gradient-primary {
     @apply bg-gradient-to-r from-[#e11d48] via-[#fb7185] to-[#db2777];
+  }
+
+  /* Padrão Xadrez Junino Suave */
+  .bg-checkered {
+    background-image: 
+      linear-gradient(45deg, rgba(225, 29, 72, 0.03) 25%, transparent 25%), 
+      linear-gradient(-45deg, rgba(225, 29, 72, 0.03) 25%, transparent 25%), 
+      linear-gradient(45deg, transparent 75%, rgba(225, 29, 72, 0.03) 75%), 
+      linear-gradient(-45deg, transparent 75%, rgba(225, 29, 72, 0.03) 75%);
+    background-size: 40px 40px;
+    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+  }
+
+  /* Animação de balanço para bandeirolas */
+  @keyframes swing {
+    0% { transform: rotate(-5deg); }
+    50% { transform: rotate(5deg); }
+    100% { transform: rotate(-5deg); }
+  }
+
+  .animate-swing {
+    animation: swing 3s ease-in-out infinite;
+    transform-origin: top center;
   }
 
   .btn-colorful {
