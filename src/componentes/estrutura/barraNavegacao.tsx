@@ -10,7 +10,7 @@ import logoBee from '@/ativos/logo-bee.png';
 
 const navLinks = [
   { name: 'Início', path: '/' },
-  { name: 'Festa Junina', path: '/catalogo?categoria=festa-junina' },
+  { name: 'Dia dos Pais', path: '/catalogo?categoria=dia-dos-pais' },
   { name: 'Catálogo', path: '/catalogo' },
   { name: 'Sobre', path: '/sobre' },
 ];
@@ -57,7 +57,7 @@ export const Navbar = () => {
             <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
           </div>
           <span className="font-heading font-bold text-lg text-primary hidden sm:inline-block">
-            Bearts <span style={{ color: '#e11d48' }}>Papelaria</span>
+            Bearts <span style={{ color: 'hsl(var(--primary))' }}>Papelaria</span>
           </span>
         </Link>
 

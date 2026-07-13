@@ -14,7 +14,7 @@ export const Footer = () => {
                 <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
               </div>
               <h3 className="font-heading font-bold text-xl text-primary">
-                Bearts <span style={{ color: '#e11d48' }}>Papelaria</span>
+                Bearts <span style={{ color: 'hsl(var(--primary))' }}>Papelaria</span>
               </h3>
             </div>
             <p className="text-muted-foreground">

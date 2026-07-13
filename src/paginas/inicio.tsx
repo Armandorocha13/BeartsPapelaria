@@ -9,7 +9,7 @@ import { Button } from '@/componentes/interface/button';
 import { ButtonColorful } from '@/componentes/interface/button-colorful';
 
 const Index = () => {
-  const featuredProducts = products.filter(p => p.category === 'festa-junina').slice(0, 8);
+  const featuredProducts = products.filter(p => p.category === 'dia-dos-pais').slice(0, 8);
 
   return (
     <Layout>
@@ -22,10 +22,10 @@ const Index = () => {
           <div className="flex items-center justify-between mb-12">
             <div>
               <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-                Produtos em <span style={{ color: '#e11d48' }}>Destaque</span>
+                Produtos em <span style={{ color: 'hsl(var(--primary))' }}>Destaque</span>
               </h2>
               <p className="text-muted-foreground mt-2">
-                Confira nossa coleção especial de Festa Junina
+                Confira nossa coleção especial de Dia dos Pais
               </p>
             </div>
             <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
@@ -59,30 +59,33 @@ const Index = () => {
 
       {/* CTA Section */}
       <section className="py-20 bg-gradient-hero bg-checkered relative overflow-hidden">
-        {/* Decorative Bunting for bottom section */}
-        <div className="absolute top-0 left-0 w-full overflow-hidden flex justify-center gap-1 opacity-40 pointer-events-none">
-          {[...Array(20)].map((_, i) => (
-            <div 
-              key={i} 
-              className="w-6 h-8 animate-swing" 
-              style={{ 
-                backgroundColor: i % 3 === 0 ? '#e11d48' : (i % 3 === 1 ? '#ea580c' : '#f59e0b'),
-                clipPath: 'polygon(0% 0%, 100% 0%, 50% 100%)',
-                animationDelay: `${i * 0.1}s`
-              }} 
-            />
+        {/* Decorative Moustaches for bottom section */}
+        <div className="absolute top-4 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-30 pointer-events-none">
+          {[...Array(15)].map((_, i) => (
+            <svg
+              key={i}
+              viewBox="0 0 24 24"
+              fill="currentColor"
+              className="w-6 h-6 animate-swing"
+              style={{
+                color: i % 3 === 0 ? '#1d4ed8' : (i % 3 === 1 ? '#3b82f6' : '#60a5fa'),
+                animationDelay: `${i * 0.15}s`
+              }}
+            >
+              <path d="M 12,14.5 C 10.5,13.5 9,13 7.5,13 C 5,13 2.5,14.5 1,17 C 3.5,19 6,19 7.5,19 C 9.5,19 11,17.5 12,16.5 C 13,17.5 14.5,19 16.5,19 C 18,19 20.5,19 23,17 C 21.5,14.5 19,13 16.5,13 C 15,13 13.5,13.5 12,14.5 Z" />
+            </svg>
           ))}
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Pronto pra <span style={{ color: '#e11d48' }}>pular a fogueira</span>?
+            Demonstre todo o seu <span style={{ color: 'hsl(var(--primary))' }}>amor e admiração</span>!
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            Descubra nossa coleção completa e encontre os itens perfeitos para seu arraiá
+            Descubra nossa coleção completa de Dia dos Pais e encontre o presente perfeito para surpreender o seu herói
           </p>
           <ButtonColorful asChild className="h-14 px-8 text-lg">
-            <Link to="/catalogo?categoria=festa-junina">
-              <span>Explorar Catálogo Junino</span>
+            <Link to="/catalogo?categoria=dia-dos-pais">
+              <span>Explorar Coleção Dia dos Pais</span>
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </ButtonColorful>

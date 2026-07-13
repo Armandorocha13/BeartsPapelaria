@@ -44,15 +44,25 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
                     item.secondaryVariation === newItem.secondaryVariation
             );
             if (existingItem) {
-                return currentItems.map((item) =>
-                    item.id === newItem.id &&
+                return currentItems.map((item) => {
+                    if (item.id === newItem.id &&
                         item.paperType === newItem.paperType &&
                         item.handleType === newItem.handleType &&
                         item.magnetType === newItem.magnetType &&
-                        item.secondaryVariation === newItem.secondaryVariation
-                        ? { ...item, quantity: item.quantity + newItem.quantity }
-                        : item
-                );
+                        item.secondaryVariation === newItem.secondaryVariation) {
+                        
+                        const newQuantity = item.quantity + newItem.quantity;
+                        let newPrice = item.price;
+                        const cleanId = item.id.split('-')[0];
+                        if (cleanId === '911') {
+                            newPrice = newQuantity >= 10 ? 13.00 : 15.00;
+                        } else if (cleanId === '912') {
+                            newPrice = newQuantity >= 10 ? 3.50 : 5.00;
+                        }
+                        return { ...item, quantity: newQuantity, price: newPrice };
+                    }
+                    return item;
+                });
             }
             return [...currentItems, newItem];
         });
@@ -73,15 +83,24 @@ export const CartProvider = ({ children }: { children: ReactNode }) => {
     const updateQuantity = (id: string, newQuantity: number, paperType?: string, handleType?: string, magnetType?: string, secondaryVariation?: string) => {
         if (newQuantity < 1) return;
         setItems((currentItems) =>
-            currentItems.map((item) =>
-                item.id === id &&
+            currentItems.map((item) => {
+                if (item.id === id &&
                     item.paperType === paperType &&
                     item.handleType === handleType &&
                     item.magnetType === magnetType &&
-                    item.secondaryVariation === secondaryVariation
-                    ? { ...item, quantity: newQuantity }
-                    : item
-            )
+                    item.secondaryVariation === secondaryVariation) {
+                    
+                    let newPrice = item.price;
+                    const cleanId = id.split('-')[0];
+                    if (cleanId === '911') {
+                        newPrice = newQuantity >= 10 ? 13.00 : 15.00;
+                    } else if (cleanId === '912') {
+                        newPrice = newQuantity >= 10 ? 3.50 : 5.00;
+                    }
+                    return { ...item, quantity: newQuantity, price: newPrice };
+                }
+                return item;
+            })
         );
     };
 

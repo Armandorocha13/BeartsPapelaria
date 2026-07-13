@@ -114,6 +114,14 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     currentPrice = 6.50;
   }
 
+  if (product.id === 911 && quantity >= 10) {
+    currentPrice = 13.00;
+  }
+
+  if (product.id === 912 && quantity >= 10) {
+    currentPrice = 3.50;
+  }
+
   // Aplica desconto por volume genérico se existir (ex: Polaroides)
   if (product.volumeDiscounts && product.volumeDiscounts.length > 0) {
     const applicableDiscount = [...product.volumeDiscounts]

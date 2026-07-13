@@ -113,7 +113,7 @@ import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
 const categories = [
   { id: 'all', name: 'Todos' },
-  { id: 'festa-junina', name: 'Festa Junina' },
+  { id: 'dia-dos-pais', name: 'Dia dos Pais' },
   { id: 'dia-dos-namorados', name: 'Presentes Afetivos' },
   { id: 'casamento', name: 'Casamento' },
   { id: 'fotos', name: 'Fotos' },
@@ -128,18 +128,19 @@ const categories = [
 ];
 
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
-  'festa-junina': [
-    { id: 'all', name: 'Tudo de Festa Junina' },
-    { id: 'toppers', name: 'Toppers', image: '/images/1 junina.jpeg' },
-    { id: 'forminhas-personalizadas', name: 'Forminhas Personalizadas', image: '/images/2 junina.jpeg' },
-    { id: 'caixinhas-personalizadas', name: 'Caixinhas Personalizadas', image: '/images/3 junina.jpeg' },
-    { id: 'centro-mesa', name: 'Centro de Mesa', image: '/images/4 junina.jpeg' },
-    { id: 'tags', name: 'Tags', image: '/images/5 junina.jpeg' },
-    { id: 'kit-correio-elegante', name: 'Kit Correio Elegante', image: '/images/6 junina.jpeg' },
-    { id: 'sacolinhas', name: 'Sacolinhas', image: '/images/7 junina.jpeg' },
-    { id: 'bandeirolas-personalizadas', name: 'Bandeirolas Personalizadas', image: '/images/8 junina.jpeg' },
-    { id: 'displays-mesa', name: 'Displays de Mesa', image: '/images/9 junina.jpeg' },
-    { id: 'lambe-lambe', name: 'Painel Lambe Lambe', image: '/images/10 junina.jpeg' },
+  'dia-dos-pais': [
+    { id: 'all', name: 'Tudo de Dia dos Pais' },
+    { id: 'caixa-envelope', name: 'Caixa Envelope', image: '/images/envelope pai.jpeg' },
+    { id: 'caixa-camisa', name: 'Caixa Camisa', image: '/images/camisa pai.jpeg' },
+    { id: 'chaveiro-personalizado', name: 'Chaveiro Personalizado', image: '/images/chaveiro pai.jpeg' },
+    { id: 'polaroide-personalizada', name: 'Polaroide Personalizada', image: '/images/polaroide pai.jpeg' },
+    { id: 'caixa-cenario', name: 'Caixa Cenário', image: '/images/cenario pai.jpeg' },
+    { id: 'album-figurinhas', name: 'Álbum de Figurinhas', image: '/images/album pai.jpeg' },
+    { id: 'quadro-personalizado', name: 'Quadro Personalizado', image: '/images/quadro pai.jpeg' },
+    { id: 'caneca-acrilico', name: 'Caneca Acrílico', image: '/images/caneca pai.jpeg' },
+    { id: 'bebida-personalizada', name: 'Bebida Personalizada', image: '/images/vinho pai.jpeg' },
+    { id: 'jornal-personalizado', name: 'Jornal Personalizado', image: '/images/jornal pai.jpeg' },
+    { id: 'lembrancas-corporativas', name: 'Lembranças Corporativas', image: imgKitCorporativo },
   ],
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos Afetivos' },
@@ -283,6 +284,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'lambe-lambe', name: 'Painel lambe lambe', image: imgLambeLambe },
     { id: 'caderno', name: 'Caderno personalizado', image: imgCaderno },
     { id: 'livreto', name: 'Livreto personalizado', image: imgLivreto },
+    { id: 'marca-pagina-magnetico', name: 'Marca Páginas Magnético', image: '/images/marca pagina.jpeg' },
   ]
 };
 
@@ -377,7 +379,7 @@ const Catalogo = () => {
       <section className="bg-gradient-hero py-12 md:py-16">
         <div className="container mx-auto px-4 text-center">
           <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-primary">Nosso</span> <span style={{ color: '#e11d48' }}>Catálogo</span>
+            <span className="text-primary">Nosso</span> <span style={{ color: 'hsl(var(--primary))' }}>Catálogo</span>
           </h1>
           <p className="text-muted-foreground max-w-xl mx-auto">
             Explore nossa seleção especial de materiais de papelaria

@@ -6,55 +6,54 @@
 
 @layer base {
   :root {
-    /* Esquema de cores: Tons Românticos (Rosa/Roxo/Vermelho) */
-    --background: 0 30% 98%;
-    --foreground: 0 40% 12%;
-    /* Contraste alto para texto */
-    --accent-red: #e11d48;
-    --main-romantic: #fff1f2;
+    /* Esquema de cores: Tons Masculinos e Elegantes (Dia dos Pais em Tons de Azul) */
+    --background: 221 30% 98%;
+    --foreground: 221 40% 12%;
+    /* Contraste alto para texto (mantendo nome da variavel para compatibilidade) */
+    --accent-red: #2563eb;
+    --main-romantic: #eff6ff;
 
     /* Cards e superfícies */
     --card: 0 0% 100%;
-    --card-foreground: 0 40% 12%;
+    --card-foreground: 221 40% 12%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 0 40% 12%;
+    --popover-foreground: 221 40% 12%;
 
-    /* Cor Primária baseada em tons de vermelho/vinho */
-    --primary: 349 70% 50%;
-    /* Um pouco mais escuro para melhor leitura */
+    /* Cor Primária baseada em tons de azul cobalto */
+    --primary: 221 83% 53%;
     --primary-foreground: 0 0% 100%;
 
     /* Secondary mais suave */
-    --secondary: 349 70% 95%;
-    --secondary-foreground: 349 70% 20%;
+    --secondary: 221 83% 95%;
+    --secondary-foreground: 221 83% 20%;
 
     /* Muted */
-    --muted: 349 20% 96%;
-    --muted-foreground: 349 20% 45%;
+    --muted: 221 20% 96%;
+    --muted-foreground: 221 20% 45%;
 
-    /* Accent baseada no Vermelho Vivo */
-    --accent: 349 80% 92%;
-    --accent-foreground: 349 80% 35%;
+    /* Accent baseada no Azul Vivo */
+    --accent: 221 80% 92%;
+    --accent-foreground: 221 80% 30%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 349 30% 88%;
-    --input: 349 30% 88%;
-    --ring: 349 80% 75%;
+    --border: 221 30% 88%;
+    --input: 221 30% 88%;
+    --ring: 221 80% 75%;
 
     --radius: 1rem;
 
-    /* Gradientes baseados em tons de rosa/vermelho */
-    --gradient-hero: radial-gradient(at center, #fff1f2, #ffe4e6);
-    --gradient-button: linear-gradient(135deg, #e11d48 0%, #be123c 100%);
-    --gradient-card: linear-gradient(180deg, #ffffff 0%, #fff1f2 100%);
+    /* Gradientes baseados em tons de azul */
+    --gradient-hero: radial-gradient(at center, #eff6ff, #dbeafe);
+    --gradient-button: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
+    --gradient-card: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
 
     /* Sombras */
-    --shadow-soft: 0 4px 20px -4px rgba(225, 29, 72, 0.15);
-    --shadow-card: 0 8px 30px -8px rgba(225, 29, 72, 0.1);
-    --shadow-button: 0 4px 14px -3px rgba(225, 29, 72, 0.3);
+    --shadow-soft: 0 4px 20px -4px rgba(37, 99, 235, 0.15);
+    --shadow-card: 0 8px 30px -8px rgba(37, 99, 235, 0.1);
+    --shadow-button: 0 4px 14px -3px rgba(37, 99, 235, 0.3);
 
     --sidebar-background: 292 30% 98%;
     --sidebar-foreground: 292 40% 12%;
@@ -127,27 +126,21 @@
   }
 
   .notebook-margin {
-    border-left: 2px solid #e11d48;
+    border-left: 2px solid #2563eb;
     padding-left: 2rem;
     margin-left: 3rem;
   }
 
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-[#e11d48] via-[#fb7185] to-[#db2777];
+    @apply bg-gradient-to-r from-[#2563eb] via-[#60a5fa] to-[#1d4ed8];
   }
 
-  /* Padrão Xadrez Junino Suave */
+  /* Padrão Xadrez Removido */
   .bg-checkered {
-    background-image: 
-      linear-gradient(45deg, rgba(225, 29, 72, 0.03) 25%, transparent 25%), 
-      linear-gradient(-45deg, rgba(225, 29, 72, 0.03) 25%, transparent 25%), 
-      linear-gradient(45deg, transparent 75%, rgba(225, 29, 72, 0.03) 75%), 
-      linear-gradient(-45deg, transparent 75%, rgba(225, 29, 72, 0.03) 75%);
-    background-size: 40px 40px;
-    background-position: 0 0, 0 20px, 20px -20px, -20px 0px;
+    background-image: none;
   }
 
-  /* Animação de balanço para bandeirolas */
+  /* Animação de balanço para bandeirolas / moustaches */
   @keyframes swing {
     0% { transform: rotate(-5deg); }
     50% { transform: rotate(5deg); }
@@ -165,7 +158,7 @@
 
   .btn-colorful::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#e11d48] via-[#ec4899] to-[#db2777] opacity-90 transition-opacity duration-500;
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#1d4ed8] opacity-90 transition-opacity duration-500;
   }
 
   .btn-colorful:hover::before {

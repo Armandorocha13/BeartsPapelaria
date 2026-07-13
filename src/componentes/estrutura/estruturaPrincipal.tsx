@@ -32,16 +32,16 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Camada Global de Elementos Juninos no Fundo */}
+      {/* Camada Global de Elementos do Dia dos Pais no Fundo */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <span className="absolute top-[5%] left-[8%] text-4xl opacity-20 animate-float" style={{ animationDelay: '0s' }}>🔥</span>
-        <span className="absolute top-[25%] right-[5%] text-4xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }}>🌽</span>
-        <span className="absolute top-[50%] left-[3%] text-4xl opacity-20 animate-float" style={{ animationDelay: '3s' }}>🪗</span>
-        <span className="absolute top-[75%] right-[8%] text-3xl opacity-20 animate-float" style={{ animationDelay: '0.5s' }}>🔥</span>
-        <span className="absolute bottom-[10%] left-[10%] text-5xl opacity-20 animate-float" style={{ animationDelay: '2s' }}>🌽</span>
-        <span className="absolute top-[15%] left-[45%] text-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}>🪗</span>
-        <span className="absolute bottom-[40%] left-[40%] text-4xl opacity-20 animate-float" style={{ animationDelay: '1s' }}>🔥</span>
-        <span className="absolute top-[60%] left-[80%] text-4xl opacity-20 animate-float" style={{ animationDelay: '2.5s' }}>🌽</span>
+        <span className="absolute top-[5%] left-[8%] text-4xl opacity-20 animate-float" style={{ animationDelay: '0s' }}>👔</span>
+        <span className="absolute top-[25%] right-[5%] text-4xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }}>💙</span>
+        <span className="absolute top-[50%] left-[3%] text-4xl opacity-20 animate-float" style={{ animationDelay: '3s' }}>🎁</span>
+        <span className="absolute top-[75%] right-[8%] text-3xl opacity-20 animate-float" style={{ animationDelay: '0.5s' }}>👨</span>
+        <span className="absolute bottom-[10%] left-[10%] text-5xl opacity-20 animate-float" style={{ animationDelay: '2s' }}>👔</span>
+        <span className="absolute top-[15%] left-[45%] text-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}>💙</span>
+        <span className="absolute bottom-[40%] left-[40%] text-4xl opacity-20 animate-float" style={{ animationDelay: '1s' }}>🎁</span>
+        <span className="absolute top-[60%] left-[80%] text-4xl opacity-20 animate-float" style={{ animationDelay: '2.5s' }}>👨</span>
       </div>
 
       <div className="relative z-10 flex flex-col min-h-screen">
