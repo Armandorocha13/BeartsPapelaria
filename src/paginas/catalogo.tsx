@@ -140,7 +140,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'caneca-acrilico', name: 'Caneca Acrílico', image: '/images/caneca pai.jpeg' },
     { id: 'bebida-personalizada', name: 'Bebida Personalizada', image: '/images/vinho pai.jpeg' },
     { id: 'jornal-personalizado', name: 'Jornal Personalizado', image: '/images/jornal pai.jpeg' },
-    { id: 'lembrancas-corporativas', name: 'Lembranças Corporativas', image: imgKitCorporativo },
+    { id: 'lembrancas-corporativas', name: 'Lembranças Corporativas', image: '/images/carteira pai.jpeg' },
   ],
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos Afetivos' },
