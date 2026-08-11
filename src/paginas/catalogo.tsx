@@ -113,7 +113,6 @@ import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
 const categories = [
   { id: 'all', name: 'Todos' },
-  { id: 'dia-dos-pais', name: 'Dia dos Pais' },
   { id: 'dia-dos-namorados', name: 'Presentes Afetivos' },
   { id: 'casamento', name: 'Casamento' },
   { id: 'fotos', name: 'Fotos' },
@@ -128,20 +127,6 @@ const categories = [
 ];
 
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
-  'dia-dos-pais': [
-    { id: 'all', name: 'Tudo de Dia dos Pais' },
-    { id: 'caixa-envelope', name: 'Caixa Envelope', image: '/images/envelope pai.jpeg' },
-    { id: 'caixa-camisa', name: 'Caixa Camisa', image: '/images/camisa pai.jpeg' },
-    { id: 'chaveiro-personalizado', name: 'Chaveiro Personalizado', image: '/images/chaveiro pai.jpeg' },
-    { id: 'polaroide-personalizada', name: 'Polaroide Personalizada', image: '/images/polaroide pai.jpeg' },
-    { id: 'caixa-cenario', name: 'Caixa Cenário', image: '/images/cenario pai.jpeg' },
-    { id: 'album-figurinhas', name: 'Álbum de Figurinhas', image: '/images/album pai.jpeg' },
-    { id: 'quadro-personalizado', name: 'Quadro Personalizado', image: '/images/quadro pai.jpeg' },
-    { id: 'caneca-acrilico', name: 'Caneca Acrílico', image: '/images/caneca pai.jpeg' },
-    { id: 'bebida-personalizada', name: 'Bebida Personalizada', image: '/images/vinho pai.jpeg' },
-    { id: 'jornal-personalizado', name: 'Jornal Personalizado', image: '/images/jornal pai.jpeg' },
-    { id: 'lembrancas-corporativas', name: 'Lembranças Corporativas', image: '/images/carteira pai.jpeg' },
-  ],
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos Afetivos' },
     { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas },
@@ -276,6 +261,7 @@ const subcategoriesList: Record<string, { id: string, name: string, image?: stri
     { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas },
     { id: 'calendario', name: 'Calendário', image: imgCalendarioMini1, images: [imgCalendarioMini1, imgCalendarioMini2] },
     { id: 'imas-geladeira', name: 'Ímãs de Geladeira', image: imgImaGeladeira1, images: [imgImaGeladeira1, imgImaGeladeira2] },
+    { id: 'topo-de-bolo', name: 'Topo de Bolo', image: '/images/topo.jpeg' },
     { id: 'kit-festa', name: 'Kit só um bolinho', image: imgKitFesta },
     { id: 'cofre', name: 'Cofre personalizado', image: imgCofre },
     { id: 'aplique-tubete', name: 'Aplique para tubete', image: imgApliqueTubete },
@@ -366,11 +352,12 @@ const Catalogo = () => {
   };
 
   const filteredProducts = products.filter((product) => {
+    const isNotFatherDay = product.category !== 'dia-dos-pais';
     const matchesCategory = selectedCategory === 'all' || product.category === selectedCategory;
     const matchesSubcategory = selectedSubcategory === 'all' || product.subcategory === selectedSubcategory;
     const matchesSearch = product.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
       product.description.toLowerCase().includes(searchQuery.toLowerCase());
-    return matchesCategory && matchesSubcategory && matchesSearch;
+    return isNotFatherDay && matchesCategory && matchesSubcategory && matchesSearch;
   });
 
   return (

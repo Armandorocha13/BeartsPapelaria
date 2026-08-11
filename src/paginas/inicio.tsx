@@ -5,11 +5,24 @@ import { ProductCard } from '@/componentes/catalogo/cartaoProduto';
 import { products } from '@/dados/produtos';
 import { ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import { Button } from '@/componentes/interface/button';
 import { ButtonColorful } from '@/componentes/interface/button-colorful';
+import { RainbowBee, MiniFlower } from '@/componentes/interface/iconesDecorativos';
 
 const Index = () => {
-  const featuredProducts = products.filter(p => p.category === 'dia-dos-pais').slice(0, 8);
+  // Filtra apenas produtos que NÃO sejam do Dia dos Pais
+  const nonFatherProducts = products.filter(p => p.category !== 'dia-dos-pais');
+
+  // Prioriza as opções selecionadas: Topo de bolo, Polaroide, Chaveiro e itens em destaque
+  const preferredSubcategories = ['topo-de-bolo', 'polaroide-personalizada', 'chaveiro-personalizado', 'polaroide', 'caixa-milk', 'adesivos'];
+
+  const featuredProducts = nonFatherProducts
+    .filter(p => preferredSubcategories.includes(p.subcategory || '') || p.id === 950 || p.id === 200 || p.id === 210)
+    .slice(0, 8);
+
+  if (featuredProducts.length < 8) {
+    const extraProducts = nonFatherProducts.filter(p => !featuredProducts.includes(p)).slice(0, 8 - featuredProducts.length);
+    featuredProducts.push(...extraProducts);
+  }
 
   return (
     <Layout>
@@ -25,7 +38,7 @@ const Index = () => {
                 Produtos em <span style={{ color: 'hsl(var(--primary))' }}>Destaque</span>
               </h2>
               <p className="text-muted-foreground mt-2">
-                Confira nossa coleção especial de Dia dos Pais
+                Descubra nossas criações e mimos mais amados
               </p>
             </div>
             <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
@@ -58,34 +71,33 @@ const Index = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 bg-gradient-hero bg-checkered relative overflow-hidden">
-        {/* Decorative Moustaches for bottom section */}
-        <div className="absolute top-4 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-30 pointer-events-none">
-          {[...Array(15)].map((_, i) => (
-            <svg
+      <section className="py-20 bg-gradient-hero relative overflow-hidden">
+        {/* Decorative Bees and Flowers for bottom section */}
+        <div className="absolute top-4 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-50 pointer-events-none">
+          {[...Array(12)].map((_, i) => (
+            <div
               key={i}
-              viewBox="0 0 24 24"
-              fill="currentColor"
-              className="w-6 h-6 animate-swing"
-              style={{
-                color: i % 3 === 0 ? '#1d4ed8' : (i % 3 === 1 ? '#3b82f6' : '#60a5fa'),
-                animationDelay: `${i * 0.15}s`
-              }}
+              className="animate-swing"
+              style={{ animationDelay: `${i * 0.2}s` }}
             >
-              <path d="M 12,14.5 C 10.5,13.5 9,13 7.5,13 C 5,13 2.5,14.5 1,17 C 3.5,19 6,19 7.5,19 C 9.5,19 11,17.5 12,16.5 C 13,17.5 14.5,19 16.5,19 C 18,19 20.5,19 23,17 C 21.5,14.5 19,13 16.5,13 C 15,13 13.5,13.5 12,14.5 Z" />
-            </svg>
+              {i % 2 === 0 ? (
+                <MiniFlower size={24} color={i % 3 === 0 ? '#FBCFE8' : '#D8B4F8'} centerColor="#FEF08A" />
+              ) : (
+                <RainbowBee size={24} />
+              )}
+            </div>
           ))}
         </div>
         <div className="container mx-auto px-4 text-center relative z-10">
           <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Demonstre todo o seu <span style={{ color: 'hsl(var(--primary))' }}>amor e admiração</span>!
+            Feito à mão com <span style={{ color: 'hsl(var(--primary))' }}>amor & carinho</span>! 🌸
           </h2>
           <p className="text-muted-foreground max-w-xl mx-auto mb-8">
-            Descubra nossa coleção completa de Dia dos Pais e encontre o presente perfeito para surpreender o seu herói
+            Descubra nossa papelaria fofa e encontre o presente artesanal perfeito para encantar quem você ama.
           </p>
           <ButtonColorful asChild className="h-14 px-8 text-lg">
-            <Link to="/catalogo?categoria=dia-dos-pais">
-              <span>Explorar Coleção Dia dos Pais</span>
+            <Link to="/catalogo">
+              <span>Explorar Todo o Catálogo</span>
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>
           </ButtonColorful>

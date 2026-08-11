@@ -6,67 +6,73 @@
 
 @layer base {
   :root {
-    /* Esquema de cores: Tons Masculinos e Elegantes (Dia dos Pais em Tons de Azul) */
-    --background: 221 30% 98%;
-    --foreground: 221 40% 12%;
-    /* Contraste alto para texto (mantendo nome da variavel para compatibilidade) */
-    --accent-red: #2563eb;
-    --main-romantic: #eff6ff;
+    /* Cores Candy Suaves Bearts Papelaria:
+       - Lilás Candy: #F3E8FF / #E9D5FF
+       - Rosa Candy: #FCE7F3 / #F48FB1
+       - Amarelo Candy: #FEF08A
+       - Texto Suave: #4A355A (Lilás Escuro Suave)
+    */
+    --background: 270 60% 98%; /* #F8F3FC - Fundo Lilás Candy Suave */
+    --foreground: 275 25% 25%; /* #4A355A - Texto legível e suave */
+
+    /* Destaque / badges */
+    --accent-red: #F48FB1;
+    --main-romantic: #FCE7F3;
 
     /* Cards e superfícies */
     --card: 0 0% 100%;
-    --card-foreground: 221 40% 12%;
+    --card-foreground: 275 25% 25%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 221 40% 12%;
+    --popover-foreground: 275 25% 25%;
 
-    /* Cor Primária baseada em tons de azul cobalto */
-    --primary: 221 83% 53%;
+    /* Cor Primária: Lilás Candy Suave (#C4A5F3) */
+    --primary: 268 75% 78%;
     --primary-foreground: 0 0% 100%;
 
-    /* Secondary mais suave */
-    --secondary: 221 83% 95%;
-    --secondary-foreground: 221 83% 20%;
+    /* Secondary: Rosa Candy (#FCE7F3) */
+    --secondary: 330 80% 96%;
+    --secondary-foreground: 330 50% 30%;
 
     /* Muted */
-    --muted: 221 20% 96%;
-    --muted-foreground: 221 20% 45%;
+    --muted: 270 20% 96%;
+    --muted-foreground: 275 15% 48%;
 
-    /* Accent baseada no Azul Vivo */
-    --accent: 221 80% 92%;
-    --accent-foreground: 221 80% 30%;
+    /* Accent: Amarelo Candy (#FEF08A) */
+    --accent: 52 95% 90%;
+    --accent-foreground: 52 80% 25%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 221 30% 88%;
-    --input: 221 30% 88%;
-    --ring: 221 80% 75%;
+    --border: 270 40% 93%;
+    --input: 270 40% 93%;
+    --ring: 268 75% 78%;
 
     --radius: 1rem;
 
-    /* Gradientes baseados em tons de azul */
-    --gradient-hero: radial-gradient(at center, #eff6ff, #dbeafe);
-    --gradient-button: linear-gradient(135deg, #2563eb 0%, #1e40af 100%);
-    --gradient-card: linear-gradient(180deg, #ffffff 0%, #eff6ff 100%);
+    /* Fundo Lilás Candy Sólido e Suave */
+    --gradient-hero: #F3E8FF;
+    --gradient-button: linear-gradient(135deg, #F48FB1 0%, #F9B8D4 50%, #FCE7F3 100%);
+    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F3E8FF 100%);
 
-    /* Sombras */
-    --shadow-soft: 0 4px 20px -4px rgba(37, 99, 235, 0.15);
-    --shadow-card: 0 8px 30px -8px rgba(37, 99, 235, 0.1);
-    --shadow-button: 0 4px 14px -3px rgba(37, 99, 235, 0.3);
+    /* Sombras Pastel Delicadas */
+    --shadow-soft: 0 4px 20px -4px rgba(233, 213, 255, 0.4);
+    --shadow-card: 0 8px 30px -8px rgba(252, 231, 243, 0.4);
+    --shadow-button: 0 4px 14px -3px rgba(233, 213, 255, 0.6);
 
-    --sidebar-background: 292 30% 98%;
-    --sidebar-foreground: 292 40% 12%;
-    --sidebar-primary: 292 30% 65%;
+    --sidebar-background: 270 60% 98%;
+    --sidebar-foreground: 275 25% 25%;
+    --sidebar-primary: 268 75% 78%;
     --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 292 20% 96%;
-    --sidebar-accent-foreground: 292 40% 12%;
-    --sidebar-border: 292 30% 88%;
-    --sidebar-ring: 338 61% 75%;
+    --sidebar-accent: 270 20% 96%;
+    --sidebar-accent-foreground: 275 25% 25%;
+    --sidebar-border: 270 40% 93%;
+    --sidebar-ring: 268 75% 78%;
 
     /* Notebook specific */
     --paper-white: 0 0% 100%;
-    --notebook-line: 292 30% 90%;
+    --notebook-line: 270 40% 93%;
   }
 }
 
@@ -126,13 +132,13 @@
   }
 
   .notebook-margin {
-    border-left: 2px solid #2563eb;
+    border-left: 2px solid #E9D5FF;
     padding-left: 2rem;
     margin-left: 3rem;
   }
 
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-[#2563eb] via-[#60a5fa] to-[#1d4ed8];
+    @apply bg-gradient-to-r from-[#E9D5FF] via-[#FCE7F3] to-[#FEF08A];
   }
 
   /* Padrão Xadrez Removido */
@@ -140,15 +146,15 @@
     background-image: none;
   }
 
-  /* Animação de balanço para bandeirolas / moustaches */
+  /* Animação de balanço suave */
   @keyframes swing {
-    0% { transform: rotate(-5deg); }
-    50% { transform: rotate(5deg); }
-    100% { transform: rotate(-5deg); }
+    0% { transform: rotate(-6deg); }
+    50% { transform: rotate(6deg); }
+    100% { transform: rotate(-6deg); }
   }
 
   .animate-swing {
-    animation: swing 3s ease-in-out infinite;
+    animation: swing 3.5s ease-in-out infinite;
     transform-origin: top center;
   }
 
@@ -158,7 +164,7 @@
 
   .btn-colorful::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#2563eb] via-[#3b82f6] to-[#1d4ed8] opacity-90 transition-opacity duration-500;
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#F48FB1] via-[#F9B8D4] to-[#FCE7F3] opacity-90 transition-opacity duration-500;
   }
 
   .btn-colorful:hover::before {

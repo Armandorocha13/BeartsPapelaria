@@ -2,28 +2,7 @@ import { ReactNode } from 'react';
 import { Navbar } from './barraNavegacao';
 import { Footer } from './rodape';
 import { WelcomeModal } from '../inicio/modalBoasVindas';
-
-// Custom Balloon Icon component to replace missing lucide-react Balloon icon
-const Balloon = ({ className, style }: { className?: string; style?: React.CSSProperties }) => (
-  <svg
-    xmlns="http://www.w3.org/2000/svg"
-    viewBox="0 0 24 24"
-    fill="none"
-    stroke="currentColor"
-    strokeWidth="2"
-    strokeLinecap="round"
-    strokeLinejoin="round"
-    className={className}
-    style={style}
-  >
-    <path d="M12 2a7 7 0 0 1 7 7c0 2.3-1 4.3-2.8 5.7L12 19l-4.2-4.3C6 13.3 5 11.3 5 9a7 7 0 0 1 7-7Z" />
-    <path d="M12 19v4" />
-    <path d="m19 2 1 2" />
-    <path d="m22 7-2 1" />
-    <path d="m3 7 2 1" />
-    <path d="m5 2-1 2" />
-  </svg>
-);
+import { RainbowBee, MiniFlower, PastelRainbow } from '../interface/iconesDecorativos';
 
 interface LayoutProps {
   children: ReactNode;
@@ -32,16 +11,32 @@ interface LayoutProps {
 export const Layout = ({ children }: LayoutProps) => {
   return (
     <div className="min-h-screen flex flex-col relative">
-      {/* Camada Global de Elementos do Dia dos Pais no Fundo */}
+      {/* Camada Global de Abelhas, Arco-Íris e Mini Flores Fofas no Fundo */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <span className="absolute top-[5%] left-[8%] text-4xl opacity-20 animate-float" style={{ animationDelay: '0s' }}>👔</span>
-        <span className="absolute top-[25%] right-[5%] text-4xl opacity-20 animate-float" style={{ animationDelay: '1.5s' }}>💙</span>
-        <span className="absolute top-[50%] left-[3%] text-4xl opacity-20 animate-float" style={{ animationDelay: '3s' }}>🎁</span>
-        <span className="absolute top-[75%] right-[8%] text-3xl opacity-20 animate-float" style={{ animationDelay: '0.5s' }}>👨</span>
-        <span className="absolute bottom-[10%] left-[10%] text-5xl opacity-20 animate-float" style={{ animationDelay: '2s' }}>👔</span>
-        <span className="absolute top-[15%] left-[45%] text-3xl opacity-20 animate-float" style={{ animationDelay: '4s' }}>💙</span>
-        <span className="absolute bottom-[40%] left-[40%] text-4xl opacity-20 animate-float" style={{ animationDelay: '1s' }}>🎁</span>
-        <span className="absolute top-[60%] left-[80%] text-4xl opacity-20 animate-float" style={{ animationDelay: '2.5s' }}>👨</span>
+        <div className="absolute top-[5%] left-[5%] opacity-50 animate-float" style={{ animationDelay: '0s' }}>
+          <RainbowBee size={44} />
+        </div>
+        <div className="absolute top-[18%] right-[6%] opacity-55 animate-float" style={{ animationDelay: '1.2s' }}>
+          <PastelRainbow size={42} />
+        </div>
+        <div className="absolute top-[38%] left-[3%] opacity-50 animate-float" style={{ animationDelay: '2.5s' }}>
+          <MiniFlower size={38} color="#F9B8D4" centerColor="#FFE278" />
+        </div>
+        <div className="absolute top-[68%] right-[8%] opacity-50 animate-float" style={{ animationDelay: '0.8s' }}>
+          <RainbowBee size={48} />
+        </div>
+        <div className="absolute bottom-[8%] left-[7%] opacity-50 animate-float" style={{ animationDelay: '2s' }}>
+          <MiniFlower size={42} color="#D9BBF9" centerColor="#FFE278" />
+        </div>
+        <div className="absolute top-[12%] left-[45%] opacity-45 animate-float" style={{ animationDelay: '3.5s' }}>
+          <MiniFlower size={32} color="#FFDCE8" centerColor="#FFE278" />
+        </div>
+        <div className="absolute bottom-[35%] left-[38%] opacity-50 animate-float" style={{ animationDelay: '1.5s' }}>
+          <PastelRainbow size={38} />
+        </div>
+        <div className="absolute top-[55%] left-[85%] opacity-50 animate-float" style={{ animationDelay: '2.8s' }}>
+          <MiniFlower size={36} color="#F9B8D4" centerColor="#FFE278" />
+        </div>
       </div>
 
       <div className="relative z-10 flex flex-col min-h-screen">

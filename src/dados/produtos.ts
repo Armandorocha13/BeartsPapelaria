@@ -2429,4 +2429,15 @@ export const products: Product[] = [
       { name: 'Ofício', price: 0 },
     ],
   },
+  {
+    id: 950,
+    name: 'Topo de Bolo Personalizado',
+    description: 'Topo de bolo personalizado em todos os temas.',
+    price: 15.00,
+    category: 'outros',
+    subcategory: 'topo-de-bolo',
+    image: '/images/topo.jpeg',
+    isNew: true,
+    isFeatured: true,
+  },
 ];

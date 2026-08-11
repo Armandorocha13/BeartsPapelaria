@@ -10,7 +10,6 @@ import logoBee from '@/ativos/logo-bee.png';
 
 const navLinks = [
   { name: 'Início', path: '/' },
-  { name: 'Dia dos Pais', path: '/catalogo?categoria=dia-dos-pais' },
   { name: 'Catálogo', path: '/catalogo' },
   { name: 'Sobre', path: '/sobre' },
 ];
@@ -53,12 +52,17 @@ export const Navbar = () => {
       >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/50 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform">
+          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/80 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform border border-[#F9B8D4]/40">
             <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
           </div>
-          <span className="font-heading font-bold text-lg text-primary hidden sm:inline-block">
-            Bearts <span style={{ color: 'hsl(var(--primary))' }}>Papelaria</span>
-          </span>
+          <div className="flex flex-col leading-none hidden sm:flex">
+            <span className="font-heading font-bold text-xl text-[#F48FB1] drop-shadow-sm tracking-wide">
+              Bearts
+            </span>
+            <span className="font-heading font-semibold text-[10px] text-[#EAB308] uppercase tracking-[0.18em]">
+              Papelaria
+            </span>
+          </div>
         </Link>
 
         {/* Desktop Navigation */}

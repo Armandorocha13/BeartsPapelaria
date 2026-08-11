@@ -10,12 +10,17 @@ export const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl overflow-hidden bg-white/50 flex items-center justify-center shadow-button">
+              <div className="w-10 h-10 rounded-2xl overflow-hidden bg-white flex items-center justify-center shadow-soft border border-[#F9B8D4]/40">
                 <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
               </div>
-              <h3 className="font-heading font-bold text-xl text-primary">
-                Bearts <span style={{ color: 'hsl(var(--primary))' }}>Papelaria</span>
-              </h3>
+              <div className="flex flex-col leading-none">
+                <span className="font-heading font-bold text-2xl text-[#F48FB1] tracking-wide">
+                  Bearts
+                </span>
+                <span className="font-heading font-semibold text-[11px] text-[#EAB308] uppercase tracking-[0.18em]">
+                  Papelaria
+                </span>
+              </div>
             </div>
             <p className="text-muted-foreground">
               Transformando seus momentos em memórias com materiais de qualidade e muito carinho.

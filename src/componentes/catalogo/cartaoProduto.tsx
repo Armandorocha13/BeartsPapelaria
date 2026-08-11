@@ -32,6 +32,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     if (['etiquetas', 'cartoes'].includes(product.category) || (product.category === 'convites' && product.subcategory === 'impresso')) {
       return [...base, 'FOTOGRÁFICO MATTE'];
     }
+    if (product.subcategory === 'topo-de-bolo') {
+      return ['GLOSSY', 'MATTE'];
+    }
     if (product.subcategory === 'cofre' || product.subcategory === 'aplique-tubete' || product.subcategory === 'buque-borboletas' || product.subcategory === 'imas-geladeira' || product.subcategory === 'lambe-lambe' || product.subcategory === 'caderno' || product.subcategory === 'livreto') {
       return ['GLOSSY'];
     }
