@@ -253,7 +253,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
       <div className="p-5">
         {/* Category */}
         <span className="text-xs font-medium text-muted-foreground uppercase tracking-wide">
-          {product.category}
+          {product.category === 'dia-dos-namorados' || product.category === 'presentes-afetivos'
+            ? 'presentes afetivos'
+            : product.category.replace(/-/g, ' ')}
         </span>
 
         {/* Name */}

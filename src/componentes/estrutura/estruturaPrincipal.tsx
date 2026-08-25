@@ -13,10 +13,7 @@ export const Layout = ({ children }: LayoutProps) => {
     <div className="min-h-screen flex flex-col relative">
       {/* Camada Global de Abelhas, Arco-Íris e Mini Flores Fofas no Fundo */}
       <div className="fixed inset-0 overflow-hidden pointer-events-none z-0">
-        <div className="absolute top-[5%] left-[5%] opacity-50 animate-float" style={{ animationDelay: '0s' }}>
-          <RainbowBee size={44} />
-        </div>
-        <div className="absolute top-[18%] right-[6%] opacity-55 animate-float" style={{ animationDelay: '1.2s' }}>
+        <div className="absolute top-[22%] right-[6%] opacity-55 animate-float" style={{ animationDelay: '1.2s' }}>
           <PastelRainbow size={42} />
         </div>
         <div className="absolute top-[38%] left-[3%] opacity-50 animate-float" style={{ animationDelay: '2.5s' }}>

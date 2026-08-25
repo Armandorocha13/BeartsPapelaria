@@ -9,7 +9,7 @@ export const Hero = () => {
   return (
     <section className="relative overflow-hidden bg-gradient-to-b from-[#EADDFB]/80 via-[#EADDFB]/40 to-[#FFF3E1]">
       {/* Elementos Decorativos Flutuantes no Topo (Abelhas, Arco-Íris e Flores) */}
-      <div className="absolute top-4 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-75 z-0 pointer-events-none">
+      <div className="absolute top-24 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-75 z-0 pointer-events-none">
         {[...Array(12)].map((_, i) => (
           <div
             key={i}

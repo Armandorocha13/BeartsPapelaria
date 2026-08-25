@@ -9,19 +9,24 @@ import { ButtonColorful } from '@/componentes/interface/button-colorful';
 import { RainbowBee, MiniFlower } from '@/componentes/interface/iconesDecorativos';
 
 const Index = () => {
-  // Filtra apenas produtos que NÃO sejam do Dia dos Pais
+  // Filtra produtos ativos (excluindo dia dos pais)
   const nonFatherProducts = products.filter(p => p.category !== 'dia-dos-pais');
 
-  // Prioriza as opções selecionadas: Topo de bolo, Polaroide, Chaveiro e itens em destaque
-  const preferredSubcategories = ['topo-de-bolo', 'polaroide-personalizada', 'chaveiro-personalizado', 'polaroide', 'caixa-milk', 'adesivos'];
+  // IDs dos Produtos Mais Vendidos solicitados: Buquê de Borboletas (232), Chaveiro (210), Polaroide (200), Quadros (204)
+  const bestSellerIds = [232, 210, 200, 204];
+  const bestSellers = bestSellerIds
+    .map(id => nonFatherProducts.find(p => p.id === id))
+    .filter((p): p is typeof products[0] => p !== undefined);
 
-  const featuredProducts = nonFatherProducts
-    .filter(p => preferredSubcategories.includes(p.subcategory || '') || p.id === 950 || p.id === 200 || p.id === 210)
-    .slice(0, 8);
+  // Produtos em Destaque complementares
+  const featuredIds = [233, 227, 203, 220, 223, 222, 214, 950];
+  const featuredProducts = featuredIds
+    .map(id => nonFatherProducts.find(p => p.id === id))
+    .filter((p): p is typeof products[0] => p !== undefined);
 
   if (featuredProducts.length < 8) {
-    const extraProducts = nonFatherProducts.filter(p => !featuredProducts.includes(p)).slice(0, 8 - featuredProducts.length);
-    featuredProducts.push(...extraProducts);
+    const remaining = nonFatherProducts.filter(p => !bestSellerIds.includes(p.id) && !featuredProducts.includes(p));
+    featuredProducts.push(...remaining.slice(0, 8 - featuredProducts.length));
   }
 
   return (
@@ -29,16 +34,19 @@ const Index = () => {
       <Hero />
       <Categories />
 
-      {/* Featured Products */}
-      <section className="py-20">
+      {/* Seção: Produtos Mais Vendidos */}
+      <section className="py-16 bg-[#EADDFB]/30">
         <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between mb-12">
+          <div className="flex items-center justify-between mb-10">
             <div>
-              <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground">
-                Produtos em <span style={{ color: 'hsl(var(--primary))' }}>Destaque</span>
+              <span className="inline-block px-3 py-1 bg-[#FF89B0]/20 text-[#FF89B0] text-xs font-bold rounded-full mb-2 uppercase tracking-wider">
+                Os queridinhos da Bearts 🔥
+              </span>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#4A2E2E]">
+                Produtos <span style={{ color: '#FF89B0' }}>Mais Vendidos</span>
               </h2>
-              <p className="text-muted-foreground mt-2">
-                Descubra nossas criações e mimos mais amados
+              <p className="text-[#4A2E2E]/70 mt-1 text-sm md:text-base">
+                Conheça os mimos artesanais que conquistaram nossos clientes
               </p>
             </div>
             <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
@@ -49,7 +57,38 @@ const Index = () => {
             </ButtonColorful>
           </div>
 
-          {/* Products Grid */}
+          {/* Grid dos Mais Vendidos */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {bestSellers.map((product, index) => (
+              <div key={product.id} className="w-full" style={{ animationDelay: `${index * 0.1}s` }}>
+                <ProductCard product={product} />
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Seção: Produtos em Destaque */}
+      <section className="py-20">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between mb-12">
+            <div>
+              <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#4A2E2E]">
+                Produtos em <span style={{ color: '#C7B5F2' }}>Destaque</span>
+              </h2>
+              <p className="text-[#4A2E2E]/70 mt-2">
+                Descubra nossas criações encantadoras preparadas com carinho
+              </p>
+            </div>
+            <ButtonColorful asChild className="hidden md:flex gap-2 h-11">
+              <Link to="/catalogo">
+                <span>Ver todos</span>
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </ButtonColorful>
+          </div>
+
+          {/* Grid dos Produtos em Destaque */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {featuredProducts.map((product, index) => (
               <div key={product.id} className="w-full" style={{ animationDelay: `${index * 0.1}s` }}>

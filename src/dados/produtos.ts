@@ -2298,11 +2298,11 @@ export const products: Product[] = [
   {
     id: 232,
     name: 'Buquê de Borboletas',
-    description: 'Buque de borboletas, iluminado, com 3 polaroides, selecione a cor apos a compra',
+    description: 'Iluminado com LED e 3 polaroides personalizadas.',
     price: 55.00,
     category: 'dia-dos-namorados',
     subcategory: 'buque-borboletas',
-    image: imgBuqueBorboletas,
+    image: '/images/WhatsApp Image 2026-08-25 at 19.22.36.jpeg',
     isNew: true,
     variations: [
       { name: 'P', price: 55.00 },
@@ -2317,7 +2317,7 @@ export const products: Product[] = [
     price: 55.00,
     category: 'dia-dos-namorados',
     subcategory: 'buque-borboletas',
-    image: imgBuqueVanGogh,
+    image: '/images/buque van gogh.jpeg',
     isNew: true,
     variations: [
       { name: 'P', price: 55.00 },

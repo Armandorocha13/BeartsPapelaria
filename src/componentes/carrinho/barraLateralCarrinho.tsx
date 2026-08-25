@@ -95,7 +95,7 @@ export const CartSidebar = ({ isOpen, onClose }: CartSidebarProps) => {
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2 mb-1">
                                             <span className="text-[10px] text-muted-foreground uppercase font-medium">
-                                                {item.category}
+                                                {item.category === 'dia-dos-namorados' || item.category === 'presentes-afetivos' ? 'presentes afetivos' : item.category}
                                             </span>
                                             {item.paperType && item.category !== 'dia-dos-namorados' && (
                                                 <span className="text-[9px] bg-primary/10 text-primary font-bold px-1.5 py-0.5 rounded">

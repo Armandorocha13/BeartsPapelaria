@@ -118,9 +118,9 @@ const Carrinho = () => {
                                         </h3>
                                         <div className="flex flex-wrap items-center gap-2 mb-4">
                                             <p className="text-sm text-muted-foreground uppercase tracking-wider">
-                                                {item.category}
+                                                {item.category === 'dia-dos-namorados' || item.category === 'presentes-afetivos' ? 'presentes afetivos' : item.category}
                                             </p>
-                                            {item.paperType && item.category !== 'dia-dos-namorados' && (
+                                            {item.paperType && item.category !== 'dia-dos-namorados' && item.category !== 'presentes-afetivos' && (
                                                 <span className="text-[10px] bg-primary/10 text-primary font-bold px-2 py-0.5 rounded-full shadow-sm">
                                                     {item.paperType}
                                                 </span>

@@ -129,7 +129,7 @@ const categories = [
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos Afetivos' },
-    { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: imgBuqueBorboletas },
+    { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: '/images/WhatsApp Image 2026-08-25 at 19.22.36.jpeg' },
     { id: 'polaroide-personalizada', name: 'Polaroide Personalizada', image: '/images/polaroide amor.jpeg' },
     { id: 'album-copa-love', name: 'Álbum da Copa Love', image: '/images/album da copa love.jpeg' },
     { id: 'livro-personalizado', name: 'Livro Personalizado', image: '/images/maarvel.jpeg' },
