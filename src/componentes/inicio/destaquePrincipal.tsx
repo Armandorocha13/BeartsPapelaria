@@ -3,13 +3,13 @@ import { Link } from 'react-router-dom';
 import { ButtonColorful } from '@/componentes/interface/button-colorful';
 import { RainbowBee, MiniFlower, PastelRainbow } from '@/componentes/interface/iconesDecorativos';
 
-const heroBannerImage = '/images/bearts-hero-3d-latest.png';
+const heroBannerImage = '/images/3dfc0e87-e573-4880-9573-e9d117949f5d.png';
 
 export const Hero = () => {
   return (
-    <section className="relative overflow-hidden bg-[#F3E8FF]">
+    <section className="relative overflow-hidden bg-gradient-to-b from-[#EADDFB]/80 via-[#EADDFB]/40 to-[#FFF3E1]">
       {/* Elementos Decorativos Flutuantes no Topo (Abelhas, Arco-Íris e Flores) */}
-      <div className="absolute top-4 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-70 z-0 pointer-events-none">
+      <div className="absolute top-4 left-0 w-full overflow-hidden flex justify-center gap-4 md:gap-8 opacity-75 z-0 pointer-events-none">
         {[...Array(12)].map((_, i) => (
           <div
             key={i}
@@ -19,8 +19,8 @@ export const Hero = () => {
             {i % 3 === 0 ? (
               <MiniFlower
                 size={28}
-                color={i % 2 === 0 ? '#FCE7F3' : '#E9D5FF'}
-                centerColor="#FEF08A"
+                color={i % 2 === 0 ? '#F7B6D2' : '#C7B5F2'}
+                centerColor="#FFD98A"
               />
             ) : i % 3 === 1 ? (
               <RainbowBee size={32} />
@@ -36,23 +36,23 @@ export const Hero = () => {
           {/* Text Content */}
           <div className="relative z-10 text-center lg:text-left">
             {/* Banner Destaque */}
-            <div className="inline-flex items-start md:items-center gap-2 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 mb-8 shadow-soft animate-fade-in border border-[#E9D5FF]">
-              <Sparkles className="w-5 h-5 text-[#8B629B] animate-pulse" />
-              <span className="text-sm font-medium text-foreground leading-snug">
-                <strong className="text-[#8B629B] mr-1">Papelaria Afetiva & Mimos:</strong>
+            <div className="inline-flex items-start md:items-center gap-2 bg-white/90 backdrop-blur-sm rounded-2xl px-5 py-3 mb-8 shadow-soft animate-fade-in border border-[#C7B5F2]/40">
+              <Sparkles className="w-5 h-5 text-[#FF89B0] animate-pulse" />
+              <span className="text-sm font-medium text-[#4A2E2E] leading-snug">
+                <strong className="text-[#FF89B0] mr-1">Papelaria Afetiva & Mimos:</strong>
                 Criados com muito amor e carinho! 🌸
               </span>
             </div>
 
             {/* Heading */}
             <h1 className="font-heading text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in leading-tight" style={{ animationDelay: '0.1s' }}>
-              <span style={{ color: '#6B4F78' }}>Bearts Papelaria:</span> <br />
-              <span style={{ color: '#E87A90' }}>Amor em forma de papel. ✨</span>
+              <span style={{ color: '#4A2E2E' }}>Bearts Papelaria:</span> <br />
+              <span style={{ color: '#FF89B0' }}>Amor em forma de papel. ✨</span>
             </h1>
 
             {/* Description */}
-            <p className="text-lg md:text-xl text-muted-foreground mb-10 max-w-lg mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-              De cadernos e adesivos a mimos e papelaria personalizada. Encontre lembranças perfeitas criadas com carinho na Bearts.
+            <p className="text-lg md:text-xl text-[#4A2E2E]/80 mb-10 max-w-xl mx-auto lg:mx-0 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+              Papelaria Personalizada com amor, muito além de papel: cuidado, emoção e significado em cada detalhe. Feito à mão para transformar conexões simples em memórias inesquecíveis.
             </p>
 
             {/* CTA Buttons */}
@@ -77,8 +77,8 @@ export const Hero = () => {
             </div>
 
             {/* Floating decorative elements */}
-            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#E9D5FF]/40 rounded-full opacity-60 animate-float blur-sm" />
-            <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-[#FCE7F3]/50 rounded-full opacity-50 animate-float" style={{ animationDelay: '1s' }} />
+            <div className="absolute -top-4 -right-4 w-20 h-20 bg-[#C7B5F2]/40 rounded-full opacity-60 animate-float blur-sm" />
+            <div className="absolute -bottom-6 -left-6 w-16 h-16 bg-[#F7B6D2]/50 rounded-full opacity-50 animate-float" style={{ animationDelay: '1s' }} />
           </div>
         </div>
       </div>

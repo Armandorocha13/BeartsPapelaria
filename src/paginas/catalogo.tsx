@@ -480,7 +480,7 @@ const Catalogo = () => {
                   </p>
                   <Button
                     onClick={() => {
-                      const phoneNumber = '5521971690013';
+                      const phoneNumber = '5521971809007';
                       const messageText = selectedSubcategory === 'arte-personalizada'
                         ? 'Olá, gostaria de fazer um orçamento para uma arte personalizada.'
                         : `Olá, gostaria de fazer um orçamento de ${selectedCategory === 'adesivos' ? 'adesivos' : 'cartões'} personalizados. Quais modelos e tamanhos tem disponíveis?`;

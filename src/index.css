@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Poppins:wght@400;500;600;700&family=Marck+Script&family=Sacramento&display=swap');
 
 @tailwind base;
 @tailwind components;
@@ -6,73 +6,76 @@
 
 @layer base {
   :root {
-    /* Cores Candy Suaves Bearts Papelaria:
-       - Lilás Candy: #F3E8FF / #E9D5FF
-       - Rosa Candy: #FCE7F3 / #F48FB1
-       - Amarelo Candy: #FEF08A
-       - Texto Suave: #4A355A (Lilás Escuro Suave)
+    /* Cores Oficiais da Identidade Visual Bearts Papelaria:
+       - Lilás Principal: #C7B5F2
+       - Rosa Pastel: #F7B6D2
+       - Amarelo Pastel: #FFD98A
+       - Lilás Suave: #EADDFB
+       - Rosa Vibrante: #FF89B0
+       - Creme Suave (Fundo): #FFF3E1
+       - Marrom Escuro Destaque: #4A2E2E
     */
-    --background: 270 60% 98%; /* #F8F3FC - Fundo Lilás Candy Suave */
-    --foreground: 275 25% 25%; /* #4A355A - Texto legível e suave */
+    --background: 37 100% 97%; /* #FFF8EF - Fundo Creme Suave */
+    --foreground: 0 24% 23%; /* #4A2E2E - Texto Marrom Escuro da Marca */
 
-    /* Destaque / badges */
-    --accent-red: #F48FB1;
-    --main-romantic: #FCE7F3;
+    /* Destaques / Badges */
+    --accent-red: #FF89B0;
+    --main-romantic: #F7B6D2;
 
     /* Cards e superfícies */
     --card: 0 0% 100%;
-    --card-foreground: 275 25% 25%;
+    --card-foreground: 0 24% 23%;
 
     --popover: 0 0% 100%;
-    --popover-foreground: 275 25% 25%;
+    --popover-foreground: 0 24% 23%;
 
-    /* Cor Primária: Lilás Candy Suave (#C4A5F3) */
-    --primary: 268 75% 78%;
-    --primary-foreground: 0 0% 100%;
+    /* Cor Primária: Lilás Principal (#C7B5F2) */
+    --primary: 258 70% 83%;
+    --primary-foreground: 0 24% 23%;
 
-    /* Secondary: Rosa Candy (#FCE7F3) */
-    --secondary: 330 80% 96%;
-    --secondary-foreground: 330 50% 30%;
+    /* Secondary: Rosa Pastel (#F7B6D2) */
+    --secondary: 334 81% 84%;
+    --secondary-foreground: 0 24% 23%;
 
-    /* Muted */
-    --muted: 270 20% 96%;
-    --muted-foreground: 275 15% 48%;
+    /* Muted: Lilás Suave (#EADDFB) */
+    --muted: 264 77% 93%;
+    --muted-foreground: 0 15% 42%;
 
-    /* Accent: Amarelo Candy (#FEF08A) */
-    --accent: 52 95% 90%;
-    --accent-foreground: 52 80% 25%;
+    /* Accent: Amarelo Pastel (#FFD98A) */
+    --accent: 40 100% 77%;
+    --accent-foreground: 0 24% 23%;
 
     --destructive: 0 84.2% 60.2%;
     --destructive-foreground: 0 0% 100%;
 
-    --border: 270 40% 93%;
-    --input: 270 40% 93%;
-    --ring: 268 75% 78%;
+    --border: 264 50% 90%;
+    --input: 264 50% 90%;
+    --ring: 258 70% 83%;
 
     --radius: 1rem;
 
-    /* Fundo Lilás Candy Sólido e Suave */
-    --gradient-hero: #F3E8FF;
-    --gradient-button: linear-gradient(135deg, #F48FB1 0%, #F9B8D4 50%, #FCE7F3 100%);
-    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #F3E8FF 100%);
+    /* Gradientes da Marca */
+    --gradient-hero: linear-gradient(135deg, #EADDFB 0%, #FFF3E1 100%);
+    --gradient-button: linear-gradient(135deg, #FF89B0 0%, #F7B6D2 50%, #C7B5F2 100%);
+    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #EADDFB 100%);
 
     /* Sombras Pastel Delicadas */
-    --shadow-soft: 0 4px 20px -4px rgba(233, 213, 255, 0.4);
-    --shadow-card: 0 8px 30px -8px rgba(252, 231, 243, 0.4);
-    --shadow-button: 0 4px 14px -3px rgba(233, 213, 255, 0.6);
+    --shadow-soft: 0 4px 20px -4px rgba(199, 181, 242, 0.4);
+    --shadow-card: 0 8px 30px -8px rgba(247, 182, 210, 0.4);
+    --shadow-button: 0 4px 14px -3px rgba(255, 137, 176, 0.5);
 
-    --sidebar-background: 270 60% 98%;
-    --sidebar-foreground: 275 25% 25%;
-    --sidebar-primary: 268 75% 78%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 270 20% 96%;
-    --sidebar-accent-foreground: 275 25% 25%;
-    --sidebar-border: 270 40% 93%;
-    --sidebar-ring: 268 75% 78%;
+    --sidebar-background: 37 100% 97%;
+    --sidebar-foreground: 0 24% 23%;
+    --sidebar-primary: 258 70% 83%;
+    --sidebar-primary-foreground: 0 24% 23%;
+    --sidebar-accent: 264 77% 93%;
+    --sidebar-accent-foreground: 0 24% 23%;
+    --sidebar-border: 264 50% 90%;
+    --sidebar-ring: 258 70% 83%;
 
     /* Notebook specific */
     --paper-white: 0 0% 100%;
-    --notebook-line: 270 40% 93%;
+    --notebook-line: 264 50% 90%;
   }
 }
 
@@ -83,7 +86,8 @@
 
   body {
     @apply bg-background text-foreground font-sans antialiased;
-    font-family: 'Quicksand', sans-serif;
+    font-family: 'Poppins', 'Fredoka', sans-serif;
+    color: #4A2E2E;
   }
 
   h1,
@@ -92,11 +96,16 @@
   h4,
   h5,
   h6 {
-    font-family: 'Poppins', sans-serif;
+    font-family: 'Fredoka', 'Poppins', sans-serif;
+    color: #4A2E2E;
   }
 }
 
 @layer utilities {
+  .font-script {
+    font-family: 'Balgin Script', 'Marck Script', 'Sacramento', cursive;
+  }
+
   .text-gradient {
     @apply bg-clip-text text-transparent;
     background-image: var(--gradient-button);
@@ -132,13 +141,13 @@
   }
 
   .notebook-margin {
-    border-left: 2px solid #E9D5FF;
+    border-left: 2px solid #EADDFB;
     padding-left: 2rem;
     margin-left: 3rem;
   }
 
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-[#E9D5FF] via-[#FCE7F3] to-[#FEF08A];
+    @apply bg-gradient-to-r from-[#C7B5F2] via-[#F7B6D2] to-[#FFD98A];
   }
 
   /* Padrão Xadrez Removido */
@@ -159,12 +168,12 @@
   }
 
   .btn-colorful {
-    @apply relative overflow-hidden isolate border-none transition-all duration-300 shadow-button active:scale-95;
+    @apply relative overflow-hidden isolate border-none transition-all duration-300 shadow-button active:scale-95 text-white font-semibold;
   }
 
   .btn-colorful::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#F48FB1] via-[#F9B8D4] to-[#FCE7F3] opacity-90 transition-opacity duration-500;
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#FF89B0] via-[#F7B6D2] to-[#C7B5F2] opacity-90 transition-opacity duration-500;
   }
 
   .btn-colorful:hover::before {

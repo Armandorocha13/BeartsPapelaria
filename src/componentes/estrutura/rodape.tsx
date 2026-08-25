@@ -1,6 +1,5 @@
 import { Heart, Instagram } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logoBee from '@/ativos/logo-bee.png';
 
 export const Footer = () => {
   return (
@@ -11,13 +10,13 @@ export const Footer = () => {
           <div className="space-y-4">
             <div className="flex items-center gap-3">
               <div className="w-10 h-10 rounded-2xl overflow-hidden bg-white flex items-center justify-center shadow-soft border border-[#F9B8D4]/40">
-                <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
+                <img src="/images/WhatsApp Image 2026-08-25 at 18.18.05 (1).jpeg" alt="Bearts Papelaria" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-heading font-bold text-2xl text-[#F48FB1] tracking-wide">
+                <span className="font-script font-bold text-3xl text-[#C7B5F2] tracking-wide">
                   Bearts
                 </span>
-                <span className="font-heading font-semibold text-[11px] text-[#EAB308] uppercase tracking-[0.18em]">
+                <span className="font-heading font-semibold text-[11px] text-[#FF89B0] uppercase tracking-[0.2em]">
                   Papelaria
                 </span>
               </div>
@@ -55,9 +54,9 @@ export const Footer = () => {
                 <Instagram className="w-4 h-4" />
                 @bearts.papelaria
               </a>
-              <a href="https://wa.me/5521971690013" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
+              <a href="https://wa.me/5521971809007" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-muted-foreground hover:text-primary transition-colors">
                 <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" /></svg>
-                (21) 97169-0013
+                (21) 97180-9007
               </a>
             </div>
           </div>

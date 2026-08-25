@@ -418,7 +418,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                         {formatPrice(originalTotal)}
                       </span>
                     )}
-                    <span className="font-heading font-bold text-lg text-primary leading-none">
+                    <span className="font-heading font-bold text-lg text-[#FF89B0] leading-none">
                       {formatPrice(total)}
                     </span>
                   </>
@@ -456,7 +456,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           ) : (
             <Button
               onClick={() => {
-                const phoneNumber = '5521971690013';
+                const phoneNumber = '5521971809007';
                 const message = encodeURIComponent(`Olá! Vi o produto "${product.name}" no site e gostaria de fazer um orçamento personalizado.`);
                 window.open(`https://wa.me/${phoneNumber}?text=${message}`, '_blank');
               }}

@@ -41,7 +41,7 @@ const Carrinho = () => {
     };
 
     const handleCheckout = () => {
-        const phoneNumber = '5521971690013';
+        const phoneNumber = '5521971809007';
 
         // Construct items list message
         const itemsList = items.map(item =>

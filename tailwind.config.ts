@@ -19,9 +19,10 @@ export default {
     },
     extend: {
       fontFamily: {
-        sans: ["Quicksand", "Nunito", "sans-serif"],
+        sans: ["Poppins", "Fredoka", "Quicksand", "sans-serif"],
         heading: ["Fredoka", "Poppins", "sans-serif"],
-        brand: ["Fredoka", "sans-serif"],
+        brand: ["Balgin Script", "Fredoka", "sans-serif"],
+        script: ["Balgin Script", "Marck Script", "Sacramento", "Dancing Script", "cursive"],
       },
       colors: {
         border: "hsl(var(--border))",
@@ -30,12 +31,17 @@ export default {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         bearts: {
-          pinkBaby: "#F9B8D4",
-          lilacPastel: "#D9BBF9",
-          yellowCandy: "#FFE278",
-          pinkExtra: "#FFDCE8",
-          lilacLight: "#F1E4FA",
-          textPurple: "#8C49A5",
+          lilac: "#C7B5F2",
+          pink: "#F7B6D2",
+          yellow: "#FFD98A",
+          lilacLight: "#EADDFB",
+          pinkVibrant: "#FF89B0",
+          cream: "#FFF3E1",
+          textDark: "#4A2E2E",
+          pinkBaby: "#F7B6D2",
+          lilacPastel: "#C7B5F2",
+          yellowCandy: "#FFD98A",
+          textPurple: "#4A2E2E",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",

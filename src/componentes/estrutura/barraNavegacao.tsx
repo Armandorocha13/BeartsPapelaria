@@ -6,7 +6,6 @@ import { cn } from '@/bibliotecas/utilitarios';
 import { MenuToggleIcon } from '@/componentes/interface/menu-toggle-icon';
 import { useScroll } from '@/componentes/interface/use-scroll';
 import { useCart } from '@/contexto/contextoCarrinho';
-import logoBee from '@/ativos/logo-bee.png';
 
 const navLinks = [
   { name: 'Início', path: '/' },
@@ -53,13 +52,13 @@ export const Navbar = () => {
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group">
           <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/80 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform border border-[#F9B8D4]/40">
-            <img src={logoBee} alt="Bearts Papelaria" className="w-8 h-8 object-contain" />
+            <img src="/images/WhatsApp Image 2026-08-25 at 18.18.05 (1).jpeg" alt="Bearts Papelaria" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col leading-none hidden sm:flex">
-            <span className="font-heading font-bold text-xl text-[#F48FB1] drop-shadow-sm tracking-wide">
+            <span className="font-script font-bold text-2xl text-[#C7B5F2] drop-shadow-sm tracking-wide">
               Bearts
             </span>
-            <span className="font-heading font-semibold text-[10px] text-[#EAB308] uppercase tracking-[0.18em]">
+            <span className="font-heading font-semibold text-[10px] text-[#FF89B0] uppercase tracking-[0.2em]">
               Papelaria
             </span>
           </div>
