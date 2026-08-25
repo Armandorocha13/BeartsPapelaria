@@ -50,15 +50,15 @@ export const Navbar = () => {
         )}
       >
         {/* Logo */}
-        <Link to="/" className="flex items-center gap-2 group">
-          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/80 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform border border-[#F9B8D4]/40">
+        <Link to="/" className="flex items-center gap-2 group shrink-0">
+          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/80 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform border border-[#F9B8D4]/40 shrink-0">
             <img src="/images/WhatsApp Image 2026-08-25 at 18.18.05 (1).jpeg" alt="Bearts Papelaria" className="w-full h-full object-cover" />
           </div>
-          <div className="flex flex-col leading-none hidden sm:flex">
-            <span className="font-script font-bold text-2xl text-[#C7B5F2] drop-shadow-sm tracking-wide">
+          <div className="flex flex-col leading-none">
+            <span className="font-script font-bold text-xl sm:text-2xl text-[#C7B5F2] drop-shadow-sm tracking-wide">
               Bearts
             </span>
-            <span className="font-heading font-semibold text-[10px] text-[#FF89B0] uppercase tracking-[0.2em]">
+            <span className="font-heading font-semibold text-[9px] sm:text-[10px] text-[#FF89B0] uppercase tracking-[0.18em] sm:tracking-[0.2em]">
               Papelaria
             </span>
           </div>
