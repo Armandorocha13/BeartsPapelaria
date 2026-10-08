@@ -218,11 +218,11 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   return (
     <div className="group bg-card rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 overflow-hidden animate-scale-in">
       {/* Image Container */}
-      <div className="relative aspect-square bg-secondary overflow-hidden">
+      <div className="relative aspect-square bg-secondary/50 overflow-hidden flex items-center justify-center">
         <img
           src={displayImage}
           alt={product.name}
-          className="w-full h-full object-cover scale-[1.0] group-hover:scale-[1.05] transition-transform duration-500"
+          className="w-full h-full object-contain p-2 group-hover:scale-[1.05] transition-transform duration-500"
         />
 
 
@@ -386,6 +386,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 <option value="Sem Ímã">Sem Ímã</option>
                 <option value="Com Ímã">Com Ímã (+R$ 1,50)</option>
               </select>
+            </div>
+          {/* Volume Discount Notice */}
+          {product.volumeDiscounts && product.volumeDiscounts.length > 0 && (
+            <div className="bg-emerald-50 border border-emerald-200/80 rounded-xl px-2.5 py-1.5 text-[11px] text-emerald-800 font-medium flex items-center justify-between">
+              <span>Desconto a partir de {product.volumeDiscounts[0].quantity} un:</span>
+              <span className="font-bold text-emerald-700">-R$ {product.volumeDiscounts[0].discount.toFixed(2).replace('.', ',')}</span>
             </div>
           )}
 

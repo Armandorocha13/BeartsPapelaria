@@ -130,10 +130,25 @@ const categories = [
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
   natal: [
     { id: 'all', name: 'Todos os Mimos de Natal' },
-    { id: 'kits-natal', name: 'Kits de Natal', image: '/images/natal.png' },
-    { id: 'caixas-natal', name: 'Caixas de Natal', image: '/images/caixa envelope.jpeg' },
-    { id: 'lembrancinhas-natal', name: 'Lembrancinhas de Natal', image: '/images/polaroide amor.jpeg' },
-    { id: 'tags-natal', name: 'Tags e Cartões', image: '/images/google.jpeg' },
+    { id: 'mini-arvore-polaroide', name: 'Mini árvore polaroide', image: '/images/WhatsApp Image 2026-10-08 at 18.56.45.jpeg' },
+    { id: 'polaroide-natalina', name: 'Polaroide Natalina', image: '/images/polaroide amor.jpeg' },
+    { id: 'bolinha-natal', name: 'Bolinha de Natal Personalizada', image: '/images/natal.png' },
+    { id: 'plaquinha-mdf', name: 'Plaquinha Mdf com foto', image: '/images/WhatsApp Image 2026-10-08 at 19.02.46.jpeg' },
+    { id: 'calendario-2027', name: 'Calendário 2027', image: '/images/natal.png' },
+    { id: 'cartinha-personalizada', name: 'Cartinha Personalizada', image: '/images/google.jpeg' },
+    { id: 'caixinha-presente', name: 'Caixinha de Presente Temática', image: '/images/caixa envelope.jpeg' },
+    { id: 'tubolata-amanteigados', name: 'Tubolata com amanteigados', image: '/images/natal.png' },
+    { id: 'chaveiro-acrilico', name: 'Chaveiro personalizado acrílico', image: '/images/chaveiro.jpeg' },
+    { id: 'kit-grinch', name: 'Kit Grinch', image: '/images/natal.png' },
+    { id: 'kit-arvore-natal', name: 'Kit Temático para Árvore de Natal', image: '/images/natal.png' },
+    { id: 'guirlanda-personalizada', name: 'Guirlanda Personalizada', image: '/images/natal.png' },
+    { id: 'taca-acrilico', name: 'Taça acrílico personalizada', image: '/images/caneca.jpeg' },
+    { id: 'mini-panetone', name: 'Mini Panetone Personalizado', image: '/images/natal.png' },
+    { id: 'caixa-envelope-tematica', name: 'Caixa envelope temática', image: '/images/caixa envelope.jpeg' },
+    { id: 'sacola-presenteavel', name: 'Sacola Presenteável Temática', image: '/images/natal.png' },
+    { id: 'mesa-posta', name: 'Mesa Posta Personalizada', image: '/images/natal.png' },
+    { id: 'vinho-personalizado', name: 'Vinho Personalizado', image: '/images/vinho.jpeg' },
+    { id: 'ima-geladeira', name: 'Ímã de geladeira', image: '/images/natal.png' },
   ],
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos Afetivos' },
@@ -297,14 +312,14 @@ const SubcategoryImage = ({ sub }: { sub: { id: string, image?: string, images?:
   const displayImage = (sub.images && sub.images.length > 0) ? sub.images[index] : sub.image;
 
   // Reduced zoom for specific subcategories requested by user
-  const lowZoomCategories = ['piramide', 'milk', 'lanchinho', 'caixa-docinho', 'porta-caneta', 'porta-sabonete', 'cubo', 'cachepo', 'centro-mesa', 'porta-bis', 'mc-donalds', 'porta-tubete'];
+  const lowZoomCategories = ['mini-arvore-polaroide', 'plaquinha-mdf', 'piramide', 'milk', 'lanchinho', 'caixa-docinho', 'porta-caneta', 'porta-sabonete', 'cubo', 'cachepo', 'centro-mesa', 'porta-bis', 'mc-donalds', 'porta-tubete'];
   const isLowZoom = lowZoomCategories.includes(sub.id);
 
   return (
     <img
       src={displayImage}
       alt={sub.name}
-      className={`w-full h-full object-cover transition-transform duration-700 ${isLowZoom ? 'scale-100 group-hover:scale-[1.2]' : 'scale-[1.1] group-hover:scale-[1.5]'}`}
+      className={`w-full h-full transition-transform duration-700 ${isLowZoom ? 'object-contain p-2 scale-100 group-hover:scale-105' : 'object-cover scale-[1.05] group-hover:scale-[1.15]'}`}
     />
   );
 };
