@@ -9,14 +9,14 @@ export const Footer = () => {
           {/* Brand */}
           <div className="space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-10 h-10 rounded-2xl overflow-hidden bg-white flex items-center justify-center shadow-soft border border-[#F9B8D4]/40">
+              <div className="w-10 h-10 rounded-2xl overflow-hidden bg-white flex items-center justify-center shadow-soft border border-red-200">
                 <img src="/images/WhatsApp Image 2026-08-25 at 18.18.05 (1).jpeg" alt="Bearts Papelaria" className="w-full h-full object-cover" />
               </div>
               <div className="flex flex-col leading-none">
-                <span className="font-script font-bold text-3xl text-[#C7B5F2] tracking-wide">
+                <span className="font-script font-bold text-3xl text-[#D42637] tracking-wide">
                   Bearts
                 </span>
-                <span className="font-heading font-semibold text-[11px] text-[#FF89B0] uppercase tracking-[0.2em]">
+                <span className="font-heading font-semibold text-[11px] text-[#2D6A4F] uppercase tracking-[0.2em]">
                   Papelaria
                 </span>
               </div>
@@ -64,11 +64,14 @@ export const Footer = () => {
 
         {/* Copyright */}
         <div className="mt-12 pt-8 border-t border-border text-center">
-          <p className="text-muted-foreground flex items-center justify-center gap-1">
-            Feito por AeroCode - 2026
+          <p className="text-muted-foreground flex items-center justify-center gap-1.5 text-xs sm:text-sm">
+            <span>🎄 Feliz Natal com amor & magia Bearts Papelaria</span>
+            <span>•</span>
+            <span>Feito por AeroCode - 2026</span>
           </p>
         </div>
       </div>
     </footer>
   );
 };
+

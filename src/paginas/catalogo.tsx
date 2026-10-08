@@ -113,6 +113,7 @@ import imgCadernoA5 from '@/ativos/subcat-caderno-a5.jpg';
 
 const categories = [
   { id: 'all', name: 'Todos' },
+  { id: 'natal', name: 'Natal 🎄' },
   { id: 'dia-dos-namorados', name: 'Presentes Afetivos' },
   { id: 'casamento', name: 'Casamento' },
   { id: 'fotos', name: 'Fotos' },
@@ -127,6 +128,13 @@ const categories = [
 ];
 
 const subcategoriesList: Record<string, { id: string, name: string, image?: string, images?: string[] }[]> = {
+  natal: [
+    { id: 'all', name: 'Todos os Mimos de Natal' },
+    { id: 'kits-natal', name: 'Kits de Natal', image: '/images/natal.png' },
+    { id: 'caixas-natal', name: 'Caixas de Natal', image: '/images/caixa envelope.jpeg' },
+    { id: 'lembrancinhas-natal', name: 'Lembrancinhas de Natal', image: '/images/polaroide amor.jpeg' },
+    { id: 'tags-natal', name: 'Tags e Cartões', image: '/images/google.jpeg' },
+  ],
   'dia-dos-namorados': [
     { id: 'all', name: 'Todos Afetivos' },
     { id: 'buque-borboletas', name: 'Buquê de Borboletas', image: '/images/WhatsApp Image 2026-08-25 at 19.22.36.jpeg' },
@@ -363,13 +371,16 @@ const Catalogo = () => {
   return (
     <Layout>
       {/* Header */}
-      <section className="bg-gradient-hero py-12 md:py-16">
+      <section className="bg-gradient-to-r from-[#FFF3F3] via-[#FFE4E6] to-[#FFF9F5] py-12 md:py-16 border-b border-red-100">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-primary">Nosso</span> <span style={{ color: 'hsl(var(--primary))' }}>Catálogo</span>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-red-100/80 text-[#D42637] text-xs font-bold rounded-full mb-3 uppercase tracking-wider border border-red-200/50">
+            🎄 Especial de Fim de Ano
+          </span>
+          <h1 className="font-heading text-3xl md:text-5xl font-bold mb-4 text-[#4A2E2E]">
+            Nosso <span className="text-[#D42637] drop-shadow-sm">Catálogo</span> 🎄
           </h1>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Explore nossa seleção especial de materiais de papelaria
+          <p className="text-[#4A2E2E]/80 max-w-xl mx-auto text-sm md:text-base">
+            Explore nossa seleção especial de mimos e materiais de papelaria artesanal
           </p>
         </div>
       </section>
@@ -386,42 +397,56 @@ const Catalogo = () => {
                 placeholder="Buscar produtos..."
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                className="pl-10 rounded-2xl"
+                className="pl-10 rounded-2xl border-red-100 focus:border-[#D42637]"
               />
             </div>
 
             {/* Category Filters */}
             <div className="flex items-center gap-2 overflow-x-auto pb-2 md:pb-0 w-full md:w-auto">
-              <Filter className="w-5 h-5 text-muted-foreground flex-shrink-0" />
-              {categories.map((category) => (
-                <Button
-                  key={category.id}
-                  variant={selectedCategory === category.id ? 'default' : 'outline'}
-                  size="sm"
-                  onClick={() => handleCategoryChange(category.id)}
-                  className="rounded-2xl whitespace-nowrap"
-                >
-                  {category.name}
-                </Button>
-              ))}
+              <Filter className="w-5 h-5 text-[#D42637] flex-shrink-0" />
+              {categories.map((category) => {
+                const isActive = selectedCategory === category.id;
+                return (
+                  <Button
+                    key={category.id}
+                    variant="outline"
+                    size="sm"
+                    onClick={() => handleCategoryChange(category.id)}
+                    className={`rounded-2xl whitespace-nowrap transition-all ${
+                      isActive
+                        ? 'bg-[#D42637] text-white hover:bg-[#B91C1C] border-[#D42637] shadow-md shadow-red-200 font-bold'
+                        : 'bg-white hover:bg-red-50 text-[#4A2E2E] border-red-100 hover:border-red-300'
+                    }`}
+                  >
+                    {category.name}
+                  </Button>
+                );
+              })}
             </div>
           </div>
 
           {/* Subcategory Filters */}
           {selectedCategory && subcategoriesList[selectedCategory] && (
-            <div className="flex items-center gap-2 overflow-x-auto pt-4 mt-4 border-t border-border/50">
-              <span className="text-sm font-medium text-muted-foreground whitespace-nowrap mr-2">Subcategorias:</span>
-              {subcategoriesList[selectedCategory].map((sub) => (
-                <Button
-                  key={sub.id}
-                  variant={selectedSubcategory === sub.id ? 'secondary' : 'ghost'}
-                  size="sm"
-                  onClick={() => handleSubcategoryChange(sub.id)}
-                  className="rounded-full text-xs h-8 px-4"
-                >
-                  {sub.name}
-                </Button>
-              ))}
+            <div className="flex items-center gap-2 overflow-x-auto pt-4 mt-4 border-t border-red-100/60">
+              <span className="text-sm font-semibold text-[#4A2E2E]/70 whitespace-nowrap mr-2">Subcategorias:</span>
+              {subcategoriesList[selectedCategory].map((sub) => {
+                const isSubActive = selectedSubcategory === sub.id;
+                return (
+                  <Button
+                    key={sub.id}
+                    variant="ghost"
+                    size="sm"
+                    onClick={() => handleSubcategoryChange(sub.id)}
+                    className={`rounded-full text-xs h-8 px-4 transition-all ${
+                      isSubActive
+                        ? 'bg-[#D42637] text-white hover:bg-[#B91C1C] font-bold shadow-sm'
+                        : 'bg-red-50/60 hover:bg-red-100 text-[#4A2E2E] border border-red-100/60'
+                    }`}
+                  >
+                    {sub.name}
+                  </Button>
+                );
+              })}
             </div>
           )}
         </div>
@@ -433,24 +458,24 @@ const Catalogo = () => {
           {/* Subcategory Cards Grid (Generic "Portal" for categories with subcategories) */}
           {selectedCategory && subcategoriesList[selectedCategory] && selectedSubcategory === 'all' && (
             <div className="mb-16">
-              <h2 className="font-heading text-2xl font-bold mb-8 text-center uppercase tracking-wider text-muted-foreground/60">
+              <h2 className="font-heading text-2xl font-bold mb-8 text-center uppercase tracking-wider text-[#4A2E2E]/70">
                 {selectedCategory === 'dia-dos-namorados' ? 'Escolha o presente do seu ' : 'Escolha o modelo de '}
-                <span className="text-primary">{categories.find(c => c.id === selectedCategory)?.name}</span>
+                <span className="text-[#D42637]">{categories.find(c => c.id === selectedCategory)?.name}</span>
               </h2>
               <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
                 {subcategoriesList[selectedCategory].filter(sub => sub.id !== 'all').map((sub, index) => (
                   <button
                     key={sub.id}
                     onClick={() => handleSubcategoryChange(sub.id)}
-                    className="group bg-card rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-2 border border-border/50 animate-fade-in"
+                    className="group bg-white rounded-3xl overflow-hidden shadow-soft hover:shadow-card transition-all duration-500 hover:-translate-y-2 border border-red-100 hover:border-red-300 animate-fade-in"
                     style={{ animationDelay: `${index * 0.1}s` }}
                   >
-                    <div className="aspect-square overflow-hidden bg-accent/20">
+                    <div className="aspect-square overflow-hidden bg-red-50/40">
                       <SubcategoryImage sub={sub} />
                     </div>
 
-                    <div className="p-4 text-center bg-gradient-to-b from-transparent to-accent/5">
-                      <h3 className="font-heading font-bold text-foreground group-hover:text-primary transition-colors text-sm">
+                    <div className="p-4 text-center bg-gradient-to-b from-transparent to-red-50/40">
+                      <h3 className="font-heading font-bold text-[#4A2E2E] group-hover:text-[#D42637] transition-colors text-sm">
                         {sub.name}
                       </h3>
                     </div>

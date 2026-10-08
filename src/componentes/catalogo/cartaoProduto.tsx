@@ -259,7 +259,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
         </span>
 
         {/* Name */}
-        <h3 className="font-heading font-semibold text-foreground mt-1 line-clamp-2 group-hover:text-primary transition-colors">
+        <h3 className="font-heading font-semibold text-[#4A2E2E] mt-1 line-clamp-2 group-hover:text-[#D42637] transition-colors">
           {product.name}
         </h3>
 
@@ -420,7 +420,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                         {formatPrice(originalTotal)}
                       </span>
                     )}
-                    <span className="font-heading font-bold text-lg text-[#FF89B0] leading-none">
+                    <span className="font-heading font-bold text-lg text-[#D42637] leading-none">
                       {formatPrice(total)}
                     </span>
                   </>

@@ -1,7 +1,13 @@
-import { Camera, ShoppingBag, Package, Tag, Sticker, Key, CreditCard, Mail, MoreHorizontal } from 'lucide-react';
+import { Camera, ShoppingBag, Package, Tag, Sticker, Key, CreditCard, Mail, MoreHorizontal, Gift } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const categories = [
+  {
+    name: 'Natal 🎄',
+    description: 'Mimos e presentes festivos',
+    icon: Gift,
+    href: '/catalogo?categoria=natal',
+  },
   {
     name: 'Fotos',
     description: 'Suas memórias impressas',
@@ -60,15 +66,18 @@ const categories = [
 
 export const Categories = () => {
   return (
-    <section className="py-20 bg-card">
+    <section className="py-20 bg-gradient-to-b from-[#FFF9F5] via-[#FFF3F3]/40 to-[#FFF9F5] border-t border-b border-red-100/40">
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="font-heading text-3xl md:text-4xl font-bold text-foreground mb-4">
-            Explore por <span style={{ color: '#FF89B0' }}>Categoria</span>
+          <span className="inline-flex items-center gap-1.5 px-3.5 py-1 bg-red-100/80 text-[#D42637] text-xs font-bold rounded-full mb-3 uppercase tracking-wider border border-red-200/50">
+            🎄 Catálogo de Natal
+          </span>
+          <h2 className="font-heading text-3xl md:text-4xl font-bold text-[#4A2E2E] mb-4">
+            Explore por <span className="text-[#D42637]">Categoria</span> 🎁
           </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Encontre tudo o que precisa organizado especialmente para você
+          <p className="text-[#4A2E2E]/70 max-w-xl mx-auto text-sm md:text-base">
+            Encontre mimos e produtos artesanais organizados especialmente para você neste fim de ano
           </p>
         </div>
 
@@ -79,18 +88,18 @@ export const Categories = () => {
               <Link
                 key={category.name}
                 to={category.href}
-                className="flex-none w-[160px] md:w-[200px] group p-6 bg-background rounded-2xl shadow-soft hover:shadow-card transition-all duration-300 hover:-translate-y-1 animate-fade-in snap-start"
+                className="flex-none w-[160px] md:w-[200px] group p-6 bg-white border border-red-100/80 rounded-2xl shadow-soft hover:shadow-card hover:border-red-300 transition-all duration-300 hover:-translate-y-1 animate-fade-in snap-start"
                 style={{ animationDelay: `${index * 0.1}s` }}
               >
                 <div className="flex flex-col items-center text-center gap-3">
-                  <div className="w-14 h-14 rounded-2xl bg-[#EADDFB] flex items-center justify-center group-hover:bg-[#FF89B0] group-hover:shadow-button transition-all duration-300">
-                    <category.icon className="w-7 h-7 text-[#4A2E2E] group-hover:text-white transition-colors" />
+                  <div className="w-14 h-14 rounded-2xl bg-red-50 border border-red-100 flex items-center justify-center group-hover:bg-[#D42637] group-hover:border-[#D42637] group-hover:shadow-md group-hover:shadow-red-200 transition-all duration-300">
+                    <category.icon className="w-7 h-7 text-[#D42637] group-hover:text-white transition-colors" />
                   </div>
                   <div>
-                    <h3 className="font-heading font-semibold text-foreground group-hover:text-primary transition-colors text-sm md:text-base">
+                    <h3 className="font-heading font-semibold text-[#4A2E2E] group-hover:text-[#D42637] transition-colors text-sm md:text-base">
                       {category.name}
                     </h3>
-                    <p className="text-[10px] md:text-xs text-muted-foreground mt-1">
+                    <p className="text-[10px] md:text-xs text-[#4A2E2E]/65 mt-1">
                       {category.description}
                     </p>
                   </div>
@@ -99,8 +108,8 @@ export const Categories = () => {
             ))}
           </div>
 
-          {/* Fading Edge (Optional, for better UX) */}
-          <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-white/20 to-transparent pointer-events-none" />
+          {/* Fading Edge */}
+          <div className="absolute top-0 right-0 h-full w-20 bg-gradient-to-l from-[#FFF9F5] to-transparent pointer-events-none" />
         </div>
       </div>
     </section>

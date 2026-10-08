@@ -54,15 +54,22 @@
 
     --radius: 1rem;
 
-    /* Gradientes da Marca */
-    --gradient-hero: linear-gradient(135deg, #EADDFB 0%, #FFF3E1 100%);
-    --gradient-button: linear-gradient(135deg, #FF89B0 0%, #F7B6D2 50%, #C7B5F2 100%);
-    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #EADDFB 100%);
+    /* Gradientes da Marca & Natal */
+    --gradient-hero: linear-gradient(135deg, #FFF3F3 0%, #FFE4E6 40%, #E0F2FE 80%, #F0FDF4 100%);
+    --gradient-button: linear-gradient(135deg, #D42637 0%, #FF89B0 50%, #F59E0B 100%);
+    --gradient-card: linear-gradient(180deg, #FFFFFF 0%, #FFF3F3 100%);
 
-    /* Sombras Pastel Delicadas */
-    --shadow-soft: 0 4px 20px -4px rgba(199, 181, 242, 0.4);
-    --shadow-card: 0 8px 30px -8px rgba(247, 182, 210, 0.4);
-    --shadow-button: 0 4px 14px -3px rgba(255, 137, 176, 0.5);
+    /* Cores Especiais do Clima Natalino 🎄 */
+    --christmas-red: #D42637;
+    --christmas-crimson: #991B1B;
+    --christmas-green: #2D6A4F;
+    --christmas-gold: #F59E0B;
+    --christmas-pink: #F7B6D2;
+
+    /* Sombras Pastel & Natalinas Delicadas */
+    --shadow-soft: 0 4px 20px -4px rgba(212, 38, 55, 0.2);
+    --shadow-card: 0 8px 30px -8px rgba(212, 38, 55, 0.25);
+    --shadow-button: 0 4px 16px -3px rgba(212, 38, 55, 0.4);
 
     --sidebar-background: 37 100% 97%;
     --sidebar-foreground: 0 24% 23%;
@@ -147,7 +154,7 @@
   }
 
   .bg-gradient-primary {
-    @apply bg-gradient-to-r from-[#C7B5F2] via-[#F7B6D2] to-[#FFD98A];
+    @apply bg-gradient-to-r from-[#D42637] via-[#FF89B0] to-[#F59E0B];
   }
 
   /* Padrão Xadrez Removido */
@@ -167,13 +174,29 @@
     transform-origin: top center;
   }
 
+  /* Animação Queda de Neve ❄️ */
+  @keyframes snowfall {
+    0% {
+      transform: translateY(-10vh) rotate(0deg);
+      opacity: 1;
+    }
+    100% {
+      transform: translateY(105vh) rotate(360deg);
+      opacity: 0.2;
+    }
+  }
+
+  .animate-snowfall {
+    animation: snowfall linear infinite;
+  }
+
   .btn-colorful {
     @apply relative overflow-hidden isolate border-none transition-all duration-300 shadow-button active:scale-95 text-white font-semibold;
   }
 
   .btn-colorful::before {
     content: '';
-    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#FF89B0] via-[#F7B6D2] to-[#C7B5F2] opacity-90 transition-opacity duration-500;
+    @apply absolute inset-0 -z-10 bg-gradient-to-r from-[#D42637] via-[#FF89B0] to-[#F59E0B] opacity-90 transition-opacity duration-500;
   }
 
   .btn-colorful:hover::before {

@@ -51,14 +51,14 @@ export const Navbar = () => {
       >
         {/* Logo */}
         <Link to="/" className="flex items-center gap-2 group shrink-0">
-          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white/80 flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform border border-[#F9B8D4]/40 shrink-0">
+          <div className="w-10 h-10 rounded-xl overflow-hidden bg-white flex items-center justify-center shadow-soft group-hover:scale-105 transition-transform border border-red-200 shrink-0">
             <img src="/images/WhatsApp Image 2026-08-25 at 18.18.05 (1).jpeg" alt="Bearts Papelaria" className="w-full h-full object-cover" />
           </div>
           <div className="flex flex-col leading-none">
-            <span className="font-script font-bold text-xl sm:text-2xl text-[#C7B5F2] drop-shadow-sm tracking-wide">
+            <span className="font-script font-bold text-xl sm:text-2xl text-[#D42637] drop-shadow-sm tracking-wide">
               Bearts
             </span>
-            <span className="font-heading font-semibold text-[9px] sm:text-[10px] text-[#FF89B0] uppercase tracking-[0.18em] sm:tracking-[0.2em]">
+            <span className="font-heading font-semibold text-[9px] sm:text-[10px] text-[#2D6A4F] uppercase tracking-[0.18em] sm:tracking-[0.2em]">
               Papelaria
             </span>
           </div>
@@ -66,33 +66,37 @@ export const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="hidden items-center gap-2 md:flex">
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              className={cn(
-                buttonVariants({ variant: 'ghost' }),
-                'rounded-xl font-medium px-4',
-                location.pathname === link.path ? 'text-primary bg-primary/5' : 'text-foreground hover:text-primary'
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                className={cn(
+                  'rounded-xl font-semibold px-4 py-2 text-sm transition-all duration-300 flex items-center gap-1.5',
+                  isActive
+                    ? 'bg-[#D42637] text-white shadow-md shadow-red-200 font-bold'
+                    : 'text-[#4A2E2E] hover:text-[#D42637] hover:bg-red-50/80'
+                )}
+              >
+                <span>{link.name}</span>
+                {isActive && <span className="text-xs">🎄</span>}
+              </Link>
+            );
+          })}
 
-          <div className="h-6 w-[1px] bg-border mx-2" />
+          <div className="h-6 w-[1px] bg-red-100 mx-2" />
 
           <Link to="/carrinho" className="relative group">
             <Button
               variant="outline"
               size="icon"
-              className="rounded-xl border-2 hover:border-primary transition-all duration-300"
+              className="rounded-xl border-2 border-red-200/80 hover:border-[#D42637] hover:bg-red-50/50 transition-all duration-300"
             >
-              <ShoppingCart className="w-5 h-5 group-hover:scale-110 transition-transform" />
+              <ShoppingCart className="w-5 h-5 text-[#D42637] group-hover:scale-110 transition-transform" />
               {totalItems > 0 && (
                 <span
-                  className="absolute -top-1 -right-1 text-primary-foreground text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-button animate-scale-in"
-                  style={{ background: 'var(--accent-red)' }}
+                  className="absolute -top-1.5 -right-1.5 text-white text-[10px] font-bold w-5 h-5 flex items-center justify-center rounded-full shadow-md animate-scale-in bg-[#D42637]"
                 >
                   {totalItems}
                 </span>
@@ -107,13 +111,12 @@ export const Navbar = () => {
             <Button
               variant="outline"
               size="icon"
-              className="rounded-xl"
+              className="rounded-xl border-red-200 hover:border-[#D42637]"
             >
-              <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-5 h-5 text-[#D42637]" />
               {totalItems > 0 && (
                 <span
-                  className="absolute -top-1 -right-1 text-primary-foreground text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full"
-                  style={{ background: 'var(--accent-red)' }}
+                  className="absolute -top-1 -right-1 text-white text-[10px] font-bold w-4 h-4 flex items-center justify-center rounded-full bg-[#D42637]"
                 >
                   {totalItems}
                 </span>
@@ -145,34 +148,38 @@ export const Navbar = () => {
             open ? 'translate-y-0 opacity-100' : '-translate-y-4 opacity-0',
           )}
         >
-          {navLinks.map((link) => (
-            <Link
-              key={link.path}
-              to={link.path}
-              onClick={() => setOpen(false)}
-              className={cn(
-                'flex items-center px-4 py-4 rounded-2xl text-lg font-semibold transition-all',
-                location.pathname === link.path
-                  ? 'bg-primary text-primary-foreground shadow-button'
-                  : 'hover:bg-accent text-foreground'
-              )}
-            >
-              {link.name}
-            </Link>
-          ))}
+          {navLinks.map((link) => {
+            const isActive = location.pathname === link.path;
+            return (
+              <Link
+                key={link.path}
+                to={link.path}
+                onClick={() => setOpen(false)}
+                className={cn(
+                  'flex items-center justify-between px-5 py-4 rounded-2xl text-lg font-semibold transition-all',
+                  isActive
+                    ? 'bg-gradient-to-r from-[#D42637] to-[#E11D48] text-white shadow-md'
+                    : 'hover:bg-red-50 text-[#4A2E2E]'
+                )}
+              >
+                <span>{link.name}</span>
+                {isActive && <span>🎄</span>}
+              </Link>
+            );
+          })}
 
           <Link
             to="/carrinho"
             onClick={() => setOpen(false)}
-            className="flex items-center justify-between px-4 py-4 rounded-2xl bg-secondary/50 text-foreground font-semibold"
+            className="flex items-center justify-between px-5 py-4 rounded-2xl bg-red-50/80 border border-red-100 text-[#D42637] font-semibold"
           >
             <div className="flex items-center gap-3">
-              <ShoppingCart className="w-5 h-5" />
-              Subtotal do Carrinho
+              <ShoppingCart className="w-5 h-5 text-[#D42637]" />
+              <span>Subtotal do Carrinho</span>
             </div>
             {totalItems > 0 && (
-              <span className="bg-accent-red px-3 py-1 rounded-full text-white text-xs font-bold">
-                {totalItems} itens
+              <span className="bg-[#D42637] px-3 py-1 rounded-full text-white text-xs font-bold">
+                {totalItems} {totalItems === 1 ? 'item' : 'itens'}
               </span>
             )}
           </Link>
