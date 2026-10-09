@@ -9,23 +9,28 @@ import { ButtonColorful } from '@/componentes/interface/button-colorful';
 import { RainbowBee, Snowflake, ChristmasTree, GiftBox } from '@/componentes/interface/iconesDecorativos';
 
 const Index = () => {
-  // Filtra produtos ativos (excluindo dia dos pais)
-  const nonFatherProducts = products.filter(p => p.category !== 'dia-dos-pais');
+  // Filtra produtos exclusivamente da categoria Natal 🎄
+  const natalProducts = products.filter(p => p.category === 'natal');
 
-  // IDs dos Produtos Mais Vendidos solicitados: Buquê de Borboletas (232), Chaveiro (210), Polaroide (200), Quadros (204)
-  const bestSellerIds = [232, 210, 200, 204];
+  // IDs dos Produtos Mais Pedidos de Natal: Mini Árvore Polaroide (960), Bolinha de Natal (962), Polaroide Natalina (961), Chaveiro Acrílico (968)
+  const bestSellerIds = [960, 962, 961, 968];
   const bestSellers = bestSellerIds
-    .map(id => nonFatherProducts.find(p => p.id === id))
+    .map(id => natalProducts.find(p => p.id === id))
     .filter((p): p is typeof products[0] => p !== undefined);
 
-  // Produtos em Destaque complementares
-  const featuredIds = [233, 227, 203, 220, 223, 222, 214, 950];
+  if (bestSellers.length < 4) {
+    const remaining = natalProducts.filter(p => !bestSellers.some(b => b.id === p.id));
+    bestSellers.push(...remaining.slice(0, 4 - bestSellers.length));
+  }
+
+  // IDs dos Produtos em Destaque de Natal: Kit Árvore (970), Kit Grinch (969), Mini Panetone (973), Caixa Envelope (974), Quadro MDF (971), Taça Acrílica (972), Sacola Presenteável (975), Vinho Personalizado (977)
+  const featuredIds = [970, 969, 973, 974, 971, 972, 975, 977];
   const featuredProducts = featuredIds
-    .map(id => nonFatherProducts.find(p => p.id === id))
+    .map(id => natalProducts.find(p => p.id === id))
     .filter((p): p is typeof products[0] => p !== undefined);
 
   if (featuredProducts.length < 8) {
-    const remaining = nonFatherProducts.filter(p => !bestSellerIds.includes(p.id) && !featuredProducts.includes(p));
+    const remaining = natalProducts.filter(p => !bestSellers.some(b => b.id === p.id) && !featuredProducts.some(f => f.id === p.id));
     featuredProducts.push(...remaining.slice(0, 8 - featuredProducts.length));
   }
 
