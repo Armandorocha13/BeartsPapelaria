@@ -9,8 +9,8 @@ import {
     DialogFooter,
 } from "@/componentes/interface/dialog";
 import { ButtonColorful } from "@/componentes/interface/button-colorful";
-import { ShoppingBag, ShoppingCart, CheckCircle2, MessageSquare, Info, Wallet } from 'lucide-react';
-import { RainbowBee, ChristmasTree } from '../interface/iconesDecorativos';
+import { ShoppingBag, ShoppingCart, CheckCircle2, MessageSquare, Info, Wallet, Gift } from 'lucide-react';
+import { ChristmasTree } from '../interface/iconesDecorativos';
 
 export const WelcomeModal = () => {
     const [isOpen, setIsOpen] = useState(false);
@@ -62,8 +62,8 @@ export const WelcomeModal = () => {
                 <DialogHeader className="pt-1 sm:pt-4 text-center">
                     <div className="flex justify-center mb-2">
                         <div className="p-2.5 bg-red-50 rounded-2xl border border-red-100 shadow-sm flex items-center gap-2">
-                            <RainbowBee size={40} />
-                            <ChristmasTree size={36} />
+                            <ChristmasTree size={40} />
+                            <Gift className="w-8 h-8 text-[#D42637]" />
                         </div>
                     </div>
                     <DialogTitle className="text-lg sm:text-2xl font-heading font-bold text-center text-gray-800 leading-tight">

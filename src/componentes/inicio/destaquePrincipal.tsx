@@ -56,7 +56,7 @@ export const Hero = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row justify-center lg:justify-start gap-4 animate-fade-in" style={{ animationDelay: '0.3s' }}>
               <ButtonColorful asChild className="h-14 px-8 text-lg sm:text-xl shadow-lg">
-                <Link to="/catalogo" className="gap-2">
+                <Link to="/catalogo?categoria=natal" className="gap-2">
                   <Gift className="w-5 h-5" />
                   <span>Explorar Mimos de Natal</span>
                   <ArrowRight className="w-5 h-5" />

@@ -51,7 +51,7 @@ const Index = () => {
               </p>
             </div>
             <ButtonColorful asChild className="hidden md:flex gap-2 h-11 shadow-md">
-              <Link to="/catalogo">
+              <Link to="/catalogo?categoria=natal">
                 <span>Ver Mimos de Natal</span>
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -104,7 +104,7 @@ const Index = () => {
           {/* Mobile CTA */}
           <div className="mt-8 text-center md:hidden">
             <ButtonColorful asChild className="h-11 w-full">
-              <Link to="/catalogo">
+              <Link to="/catalogo?categoria=natal">
                 <span>Explorar Presentes de Natal</span>
                 <ArrowRight className="w-4 h-4 ml-1" />
               </Link>
@@ -147,7 +147,7 @@ const Index = () => {
             Garanta seus mimos artesanais e presentes personalizados para surpreender quem você ama neste fim de ano.
           </p>
           <ButtonColorful asChild className="h-14 px-8 text-lg shadow-xl">
-            <Link to="/catalogo">
+            <Link to="/catalogo?categoria=natal">
               <span>Garantir Meus Presentes de Natal 🎁</span>
               <ArrowRight className="w-5 h-5 ml-2" />
             </Link>

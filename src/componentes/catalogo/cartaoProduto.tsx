@@ -47,7 +47,26 @@ export const ProductCard = ({ product }: ProductCardProps) => {
   const [handleType, setHandleType] = useState<string>('Alça de Cordão');
   const [magnetType, setMagnetType] = useState<string>('Sem Ímã');
   const [selectedVariation, setSelectedVariation] = useState(product.variations?.[0] || null);
-  const [selectedSecondaryVariation, setSelectedSecondaryVariation] = useState(product.secondaryVariations?.[0] || null);
+
+  const availableSecondaryVariations = product.secondaryVariations
+    ? product.secondaryVariations.filter(v => !v.format || v.format === selectedVariation?.name)
+    : [];
+
+  const [selectedSecondaryVariation, setSelectedSecondaryVariation] = useState(
+    availableSecondaryVariations[0] || product.secondaryVariations?.[0] || null
+  );
+
+  useEffect(() => {
+    if (product.secondaryVariations && selectedVariation) {
+      const validSecs = product.secondaryVariations.filter(v => !v.format || v.format === selectedVariation.name);
+      if (validSecs.length > 0) {
+        if (!validSecs.some(v => v.name === selectedSecondaryVariation?.name && v.format === selectedSecondaryVariation?.format)) {
+          setSelectedSecondaryVariation(validSecs[0]);
+        }
+      }
+    }
+  }, [selectedVariation]);
+
   const [selectedTertiaryVariation, setSelectedTertiaryVariation] = useState(product.tertiaryVariations?.[0] || null);
   const { addItem } = useCart();
 
@@ -212,7 +231,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
     }
   }, [activeImages]);
 
-  const displayImage = activeImages[currentImageIndex] || product.image;
+  const displayImage = selectedVariation?.image || activeImages[currentImageIndex] || product.image;
 
 
   return (
@@ -274,9 +293,9 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           {product.variations && (
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase text-muted-foreground">
-                {product.category === 'cartoes' || product.category === 'convites'
+                {product.primaryVariationTitle || (product.category === 'cartoes' || product.category === 'convites'
                   ? 'Quantidade:'
-                  : 'Opções de Tamanho:'}
+                  : 'Opções de Tamanho:')}
               </span>
               <select
                 value={selectedVariation?.name}
@@ -296,7 +315,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
           )}
 
           {/* Secondary Variation Selection (ex: Opções de Caderno) */}
-          {product.secondaryVariations && (
+          {product.secondaryVariations && availableSecondaryVariations.length > 0 && (
             <div className="space-y-2">
               <span className="text-xs font-semibold uppercase text-muted-foreground">
                 {product.secondaryVariationTitle || 'Opções:'}
@@ -304,12 +323,12 @@ export const ProductCard = ({ product }: ProductCardProps) => {
               <select
                 value={selectedSecondaryVariation?.name}
                 onChange={(e) => {
-                  const variation = product.secondaryVariations?.find(v => v.name === e.target.value);
+                  const variation = availableSecondaryVariations.find(v => v.name === e.target.value);
                   if (variation) setSelectedSecondaryVariation(variation);
                 }}
                 className="w-full bg-secondary/50 border-2 border-border rounded-xl px-3 py-2 text-xs font-medium focus:border-primary focus:ring-0 outline-none transition-all cursor-pointer"
               >
-                {product.secondaryVariations.map(variation => (
+                {availableSecondaryVariations.map(variation => (
                   <option key={variation.name} value={variation.name}>
                     {variation.name}
                   </option>
@@ -387,6 +406,7 @@ export const ProductCard = ({ product }: ProductCardProps) => {
                 <option value="Com Ímã">Com Ímã (+R$ 1,50)</option>
               </select>
             </div>
+          )}
           {/* Volume Discount Notice */}
           {product.volumeDiscounts && product.volumeDiscounts.length > 0 && (
             <div className="bg-emerald-50 border border-emerald-200/80 rounded-xl px-2.5 py-1.5 text-[11px] text-emerald-800 font-medium flex items-center justify-between">

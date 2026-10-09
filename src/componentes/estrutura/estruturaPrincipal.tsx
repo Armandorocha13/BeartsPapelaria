@@ -20,7 +20,7 @@ export const Layout = ({ children }: LayoutProps) => {
           <strong>🎄 O Natal Chegou na Bearts!</strong> Presentes & mimos artesanais feitos com carinho.
         </span>
         <Link
-          to="/catalogo"
+          to="/catalogo?categoria=natal"
           className="ml-2 bg-white/20 hover:bg-white/30 backdrop-blur-sm text-white px-2.5 py-0.5 rounded-full text-xs font-bold inline-flex items-center gap-1 transition-all border border-white/30"
         >
           <Gift className="w-3 h-3" />
